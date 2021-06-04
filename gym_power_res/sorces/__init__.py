@@ -1,0 +1,2 @@
+from gym_power_res.sorces.score_logger import ScoreLogger
+from gym_power_res.sorces.score_logger import SuccessLogger
