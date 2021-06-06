@@ -7,12 +7,14 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Welcome to IntelliHealer’s manual! &mdash; IntelliHealer  documentation</title>
+  <title>Welcome to IntelliHealer’s documentation! &mdash; IntelliHealer 0.1.0 documentation</title>
   
 
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
 
   
   
@@ -29,6 +31,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -36,10 +39,9 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Using MIPLearn" href="usage.html" /> 
+    <link rel="next" title="Installation" href="install.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,12 +86,11 @@
               
             
             
-              <p class="caption"><span class="caption-text">IntelliHealer's manual:</span></p>
+              <p class="caption"><span class="caption-text">IntelliHealer Manual</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage.html"><span class="sectnum">1.</span> Using MIPLearn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="benchmark.html"><span class="sectnum">2.</span> Benchmarks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="customization.html"><span class="sectnum">3.</span> Customization</a></li>
-<li class="toctree-l1"><a class="reference internal" href="about.html"><span class="sectnum">4.</span> About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">Main Function</a></li>
 </ul>
 
             
@@ -138,7 +139,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Welcome to IntelliHealer’s manual!</li>
+      <li>Welcome to IntelliHealer’s documentation!</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -157,39 +158,69 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-intellihealer-s-manual">
-<h1>Welcome to IntelliHealer’s manual!<a class="headerlink" href="#welcome-to-intellihealer-s-manual" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="welcome-to-intellihealer-s-documentation">
+<h1>Welcome to IntelliHealer’s documentation!<a class="headerlink" href="#welcome-to-intellihealer-s-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">IntelliHealer's manual:</span></p>
+<p class="caption"><span class="caption-text">IntelliHealer Manual</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage.html"><span class="sectnum">1.</span> Using MIPLearn</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#installation"><span class="sectnum">1.1.</span> Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#using-learningsolver"><span class="sectnum">1.2.</span> Using <code class="docutils literal notranslate"><span class="pre">LearningSolver</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#describing-problem-instances"><span class="sectnum">1.3.</span> Describing problem instances</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#describing-lazy-constraints"><span class="sectnum">1.4.</span> Describing lazy constraints</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#obtaining-heuristic-solutions"><span class="sectnum">1.5.</span> Obtaining heuristic solutions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#scaling-up"><span class="sectnum">1.6.</span> Scaling Up</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#running-benchmarks"><span class="sectnum">1.7.</span> Running benchmarks</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#current-limitations"><span class="sectnum">1.8.</span> Current Limitations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install.html#environment">Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#setting-up-miniconda">Setting Up Miniconda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#existing-python-environment-advanced">Existing Python Environment (Advanced)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="benchmark.html"><span class="sectnum">2.</span> Benchmarks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="benchmark.html#preliminaries"><span class="sectnum">2.1.</span> Preliminaries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="benchmark.html#maximum-weight-stable-set-problem"><span class="sectnum">2.2.</span> Maximum Weight Stable Set Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="benchmark.html#traveling-salesman-problem"><span class="sectnum">2.3.</span> Traveling Salesman Problem</a></li>
-<li class="toctree-l2"><a class="reference internal" href="benchmark.html#multidimensional-0-1-knapsack-problem"><span class="sectnum">2.4.</span> Multidimensional 0-1 Knapsack Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#install-andes">Install ANDES</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#user-mode">User Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install.html#development-mode">Development Mode</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="customization.html"><span class="sectnum">3.</span> Customization</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="customization.html#customizing-solver-parameters"><span class="sectnum">3.1.</span> Customizing solver parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="customization.html#customizing-solver-components"><span class="sectnum">3.2.</span> Customizing solver components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#updating-andes">Updating ANDES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install.html#performance-packages">Performance Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="install.html#kvxopt">KVXOPT</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="about.html"><span class="sectnum">4.</span> About</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="about.html#authors"><span class="sectnum">4.1.</span> Authors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="about.html#acknowledgments"><span class="sectnum">4.2.</span> Acknowledgments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="about.html#references"><span class="sectnum">4.3.</span> References</a></li>
-<li class="toctree-l2"><a class="reference internal" href="about.html#license"><span class="sectnum">4.4.</span> License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#command-line-usage">Command Line Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-selftest">andes selftest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-prepare">andes prepare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-run">andes run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-plot">andes plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-doc">andes doc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-misc">andes misc</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#interactive-usage">Interactive Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#jupyter-notebook">Jupyter Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#import">Import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#verbosity">Verbosity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#making-a-system">Making a System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#inspecting-parameter">Inspecting Parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#running-studies">Running Studies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#checking-exit-code">Checking Exit Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#plotting-tds-results">Plotting TDS Results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#extracting-data">Extracting Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#pretty-print-of-equations">Pretty Print of Equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#finding-help">Finding Help</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#notebook-examples">Notebook Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#i-o-formats">I/O Formats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#input-formats">Input Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-xlsx-format">ANDES xlsx Format</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#cheatsheet">Cheatsheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tutorial.html#make-documentation">Make Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">Main Function</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="function.html#system">System</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="function.html#overview">Overview</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -210,7 +241,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="usage.html" class="btn btn-neutral float-right" title="1. Using MIPLearn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="install.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

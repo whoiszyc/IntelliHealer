@@ -383,7 +383,8 @@ class Agent:
 
 
 def main_behavior_cloning(output_path):
-
+    """ BC algorithm
+    """
     # ============= create GYM environment ===============
     env = gym.make(ENV_NAME_1)
 

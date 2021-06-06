@@ -24,11 +24,20 @@ from sys import exit
 
 
 class RestorationDisEnvRL(gym.Env):
-
+  """ This is a class implementation of a simple BLE client.
+    :param iface: The Bluetooth interface on which to make the connection. On Linux, 0 means `/dev/hci0`, 1 means `/dev/hci1` and so on., defaults to 0
+    :type iface: int, optional
+    :param scanCallback: A function handle of the form ``callback(client, device, isNewDevice, isNewData)``, where ``client`` is a handle to the :class:`simpleble.SimpleBleClient` that invoked the callback and ``device`` is the detected :class:`simpleble.SimpleBleDevice` object. ``isNewDev`` is `True` if the device (as identified by its MAC address) has not been seen before by the scanner, and `False` otherwise. ``isNewData`` is `True` if new or updated advertising data is available, defaults to None
+    :type scanCallback: function, optional
+    :param notificationCallback: A function handle of the form ``callback(client, characteristic, data)``, where ``client`` is a handle to the :class:`simpleble.SimpleBleClient` that invoked the callback, ``characteristic`` is the notified :class:`bluepy.blte.Characteristic` object and data is a `bytearray` containing the updated value. Defaults to None
+    :type notificationCallback: function, optional
+  """
+  
   metadata = {'render.modes': ['human']}
 
   def __init__(self, max_disturbance, min_disturbance):
-    # ================== initialize network data and status ====================
+    """initialize network data and status
+    """
     # network data
     self.ppc = case33_tieline()
     num_line = len(self.ppc['iter_line'])

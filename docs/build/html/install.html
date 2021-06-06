@@ -1,0 +1,382 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Installation &mdash; IntelliHealer 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial" href="tutorial.html" />
+    <link rel="prev" title="Welcome to IntelliHealer’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> IntelliHealer
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">IntelliHealer Manual</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#environment">Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-miniconda">Setting Up Miniconda</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#existing-python-environment-advanced">Existing Python Environment (Advanced)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#install-andes">Install ANDES</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user-mode">User Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#development-mode">Development Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-andes">Updating ANDES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance-packages">Performance Packages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#kvxopt">KVXOPT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">Main Function</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IntelliHealer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Installation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/install.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installation">
+<span id="install"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>ANDES can be installed in Python 3.6+.
+Please follow the installation guide carefully.</p>
+<div class="section" id="environment">
+<h2>Environment<a class="headerlink" href="#environment" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setting-up-miniconda">
+<h3>Setting Up Miniconda<a class="headerlink" href="#setting-up-miniconda" title="Permalink to this headline">¶</a></h3>
+<p>We recommend the Miniconda distribution that includes the conda package manager and Python.
+Downloaded and install the latest Miniconda (x64, with Python 3)
+from <a class="reference external" href="https://conda.io/miniconda.html">https://conda.io/miniconda.html</a>.</p>
+<p>Step 1: Open terminal (on Linux or maxOS) or <cite>Anaconda Prompt</cite> (on Windows, <strong>not the cmd
+program!!</strong>).
+Make sure you are in a conda environment - you should see <code class="docutils literal notranslate"><span class="pre">(base)</span></code> prepended to the
+command-line prompt, such as <code class="docutils literal notranslate"><span class="pre">(base)</span> <span class="pre">C:\Users\user&gt;</span></code>.</p>
+<p>Create a conda environment for ANDES (recommended)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create --name andes <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.7
+</pre></div>
+</div>
+<p>Activate the new environment with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda activate andes
+</pre></div>
+</div>
+<p>You will need to activate the <code class="docutils literal notranslate"><span class="pre">andes</span></code> environment every time in a new Anaconda Prompt or
+shell.</p>
+<p>Step 2: Add the <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> channel and set it as default</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda config --add channels conda-forge
+conda config --set channel_priority flexible
+</pre></div>
+</div>
+<p>If these steps complete without an error, continue to <a class="reference internal" href="#install-andes">Install Andes</a>.</p>
+</div>
+<div class="section" id="existing-python-environment-advanced">
+<h3>Existing Python Environment (Advanced)<a class="headerlink" href="#existing-python-environment-advanced" title="Permalink to this headline">¶</a></h3>
+<p>This is for advanced user only and is <strong>not recommended on Microsoft Windows</strong>.
+Please skip it if you have set up a Conda environment.</p>
+<p>Instead of using Conda, if you prefer an existing Python environment,
+you can install ANDES with <cite>pip</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install andes
+</pre></div>
+</div>
+<p>If you see a <cite>Permission denied</cite> error, you will need to
+install the packages locally with <cite>–user</cite></p>
+</div>
+</div>
+<div class="section" id="install-andes">
+<h2>Install ANDES<a class="headerlink" href="#install-andes" title="Permalink to this headline">¶</a></h2>
+<p>ANDES can be installed in the user mode and the development mode.</p>
+<ul class="simple">
+<li><p>If you want to use ANDES without modifying the source code, install it in the <a class="reference internal" href="#user-mode">User Mode</a>.</p></li>
+<li><p>If you want to develop models or routine, install it in the <a class="reference internal" href="#development-mode">Development Mode</a>.</p></li>
+</ul>
+<div class="section" id="user-mode">
+<h3>User Mode<a class="headerlink" href="#user-mode" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please skip this section and install ANDES in the <a class="reference internal" href="#development-mode">Development Mode</a>
+if you want to modify ANDES code or receive unreleased development
+updates.</p>
+</div>
+<p>The User Model installation will install the latest stable version.
+In the Anaconda environment, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install andes
+</pre></div>
+</div>
+<p>You will be prompted to confirm the installation,</p>
+<p>This command installs ANDES into the active environment, which should be called <code class="docutils literal notranslate"><span class="pre">andes</span></code> if
+you followed all the above steps.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To use <code class="docutils literal notranslate"><span class="pre">andes</span></code>, you will need to activate the <code class="docutils literal notranslate"><span class="pre">andes</span></code> environment every time in a new Anaconda Prompt or
+shell.</p>
+</div>
+</div>
+<div class="section" id="development-mode">
+<h3>Development Mode<a class="headerlink" href="#development-mode" title="Permalink to this headline">¶</a></h3>
+<p>This is for users who want to hack into the code and, for example, develop new models or routines.
+The usage of ANDES is the same in development mode as in user mode.
+In addition, changes to source code will be reflected immediately without re-installation.</p>
+<p>Step 1: Get ANDES source code</p>
+<p>As a developer, you are strongly encouraged to clone the source code using <code class="docutils literal notranslate"><span class="pre">git</span></code>
+from either your fork or the original repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/cuihantao/andes
+</pre></div>
+</div>
+<p>In this way, you can easily update to the latest source code using <code class="docutils literal notranslate"><span class="pre">git</span></code>.</p>
+<p>Alternatively, you can download the ANDES source code from
+<a class="reference external" href="https://github.com/cuihantao/andes">https://github.com/cuihantao/andes</a> and extract all files to the path of your choice.
+Although this will work, this is not recommended since tracking changes and pushing back code
+would be painful.</p>
+<p>Step 2: Install dependencies</p>
+<p>In the Anaconda environment, use <code class="docutils literal notranslate"><span class="pre">cd</span></code> to change directory to the ANDES root folder.</p>
+<p>Install dependencies with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install --file requirements.txt
+conda install --file requirements-dev.txt
+</pre></div>
+</div>
+<p>Step 3: Install ANDES in the development mode using</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -e .
+</pre></div>
+</div>
+<p>Note the dot at the end. Pip will take care of the rest.</p>
+</div>
+</div>
+<div class="section" id="updating-andes">
+<h2>Updating ANDES<a class="headerlink" href="#updating-andes" title="Permalink to this headline">¶</a></h2>
+<p>Regular ANDES updates will be pushed to both <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> and Python package index.
+It is recommended to use the latest version for bug fixes and new features.
+We also recommended you to check the <span class="xref std std-ref">ReleaseNotes</span> before updating to stay informed
+of changes that might break your downstream code.</p>
+<p>Depending you how you installed ANDES, you will use one of the following ways to upgrade.</p>
+<p>If you installed it from conda (most common for users), run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge --yes andes
+</pre></div>
+</div>
+<p>If you install it from PyPI (namely, through <code class="docutils literal notranslate"><span class="pre">pip</span></code>), run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install --yes andes
+</pre></div>
+</div>
+<p>If you installed ANDES from source code (in the <a class="reference internal" href="#development-mode">Development Mode</a>),
+and the source was cloned using <code class="docutils literal notranslate"><span class="pre">git</span></code>,
+you can use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> to pull in changes from remote. However, if your source
+code was downloaded, you will have to download the new source code again and manually
+overwrite the existing one.</p>
+<p>In rare cases, after updating the source code, command-line <code class="docutils literal notranslate"><span class="pre">andes</span></code> will complain
+about missing dependency. If this ever happens, it means the new ANDES has introduced
+new dependencies. In such cases, reinstall andes in the development mode to fix.
+Change directory to the ANDES source code folder that contains <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install -e .
+</pre></div>
+</div>
+</div>
+<div class="section" id="performance-packages">
+<h2>Performance Packages<a class="headerlink" href="#performance-packages" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Performance packages can be safely skipped and will not affect the
+functionality of ANDES.</p>
+</div>
+<div class="section" id="kvxopt">
+<h3>KVXOPT<a class="headerlink" href="#kvxopt" title="Permalink to this headline">¶</a></h3>
+<p>KVXOPT is a fork of the CVXOPT with KLU by Uriel Sandoval (&#64;sanurielf).
+KVXOPT interfaces to KLU, which is
+roughly 20% faster than UMFPACK for circuit simulations based on our testing.</p>
+<p>KVXOPT contains inplace add and set functions for sparse matrix
+contributed by CURENT.
+These inplace functions significantly speed up large-scale system simulations.</p>
+<p>To install <code class="docutils literal notranslate"><span class="pre">KVXOPT</span></code> run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m pip install kvxopt
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to IntelliHealer’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Yichen Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

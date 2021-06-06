@@ -1,0 +1,1270 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Tutorial &mdash; IntelliHealer 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Main Function" href="function.html" />
+    <link rel="prev" title="Installation" href="install.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> IntelliHealer
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">IntelliHealer Manual</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#command-line-usage">Command Line Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#andes-selftest">andes selftest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#andes-prepare">andes prepare</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#andes-run">andes run</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#routine">Routine</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#power-flow">Power flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time-domain-simulation">Time-domain simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disable-output">Disable output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#profiling">Profiling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multiprocessing">Multiprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#format-converter">Format converter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pss-e-inputs">PSS/E inputs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#andes-plot">andes plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#andes-doc">andes doc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#andes-misc">andes misc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#configuration">Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cleanup">Cleanup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#interactive-usage">Interactive Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#jupyter-notebook">Jupyter Notebook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#import">Import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verbosity">Verbosity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#making-a-system">Making a System</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#output-path">Output path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#no-output">No output</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#inspecting-parameter">Inspecting Parameter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dataframe">DataFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dict">Dict</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#running-studies">Running Studies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#checking-exit-code">Checking Exit Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plotting-tds-results">Plotting TDS Results</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#scaling">Scaling</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#formatting">Formatting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#extracting-data">Extracting Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#power-flow-solutions">Power flow solutions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#time-domain-data">Time-domain data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#pretty-print-of-equations">Pretty Print of Equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#finding-help">Finding Help</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-help">General help</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#model-docs">Model docs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#notebook-examples">Notebook Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#i-o-formats">I/O Formats</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#input-formats">Input Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#andes-xlsx-format">ANDES xlsx Format</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#xlsx-format-definition">xlsx Format Definition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#convert-to-xlsx">Convert to xlsx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#data-consistency">Data Consistency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameter-check">Parameter Check</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cheatsheet">Cheatsheet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#make-documentation">Make Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">Main Function</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IntelliHealer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorial">
+<span id="id1"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<p>ANDES can be used as a command-line tool or a library.
+The command-line interface (CLI) comes handy to run studies.
+As a library, it can be used interactively in the IPython shell or the Jupyter Notebook.
+This chapter describes the most common usages.</p>
+<p>Please see the cheat sheet if you are looking for quick help.</p>
+<div class="section" id="command-line-usage">
+<span id="sec-command"></span><h2>Command Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="basic-usage">
+<h3>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h3>
+<p>ANDES is invoked from the command line using the command <code class="docutils literal notranslate"><span class="pre">andes</span></code>.
+Running <code class="docutils literal notranslate"><span class="pre">andes</span></code> without any input is equal to  <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">-h</span></code> or <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">--help</span></code>.
+It prints out a preamble with version and environment information and help commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">_</span>           <span class="n">_</span>         <span class="o">|</span> <span class="n">Version</span> <span class="mf">1.3.4</span>
+   <span class="o">/</span><span class="n">_</span>\  <span class="n">_</span> <span class="n">_</span>  <span class="n">__</span><span class="o">|</span> <span class="o">|</span><span class="n">___</span> <span class="n">___</span> <span class="o">|</span> <span class="n">Python</span> <span class="mf">3.8.6</span> <span class="n">on</span> <span class="n">Linux</span><span class="p">,</span> <span class="mi">03</span><span class="o">/</span><span class="mi">17</span><span class="o">/</span><span class="mi">2021</span> <span class="mi">11</span><span class="p">:</span><span class="mi">28</span><span class="p">:</span><span class="mi">55</span> <span class="n">AM</span>
+  <span class="o">/</span> <span class="n">_</span> \<span class="o">|</span> <span class="s1">&#39; \/ _` / -_|_-&lt; |</span>
+ <span class="o">/</span><span class="n">_</span><span class="o">/</span> \<span class="n">_</span>\<span class="n">_</span><span class="o">||</span><span class="n">_</span>\<span class="n">__</span><span class="p">,</span><span class="n">_</span>\<span class="n">___</span><span class="o">/</span><span class="n">__</span><span class="o">/</span> <span class="o">|</span> <span class="n">This</span> <span class="n">program</span> <span class="n">comes</span> <span class="k">with</span> <span class="n">ABSOLUTELY</span> <span class="n">NO</span> <span class="n">WARRANTY</span><span class="o">.</span>
+
+<span class="n">usage</span><span class="p">:</span> <span class="n">andes</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">}]</span>
+        <span class="p">{</span><span class="n">run</span><span class="p">,</span><span class="n">plot</span><span class="p">,</span><span class="n">doc</span><span class="p">,</span><span class="n">misc</span><span class="p">,</span><span class="n">prepare</span><span class="p">,</span><span class="n">selftest</span><span class="p">}</span> <span class="o">...</span>
+
+<span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
+<span class="p">{</span><span class="n">run</span><span class="p">,</span><span class="n">plot</span><span class="p">,</span><span class="n">doc</span><span class="p">,</span><span class="n">misc</span><span class="p">,</span><span class="n">prepare</span><span class="p">,</span><span class="n">selftest</span><span class="p">}</span>
+                    <span class="p">[</span><span class="n">run</span><span class="p">]</span> <span class="n">run</span> <span class="n">simulation</span> <span class="n">routine</span><span class="p">;</span> <span class="p">[</span><span class="n">plot</span><span class="p">]</span> <span class="n">plot</span> <span class="n">results</span><span class="p">;</span>
+                    <span class="p">[</span><span class="n">doc</span><span class="p">]</span> <span class="n">quick</span> <span class="n">documentation</span><span class="p">;</span> <span class="p">[</span><span class="n">misc</span><span class="p">]</span> <span class="n">misc</span><span class="o">.</span> <span class="n">functions</span><span class="p">;</span>
+                    <span class="p">[</span><span class="n">prepare</span><span class="p">]</span> <span class="n">prepare</span> <span class="n">the</span> <span class="n">numerical</span> <span class="n">code</span><span class="p">;</span> <span class="p">[</span><span class="n">selftest</span><span class="p">]</span> <span class="n">run</span>
+                    <span class="bp">self</span> <span class="n">test</span><span class="o">.</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+<span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>            <span class="n">show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span>
+<span class="o">-</span><span class="n">v</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">},</span> <span class="o">--</span><span class="n">verbose</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">}</span>
+                    <span class="n">Verbosity</span> <span class="n">level</span> <span class="ow">in</span> <span class="mi">10</span><span class="o">-</span><span class="n">DEBUG</span><span class="p">,</span> <span class="mi">20</span><span class="o">-</span><span class="n">INFO</span><span class="p">,</span> <span class="mi">30</span><span class="o">-</span><span class="n">WARNING</span><span class="p">,</span> <span class="ow">or</span>
+                    <span class="mi">40</span><span class="o">-</span><span class="n">ERROR</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">andes</span></code> command is not found, check if (1) the installation was successful, and
+(2) you have activated the environment where ANDES is installed.</p>
+</div>
+<p>The first-level commands are chosen from <code class="docutils literal notranslate"><span class="pre">{run,plot,doc,misc,prepare,selftest}</span></code>.
+Each command contains a group of sub-commands, which can be looked up with <code class="docutils literal notranslate"><span class="pre">-h</span></code>.
+For example, use <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">run</span> <span class="pre">-h</span></code> to look up the sub-commands for <code class="docutils literal notranslate"><span class="pre">run</span></code>.
+The most frequently used commands are explained in the following.</p>
+<p><code class="docutils literal notranslate"><span class="pre">andes</span></code> has an option for the program verbosity level, controlled by <code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">LEVEL</span></code> or <code class="docutils literal notranslate"><span class="pre">--verbose</span> <span class="pre">LEVEL</span></code>,
+where level is a number chosen from the following:
+1 (DEBUG with code location info), 10 (DEBUG), 20 (INFO), 30 (WARNING), 40 (ERROR), or 50 (CRITICAL).
+For example, to show debugging outputs, use <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">-v</span> <span class="pre">10</span></code>, followed by the first-level commands.
+The default logging level is 20 (INFO).</p>
+</div>
+<div class="section" id="andes-selftest">
+<h3>andes selftest<a class="headerlink" href="#andes-selftest" title="Permalink to this headline">¶</a></h3>
+<p>After the installation, please run <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">selftest</span></code> from the command line to test ANDES functionality.
+It might take a minute to run the full self-test suite.
+An example output looks like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_docs</span> <span class="p">(</span><span class="n">test_1st_system</span><span class="o">.</span><span class="n">TestCodegen</span><span class="p">)</span> <span class="o">...</span> <span class="n">ok</span>
+<span class="n">test_alter_param</span> <span class="p">(</span><span class="n">test_case</span><span class="o">.</span><span class="n">Test5Bus</span><span class="p">)</span> <span class="o">...</span> <span class="n">ok</span>
+<span class="o">...</span>
+<span class="o">...</span> <span class="p">(</span><span class="n">outputs</span> <span class="n">are</span> <span class="n">truncated</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">test_pflow_mpc</span> <span class="p">(</span><span class="n">test_pflow_matpower</span><span class="o">.</span><span class="n">TestMATPOWER</span><span class="p">)</span> <span class="o">...</span> <span class="n">ok</span>
+
+<span class="o">----------------------------------------------------------------------</span>
+<span class="n">Ran</span> <span class="mi">23</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">13.834</span><span class="n">s</span>
+
+<span class="n">OK</span>
+</pre></div>
+</div>
+<p>There may be more test than what is shown above. Make sure that all tests have passed.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ANDES is getting updates frequently. After every update, please run
+<code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">selftest</span></code> to confirm the functionality.
+The command also makes sure the generated code is up to date.
+See <a class="reference internal" href="#id2">andes prepare</a> for more details on automatic code generation.</p>
+</div>
+</div>
+<div class="section" id="andes-prepare">
+<h3>andes prepare<a class="headerlink" href="#andes-prepare" title="Permalink to this headline">¶</a></h3>
+<p id="id2">The symbolically defined models in ANDES need to be generated into numerical code for simulation.
+The code generation can be manually called with <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">prepare</span></code>.
+Generated code are serialized to <code class="docutils literal notranslate"><span class="pre">~/.andes/calls.pkl</span></code> and dumped as Python code to <code class="docutils literal notranslate"><span class="pre">~/.andes/pycode</span></code>.
+In addition, <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">selftest</span></code> implicitly calls the code generation.
+If you are using ANDES as a package in the user mode (namely, you have not modified or updated ANDES code),
+you will not need to call it again.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To developers:
+As of version 1.3.0, ANDES stores all generated Python code explicitly
+in <code class="docutils literal notranslate"><span class="pre">.py</span></code> files under the folder <code class="docutils literal notranslate"><span class="pre">~/.andes/pycode</span></code>.
+Priority is given to Python code when reloading for simulation.</p>
+</div>
+<p>Option <code class="docutils literal notranslate"><span class="pre">-q</span></code> or <code class="docutils literal notranslate"><span class="pre">--quick</span></code> (enabled by default) can be used to speed up the code generation.
+It skips the generation of <span class="math notranslate nohighlight">\(\LaTeX\)</span>-formatted equations, which are only used in documentation and the interactive
+mode.</p>
+<p>Option <code class="docutils literal notranslate"><span class="pre">-i</span></code> or <code class="docutils literal notranslate"><span class="pre">--incremental</span></code>, instead of <code class="docutils literal notranslate"><span class="pre">-q</span></code>, can be used to further speed up the code generation
+during model development.
+<code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">prepare</span> <span class="pre">-i</span></code> only generates code for models that have been modified since the last code generation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To developers:
+<code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">prepare</span> <span class="pre">-i</span></code> needs to be called immediately following any model equation modification.
+Otherwise, simulation results will not reflect the new equations and will likely lead to an error.</p>
+</div>
+</div>
+<div class="section" id="andes-run">
+<h3>andes run<a class="headerlink" href="#andes-run" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">run</span></code> is the entry point for power system analysis routines.
+<code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">run</span></code> takes one positional argument, <code class="docutils literal notranslate"><span class="pre">filename</span></code> , along with other optional keyword arguments.
+<code class="docutils literal notranslate"><span class="pre">filename</span></code> is the test case path, either relative or absolute.</p>
+<p>For example, the command <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">run</span> <span class="pre">kundur_full.xlsx</span></code> uses a relative path.
+If will work only if <code class="docutils literal notranslate"><span class="pre">kundur_full.xlsx</span></code> exists in the current directory of the command line.
+The commands <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">run</span> <span class="pre">/Users/hcui7/kundur_full.xlsx</span></code> (on macOS) or
+<code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">run</span> <span class="pre">C:/Users/hcui7/kundur_full.xlsx</span></code> (on Windows) use absolute paths to the case files
+and do not depend on the command-line current directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When working with the command line, use <code class="docutils literal notranslate"><span class="pre">cd</span></code> to change directory to the folder
+containing your test case.
+Spaces in folder and file names need to be escaped properly.</p>
+</div>
+<div class="section" id="routine">
+<h4>Routine<a class="headerlink" href="#routine" title="Permalink to this headline">¶</a></h4>
+<p>Option <code class="docutils literal notranslate"><span class="pre">-r</span></code> or <code class="docutils literal notranslate"><span class="pre">-routine</span></code> is used for specifying the analysis routine,
+followed by the routine name.
+Available routine names include <code class="docutils literal notranslate"><span class="pre">pflow,</span> <span class="pre">tds,</span> <span class="pre">eig</span></code>:
+- <code class="docutils literal notranslate"><span class="pre">pflow</span></code> for power flow
+- <code class="docutils literal notranslate"><span class="pre">tds</span></code> for time domain simulation
+- <code class="docutils literal notranslate"><span class="pre">eig</span></code> for eigenvalue analysis</p>
+<p><code class="docutils literal notranslate"><span class="pre">pflow</span></code> is the default if <code class="docutils literal notranslate"><span class="pre">-r</span></code> is not given.</p>
+</div>
+<div class="section" id="power-flow">
+<h4>Power flow<a class="headerlink" href="#power-flow" title="Permalink to this headline">¶</a></h4>
+<p>Locate the <code class="docutils literal notranslate"><span class="pre">kundur_full.xlsx</span></code> file at <code class="docutils literal notranslate"><span class="pre">andes/cases/kundur/kundur_full.xlsx</span></code> under the source code folder
+or download it from <a class="reference external" href="https://github.com/cuihantao/andes/raw/master/andes/cases/kundur/kundur_full.xlsx">https://github.com/cuihantao/andes/raw/master/andes/cases/kundur/kundur_full.xlsx</a>.</p>
+<p>Change to the directory containing <code class="docutils literal notranslate"><span class="pre">kundur_full.xlsx</span></code>.
+To run power flow, execute the following in the command line:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>andes run kundur_full.xlsx
+</pre></div>
+</div>
+<p>The full path to the case file is also recognizable, for example,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>andes run /home/user/andes/cases/kundur/kundur_full.xlsx
+</pre></div>
+</div>
+<p>The power flow report will be saved to the current directory where ANDES is run.
+The report contains four sections: a) system statistics, b) ac bus
+and dc node data, c) ac line data, and d) the initialized values of other
+algebraic variables and state variables.</p>
+</div>
+<div class="section" id="time-domain-simulation">
+<h4>Time-domain simulation<a class="headerlink" href="#time-domain-simulation" title="Permalink to this headline">¶</a></h4>
+<p>To run the time domain simulation (TDS) for <code class="docutils literal notranslate"><span class="pre">kundur_full.xlsx</span></code>, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>andes run kundur_full.xlsx -r tds
+</pre></div>
+</div>
+<p>The output looks like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Parsing input file &lt;/Users/user/repos/andes/tests/kundur_full.xlsx&gt;
+Input file kundur_full.xlsx parsed in 0.5425 second.
+-&gt; Power flow calculation with Newton Raphson method:
+0: |F(x)| = 14.9283
+1: |F(x)| = 3.60859
+2: |F(x)| = 0.170093
+3: |F(x)| = 0.00203827
+4: |F(x)| = 3.76414e-07
+Converged in 5 iterations in 0.0080 second.
+Report saved to &lt;/Users/user/repos/andes/tests/kundur_full_out.txt&gt; in 0.0036 second.
+-&gt; Time Domain Simulation:
+Initialization tests passed.
+Initialization successful in 0.0152 second.
+  0%|                                                    | 0/100 [00:00&lt;?, ?%/s]
+  &lt;Toggle 0&gt;: Applying status toggle on Line idx=Line_8
+100%|██████████████████████████████████████████| 100/100 [00:03&lt;00:00, 28.99%/s]
+Simulation completed in 3.4500 seconds.
+TDS outputs saved in 0.0377 second.
+-&gt; Single process finished in 4.4310 seconds.
+</pre></div>
+</div>
+<p>This execution first solves the power flow as a starting point.
+Next, the numerical integration simulates 20 seconds, during which a predefined
+breaker opens at 2 seconds.</p>
+<p>TDS produces two output files by default:
+a compressed NumPy data file <code class="docutils literal notranslate"><span class="pre">kundur_full_out.npz</span></code>
+and a variable name list file <code class="docutils literal notranslate"><span class="pre">kundur_full_out.lst</span></code>.
+The list file contains three columns:
+variable indices, variable name in plain text, and variable
+name in the <span class="math notranslate nohighlight">\(\LaTeX\)</span> format.
+The variable indices are needed to plot the needed variable.</p>
+</div>
+<div class="section" id="disable-output">
+<h4>Disable output<a class="headerlink" href="#disable-output" title="Permalink to this headline">¶</a></h4>
+<p>The output files can be disabled with option <code class="docutils literal notranslate"><span class="pre">--no-output</span></code> or <code class="docutils literal notranslate"><span class="pre">-n</span></code>.
+It is useful when only computation is needed without saving the results.</p>
+</div>
+<div class="section" id="profiling">
+<h4>Profiling<a class="headerlink" href="#profiling" title="Permalink to this headline">¶</a></h4>
+<p>Profiling is useful for analyzing the computation time and code efficiency.
+Option <code class="docutils literal notranslate"><span class="pre">--profile</span></code> enables the profiling of ANDES execution.
+The profiling output will be written in two files in the current folder, one ending with <code class="docutils literal notranslate"><span class="pre">_prof.txt</span></code> and the
+other one with <code class="docutils literal notranslate"><span class="pre">_prof.prof</span></code>.</p>
+<p>The text file can be opened with a text editor, and the <code class="docutils literal notranslate"><span class="pre">.prof</span></code> file can be visualized with <code class="docutils literal notranslate"><span class="pre">snakeviz</span></code>,
+which can be installed with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">snakeviz</span></code>.</p>
+<p>If the output is disabled, profiling results will be printed to stdio.</p>
+</div>
+<div class="section" id="multiprocessing">
+<h4>Multiprocessing<a class="headerlink" href="#multiprocessing" title="Permalink to this headline">¶</a></h4>
+<p>ANDES takes multiple files inputs or wildcard.
+Multiprocessing will be triggered if more than one valid input files are found.
+For example, to run power flow for files with a prefix of <code class="docutils literal notranslate"><span class="pre">case5</span></code> and a suffix (file extension)
+of <code class="docutils literal notranslate"><span class="pre">.m</span></code>, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>andes run case5*.m
+</pre></div>
+</div>
+<p>Test cases that match the pattern, including <code class="docutils literal notranslate"><span class="pre">case5.m</span></code> and <code class="docutils literal notranslate"><span class="pre">case57.m</span></code>, will be processed.</p>
+<p>Option <code class="docutils literal notranslate"><span class="pre">--ncpu</span> <span class="pre">NCPU</span></code> can be used to specify the maximum number of parallel processes.
+By default, all cores will be used. A small number can be specified to increase operation system responsiveness.</p>
+</div>
+<div class="section" id="format-converter">
+<h4>Format converter<a class="headerlink" href="#format-converter" title="Permalink to this headline">¶</a></h4>
+<p id="id3">ANDES recognizes a few input formats and can convert input systems into the <code class="docutils literal notranslate"><span class="pre">xlsx</span></code> format.
+This function is useful when one wants to use models that are unique in ANDES.</p>
+<p>The command for converting is <code class="docutils literal notranslate"><span class="pre">--convert</span></code> (or <code class="docutils literal notranslate"><span class="pre">-c</span></code>),
+following the output format (only <code class="docutils literal notranslate"><span class="pre">xlsx</span></code> is currently supported).
+For example, to convert <code class="docutils literal notranslate"><span class="pre">case5.m</span></code> into the <code class="docutils literal notranslate"><span class="pre">xlsx</span></code> format, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>andes run case5.m --convert xlsx
+</pre></div>
+</div>
+<p>The output messages will look like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Parsing</span> <span class="nb">input</span> <span class="n">file</span> <span class="o">&lt;/</span><span class="n">Users</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">repos</span><span class="o">/</span><span class="n">andes</span><span class="o">/</span><span class="n">cases</span><span class="o">/</span><span class="n">matpower</span><span class="o">/</span><span class="n">case5</span><span class="o">.</span><span class="n">m</span><span class="o">&gt;</span>
+<span class="n">CASE5</span>  <span class="n">Power</span> <span class="n">flow</span> <span class="n">data</span> <span class="k">for</span> <span class="n">modified</span> <span class="mi">5</span> <span class="n">bus</span><span class="p">,</span> <span class="mi">5</span> <span class="n">gen</span> <span class="n">case</span> <span class="n">based</span> <span class="n">on</span> <span class="n">PJM</span> <span class="mi">5</span><span class="o">-</span><span class="n">bus</span> <span class="n">system</span>
+<span class="n">Input</span> <span class="n">file</span> <span class="n">case5</span><span class="o">.</span><span class="n">m</span> <span class="n">parsed</span> <span class="ow">in</span> <span class="mf">0.0033</span> <span class="n">second</span><span class="o">.</span>
+<span class="n">xlsx</span> <span class="n">file</span> <span class="n">written</span> <span class="n">to</span> <span class="o">&lt;/</span><span class="n">Users</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">repos</span><span class="o">/</span><span class="n">andes</span><span class="o">/</span><span class="n">cases</span><span class="o">/</span><span class="n">matpower</span><span class="o">/</span><span class="n">case5</span><span class="o">.</span><span class="n">xlsx</span><span class="o">&gt;</span>
+<span class="n">Converted</span> <span class="n">file</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">repos</span><span class="o">/</span><span class="n">andes</span><span class="o">/</span><span class="n">cases</span><span class="o">/</span><span class="n">matpower</span><span class="o">/</span><span class="n">case5</span><span class="o">.</span><span class="n">xlsx</span> <span class="n">written</span> <span class="ow">in</span> <span class="mf">0.5079</span> <span class="n">second</span><span class="o">.</span>
+<span class="o">-&gt;</span> <span class="n">Single</span> <span class="n">process</span> <span class="n">finished</span> <span class="ow">in</span> <span class="mf">0.8765</span> <span class="n">second</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">--convert</span></code> will only create sheets for existing models.</p>
+<p>In case one wants to create template sheets to add models later, <code class="docutils literal notranslate"><span class="pre">--convert-all</span></code> can be used instead.</p>
+<p>If one wants to add workbooks to an existing xlsx file,
+one can combine option <code class="docutils literal notranslate"><span class="pre">--add-book</span> <span class="pre">ADD_BOOK</span></code> (or <code class="docutils literal notranslate"><span class="pre">-b</span> <span class="pre">ADD_BOOK</span></code>),
+where <code class="docutils literal notranslate"><span class="pre">ADD_BOOK</span></code> can be a single model name or comma-separated
+model names (without any space). For example,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>andes run kundur.raw -c -b Toggler
+</pre></div>
+</div>
+<p>will convert file <code class="docutils literal notranslate"><span class="pre">kundur.raw</span></code> into an ANDES xlsx file (kundur.xlsx) and add
+a template workbook for <cite>Toggler</cite>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">--add-book</span></code>, the xlsx file will be overwritten.
+Any <strong>empty or non-existent models</strong> will be REMOVED.</p>
+</div>
+</div>
+<div class="section" id="pss-e-inputs">
+<h4>PSS/E inputs<a class="headerlink" href="#pss-e-inputs" title="Permalink to this headline">¶</a></h4>
+<p>To work with PSS/E input files (.raw and .dyr), one need to provide the
+raw file through <code class="docutils literal notranslate"><span class="pre">casefile</span></code> and pass the dyr file through <code class="docutils literal notranslate"><span class="pre">--addfile</span></code>.
+For example, in <code class="docutils literal notranslate"><span class="pre">andes/cases/kundur</span></code>, one can run the power flow using</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>andes run kundur.raw
+</pre></div>
+</div>
+<p>and run a no-disturbance time-domain simulation using</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>andes run kundur.raw --addfile kundur_full.dyr -r tds
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If one wants to modify the parameters of models that are supported
+by both PSS/E and ANDES, one can directly
+edit those dynamic parameters in the <code class="docutils literal notranslate"><span class="pre">.raw</span></code> and <code class="docutils literal notranslate"><span class="pre">.dyr</span></code> files
+to maintain interoperability with other tools.</p>
+</div>
+<p>To create add a disturbance, there are two options.
+The recommended option is to convert the PSS/E data into an ANDES xlsx file,
+edit it and run (see the previous subsection).</p>
+<p>An alternative is to edit the <code class="docutils literal notranslate"><span class="pre">.dyr</span></code> file with a planin-text editor (such as Notepad)
+and append lines customized for ANDES models.
+This is for advanced users after referring to <code class="docutils literal notranslate"><span class="pre">andes/io/psse-dyr.yaml</span></code>,
+at the end of which one can find the format of <code class="docutils literal notranslate"><span class="pre">Toggler</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># === Custom Models ===</span>
+<span class="n">Toggler</span><span class="p">:</span>
+    <span class="n">inputs</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">model</span>
+        <span class="o">-</span> <span class="n">dev</span>
+        <span class="o">-</span> <span class="n">t</span>
+</pre></div>
+</div>
+<p>To define two Togglers in the <code class="docutils literal notranslate"><span class="pre">.dyr</span></code> file, one can append lines to the end
+of the file using, for example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Line</span>   <span class="s1">&#39;Toggler&#39;</span>  <span class="n">Line_2</span>  <span class="mi">1</span> <span class="o">/</span>
+<span class="n">Line</span>   <span class="s1">&#39;Toggler&#39;</span>  <span class="n">Line_2</span>  <span class="mf">1.1</span> <span class="o">/</span>
+</pre></div>
+</div>
+<p>which is separated by spaces and ended with a slash. The second parameter
+is fixed to the model name quoted by a pair of single quotation marks,
+and the others correspond to the fields defined in the above``inputs``.
+Each entry is properly terminated with a forward slash.</p>
+</div>
+</div>
+<div class="section" id="andes-plot">
+<h3>andes plot<a class="headerlink" href="#andes-plot" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">plot</span></code> is the command-line tool for plotting.
+It currently supports time-domain simulation data.
+Three positional arguments are required, and a dozen of optional arguments are supported.</p>
+<p>positional arguments:</p>
+<blockquote>
+<div><table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>filename</p></td>
+<td><p>simulation output file name, which should end with
+<cite>out</cite>. File extension can be omitted.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x</p></td>
+<td><p>the X-axis variable index, typically 0 for Time</p></td>
+</tr>
+<tr class="row-even"><td><p>y</p></td>
+<td><p>Y-axis variable indices. Space-separated indices or a
+colon-separated range is accepted</p></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>For example, to plot the generator speed variable of synchronous generator 1
+<code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">GENROU</span> <span class="pre">0</span></code> versus time, read the indices of the variable (2) and time
+(0), run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>andes plot kundur_full_out.lst <span class="m">0</span> <span class="m">2</span>
+</pre></div>
+</div>
+<p>In this command, <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">plot</span></code> is the plotting command for TDS output files.
+<code class="docutils literal notranslate"><span class="pre">kundur_full_out.lst</span></code> is list file name. <code class="docutils literal notranslate"><span class="pre">0</span></code> is the index of <code class="docutils literal notranslate"><span class="pre">Time</span></code> for
+the x-axis. <code class="docutils literal notranslate"><span class="pre">2</span></code> is the index of <code class="docutils literal notranslate"><span class="pre">omega</span> <span class="pre">GENROU</span> <span class="pre">0</span></code>. Note that for the the file name,
+either <code class="docutils literal notranslate"><span class="pre">kundur_full_out.lst</span></code> or <code class="docutils literal notranslate"><span class="pre">kundur_full_out.npy</span></code> works, as the program will
+automatically extract the file name.</p>
+<p>The y-axis variabla indices can also be specified in the Python range fashion
+. For example, <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">plot</span> <span class="pre">kundur_full_out.npy</span> <span class="pre">0</span> <span class="pre">2:21:6</span></code> will plot the
+variables at indices 2, 8, 14 and 20.</p>
+<p><code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">plot</span></code> will attempt to render with <span class="math notranslate nohighlight">\(\LaTeX\)</span> if <code class="docutils literal notranslate"><span class="pre">dvipng</span></code> program is in the search path.
+Figures rendered by <span class="math notranslate nohighlight">\(\LaTeX\)</span> is considerably better in symbols quality but takes much longer time.
+In case <span class="math notranslate nohighlight">\(\LaTeX\)</span> is available but fails (frequently happens on Windows), the option <code class="docutils literal notranslate"><span class="pre">-d</span></code> can be used to disable
+<span class="math notranslate nohighlight">\(\LaTeX\)</span> rendering.</p>
+<p>Other optional arguments are listed in the following.</p>
+<dl>
+<dt>optional arguments:</dt><dd><table class="docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 71%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Argument</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>optional arguments:</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>-h, –help</p></td>
+<td><p>show this help message and exit</p></td>
+</tr>
+<tr class="row-even"><td><p>–xmin LEFT</p></td>
+<td><p>minimum value for X axis</p></td>
+</tr>
+<tr class="row-odd"><td><p>–xmax RIGHT</p></td>
+<td><p>maximum value for X axis</p></td>
+</tr>
+<tr class="row-even"><td><p>–ymax YMAX</p></td>
+<td><p>maximum value for Y axis</p></td>
+</tr>
+<tr class="row-odd"><td><p>–ymin YMIN</p></td>
+<td><p>minimum value for Y axis</p></td>
+</tr>
+<tr class="row-even"><td><p>–find FIND</p></td>
+<td><p>find variable indices that matches the given pattern</p></td>
+</tr>
+<tr class="row-odd"><td><p>–xargs XARGS</p></td>
+<td><p>find variable indices and return as a list of
+arguments usable with “| xargs andes plot”</p></td>
+</tr>
+<tr class="row-even"><td><p>–exclude EXCLUDE</p></td>
+<td><p>pattern to exclude in find or xargs results</p></td>
+</tr>
+<tr class="row-odd"><td><p>-x XLABEL, –xlabel XLABEL</p></td>
+<td><p>x-axis label text</p></td>
+</tr>
+<tr class="row-even"><td><p>-y YLABEL, –ylabel YLABEL</p></td>
+<td><p>y-axis label text</p></td>
+</tr>
+<tr class="row-odd"><td><p>-s, –savefig</p></td>
+<td><p>save figure. The default fault is <cite>png</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p>-format SAVE_FORMAT</p></td>
+<td><p>format for savefig. Common formats such as png, pdf, jpg are supported</p></td>
+</tr>
+<tr class="row-odd"><td><p>–dpi DPI</p></td>
+<td><p>image resolution in dot per inch (DPI)</p></td>
+</tr>
+<tr class="row-even"><td><p>-g, –grid</p></td>
+<td><p>grid on</p></td>
+</tr>
+<tr class="row-odd"><td><p>–greyscale</p></td>
+<td><p>greyscale on</p></td>
+</tr>
+<tr class="row-even"><td><p>-d, –no-latex</p></td>
+<td><p>disable LaTeX formatting</p></td>
+</tr>
+<tr class="row-odd"><td><p>-n, –no-show</p></td>
+<td><p>do not show the plot window</p></td>
+</tr>
+<tr class="row-even"><td><p>–ytimes YTIMES</p></td>
+<td><p>scale the y-axis values by YTIMES</p></td>
+</tr>
+<tr class="row-odd"><td><p>-c, –to-csv</p></td>
+<td><p>convert npy output to csv</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+<div class="section" id="andes-doc">
+<span id="id4"></span><h3>andes doc<a class="headerlink" href="#andes-doc" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">doc</span></code> is a tool for quick lookup of model and routine documentation.
+It is intended as a quick way for documentation.</p>
+<p>The basic usage of <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">doc</span></code> is to provide a model name or a routine name as the positional argument.
+For a model, it will print out model parameters, variables, and equations to the stdio.
+For a routine, it will print out fields in the Config file.
+If you are looking for full documentation, visit <a class="reference external" href="https://andes.readthedocs.io">andes.readthedocs.io</a>.</p>
+<p>For example, to check the parameters for model <code class="docutils literal notranslate"><span class="pre">Toggler</span></code>, run</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>andes doc Toggler
+<span class="go">Model &lt;Toggler&gt; in Group &lt;TimedEvent&gt;</span>
+
+<span class="go">    Time-based connectivity status toggler.</span>
+
+<span class="go">Parameters</span>
+
+<span class="go"> Name  |         Description          | Default | Unit |    Type    | Properties</span>
+<span class="go">-------+------------------------------+---------+------+------------+-----------</span>
+<span class="go"> u     | connection status            | 1       | bool | NumParam   |</span>
+<span class="go"> name  | device name                  |         |      | DataParam  |</span>
+<span class="go"> model | Model or Group of the device |         |      | DataParam  | mandatory</span>
+<span class="go">       | to control                   |         |      |            |</span>
+<span class="go"> dev   | idx of the device to control |         |      | IdxParam   | mandatory</span>
+<span class="go"> t     | switch time for connection   | -1      |      | TimerParam | mandatory</span>
+<span class="go">       | status                       |         |      |            |</span>
+</pre></div>
+</div>
+<p>To list all supported models, run</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>andes doc -l
+<span class="go">Supported Groups and Models</span>
+
+<span class="go">     Group       |                   Models</span>
+<span class="go">-----------------+-------------------------------------------</span>
+<span class="go"> ACLine          | Line</span>
+<span class="go"> ACTopology      | Bus</span>
+<span class="go"> Collection      | Area</span>
+<span class="go"> DCLink          | Ground, R, L, C, RCp, RCs, RLs, RLCs, RLCp</span>
+<span class="go"> DCTopology      | Node</span>
+<span class="go"> Exciter         | EXDC2</span>
+<span class="go"> Experimental    | PI2</span>
+<span class="go"> FreqMeasurement | BusFreq, BusROCOF</span>
+<span class="go"> StaticACDC      | VSCShunt</span>
+<span class="go"> StaticGen       | PV, Slack</span>
+<span class="go"> StaticLoad      | PQ</span>
+<span class="go"> StaticShunt     | Shunt</span>
+<span class="go"> SynGen          | GENCLS, GENROU</span>
+<span class="go"> TimedEvent      | Toggler, Fault</span>
+<span class="go"> TurbineGov      | TG2, TGOV1</span>
+</pre></div>
+</div>
+<p>To view the Config fields for a routine, run</p>
+<div class="highlight-shell-session notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>andes doc TDS
+<span class="go">Config Fields in [TDS]</span>
+
+<span class="go">  Option   | Value |                  Info                  | Acceptable values</span>
+<span class="go">-----------+-------+----------------------------------------+-------------------</span>
+<span class="go"> sparselib | klu   | linear sparse solver name              | (&#39;klu&#39;, &#39;umfpack&#39;)</span>
+<span class="go"> tol       | 0.000 | convergence tolerance                  | float</span>
+<span class="go"> t0        | 0     | simulation starting time               | &gt;=0</span>
+<span class="go"> tf        | 20    | simulation ending time                 | &gt;t0</span>
+<span class="go"> fixt      | 0     | use fixed step size (1) or variable    | (0, 1)</span>
+<span class="go">           |       | (0)                                    |</span>
+<span class="go"> shrinkt   | 1     | shrink step size for fixed method if   | (0, 1)</span>
+<span class="go">           |       | not converged                          |</span>
+<span class="go"> tstep     | 0.010 | the initial step step size             | float</span>
+<span class="go"> max_iter  | 15    | maximum number of iterations           | &gt;=10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="andes-misc">
+<h3>andes misc<a class="headerlink" href="#andes-misc" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">misc</span></code> contains miscellaneous functions, such as configuration and output cleaning.</p>
+<div class="section" id="configuration">
+<h4>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h4>
+<p>ANDES uses a configuration file to set runtime configs for the system routines, and models.
+<code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">misc</span> <span class="pre">--save-config</span></code> saves all configs to a file.
+By default, it saves to <code class="docutils literal notranslate"><span class="pre">~/.andes/andes.conf</span></code> file, where <code class="docutils literal notranslate"><span class="pre">~</span></code>
+is the path to your home directory.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">misc</span> <span class="pre">--edit-config</span></code>, you can edit ANDES configuration handy.
+The command will automatically save the configuration to the default location if not exist.
+The shorter version <code class="docutils literal notranslate"><span class="pre">--edit</span></code> can be used instead as Python matches it with <code class="docutils literal notranslate"><span class="pre">--edit-config</span></code>.</p>
+<p>You can pass an editor name to <code class="docutils literal notranslate"><span class="pre">--edit</span></code>, such as <code class="docutils literal notranslate"><span class="pre">--edit</span> <span class="pre">vim</span></code>.
+If the editor name is not provided, it will use the following defaults:
+- Microsoft Windows: notepad.
+- GNU/Linux: the <code class="docutils literal notranslate"><span class="pre">$EDITOR</span></code> environment variable, or <code class="docutils literal notranslate"><span class="pre">vim</span></code> if not exist.</p>
+<p>For macOS users, the default is vim.
+If not familiar with vim, you can use nano with <code class="docutils literal notranslate"><span class="pre">--edit</span> <span class="pre">nano</span></code> or TextEdit with
+<code class="docutils literal notranslate"><span class="pre">--edit</span> <span class="pre">&quot;open</span> <span class="pre">-a</span> <span class="pre">TextEdit&quot;</span></code>.</p>
+</div>
+<div class="section" id="cleanup">
+<h4>Cleanup<a class="headerlink" href="#cleanup" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">misc</span> <span class="pre">-C,</span> <span class="pre">--clean</span></code></p>
+<p>Option to remove any generated files. Removes files with any of the following
+suffix: <code class="docutils literal notranslate"><span class="pre">_out.txt</span></code> (power flow report), <code class="docutils literal notranslate"><span class="pre">_out.npy</span></code> (time domain data),
+<code class="docutils literal notranslate"><span class="pre">_out.lst</span></code> (time domain variable list), and <code class="docutils literal notranslate"><span class="pre">_eig.txt</span></code> (eigenvalue report).</p>
+</div>
+</div>
+</div>
+<div class="section" id="interactive-usage">
+<h2>Interactive Usage<a class="headerlink" href="#interactive-usage" title="Permalink to this headline">¶</a></h2>
+<p>This section is a tutorial for using ANDES in an interactive environment.
+All interactive shells are supported, including Python shell, IPython, Jupyter Notebook and Jupyter Lab.
+The examples below uses Jupyter Notebook.</p>
+<div class="section" id="jupyter-notebook">
+<h3>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">¶</a></h3>
+<p>Jupyter notebook is a convenient tool to run Python code and present results.
+Jupyter notebook can be installed with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install jupyter notebook
+</pre></div>
+</div>
+<p>After the installation, change directory to the folder where you wish to store notebooks,
+then start the notebook with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter notebook
+</pre></div>
+</div>
+<p>A browser window should open automatically with the notebook browser loaded.
+To create a new notebook, use the “New” button near the upper-right corner.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Code lines following <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> are Python code.
+Python code should be typed into a Python shell, IPython, or Jupyter Notebook,
+not a Anaconda Prompt or command-line shell.</p>
+</div>
+</div>
+<div class="section" id="import">
+<h3>Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h3>
+<p>Like other Python libraries, ANDES needs to be imported into an interactive Python environment.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">andes</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">andes</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">config_logger</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="verbosity">
+<h3>Verbosity<a class="headerlink" href="#verbosity" title="Permalink to this headline">¶</a></h3>
+<p>If you are debugging ANDES, you can enable debug messages with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">andes</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">config_logger</span><span class="p">(</span><span class="n">stream_level</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">stream_level</span></code> uses the same verbosity levels (see <a class="reference internal" href="#basic-usage">Basic Usage</a>) as for the command-line.
+If not explicitly enabled, the default level 20 (INFO) will apply.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The verbosity level can only be set once. To set a different level, restart the Python kernel.</p>
+</div>
+</div>
+<div class="section" id="making-a-system">
+<h3>Making a System<a class="headerlink" href="#making-a-system" title="Permalink to this headline">¶</a></h3>
+<p>Before running studies, a “System” object needs to be create to hold the system data.
+The System object can be created by passing the path to the case file the entry-point function.
+For example, to run the file <code class="docutils literal notranslate"><span class="pre">kundur_full.xlsx</span></code> in the same directory as the notebook, use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span> <span class="o">=</span> <span class="n">andes</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;kundur_full.xlsx&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This function will parse the input file, run the power flow, and return the system as an object.
+Outputs will look like</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Parsing</span> <span class="nb">input</span> <span class="n">file</span> <span class="o">&lt;/</span><span class="n">Users</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">notebooks</span><span class="o">/</span><span class="n">kundur</span><span class="o">/</span><span class="n">kundur_full</span><span class="o">.</span><span class="n">xlsx</span><span class="o">&gt;</span>
+<span class="n">Input</span> <span class="n">file</span> <span class="n">kundur_full</span><span class="o">.</span><span class="n">xlsx</span> <span class="n">parsed</span> <span class="ow">in</span> <span class="mf">0.4172</span> <span class="n">second</span><span class="o">.</span>
+<span class="o">-&gt;</span> <span class="n">Power</span> <span class="n">flow</span> <span class="n">calculation</span> <span class="k">with</span> <span class="n">Newton</span> <span class="n">Raphson</span> <span class="n">method</span><span class="p">:</span>
+<span class="mi">0</span><span class="p">:</span> <span class="o">|</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">|</span> <span class="o">=</span> <span class="mf">14.9283</span>
+<span class="mi">1</span><span class="p">:</span> <span class="o">|</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">|</span> <span class="o">=</span> <span class="mf">3.60859</span>
+<span class="mi">2</span><span class="p">:</span> <span class="o">|</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">|</span> <span class="o">=</span> <span class="mf">0.170093</span>
+<span class="mi">3</span><span class="p">:</span> <span class="o">|</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">|</span> <span class="o">=</span> <span class="mf">0.00203827</span>
+<span class="mi">4</span><span class="p">:</span> <span class="o">|</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">|</span> <span class="o">=</span> <span class="mf">3.76414e-07</span>
+<span class="n">Converged</span> <span class="ow">in</span> <span class="mi">5</span> <span class="n">iterations</span> <span class="ow">in</span> <span class="mf">0.0222</span> <span class="n">second</span><span class="o">.</span>
+<span class="n">Report</span> <span class="n">saved</span> <span class="n">to</span> <span class="o">&lt;/</span><span class="n">Users</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">notebooks</span><span class="o">/</span><span class="n">kundur_full_out</span><span class="o">.</span><span class="n">txt</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="mf">0.0015</span> <span class="n">second</span><span class="o">.</span>
+<span class="o">-&gt;</span> <span class="n">Single</span> <span class="n">process</span> <span class="n">finished</span> <span class="ow">in</span> <span class="mf">0.4677</span> <span class="n">second</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">ss</span></code> is an instance of <code class="docutils literal notranslate"><span class="pre">andes.System</span></code>.
+It contains member attributes for models, routines, and numerical DAE.</p>
+<p>Naming convention for the <code class="docutils literal notranslate"><span class="pre">System</span></code> attributes are as follows</p>
+<ul class="simple">
+<li><p>Model attributes share the same name as class names. For example, <code class="docutils literal notranslate"><span class="pre">ss.Bus</span></code> is the <code class="docutils literal notranslate"><span class="pre">Bus</span></code> instance.</p></li>
+<li><p>Routine attributes share the same name as class names. For example, <code class="docutils literal notranslate"><span class="pre">ss.PFlow</span></code> and <code class="docutils literal notranslate"><span class="pre">ss.TDS</span></code> are the
+routine instances.</p></li>
+<li><p>The numerical DAE instance is in lower case <code class="docutils literal notranslate"><span class="pre">ss.dae</span></code>.</p></li>
+</ul>
+<p>To work with PSS/E inputs, refer to notebook <a class="reference external" href="https://github.com/cuihantao/andes/blob/master/examples/2.%20inspect_data.ipynb">Example 2</a>.</p>
+<div class="section" id="output-path">
+<h4>Output path<a class="headerlink" href="#output-path" title="Permalink to this headline">¶</a></h4>
+<p>By default, outputs will be saved to the folder where Python is run (or where the notebook is run).
+In case you need to organize outputs, a path prefix can be passed to <code class="docutils literal notranslate"><span class="pre">andes.run()</span></code> through
+<code class="docutils literal notranslate"><span class="pre">output_path</span></code>.
+For example,</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span> <span class="o">=</span> <span class="n">andes</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;kundur_full.xlsx&#39;</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="s1">&#39;outputs/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>will put outputs into folder <code class="docutils literal notranslate"><span class="pre">outputs</span></code> relative to the current path.
+You can also supply an absolute path to <code class="docutils literal notranslate"><span class="pre">output_path</span></code>.</p>
+</div>
+<div class="section" id="no-output">
+<h4>No output<a class="headerlink" href="#no-output" title="Permalink to this headline">¶</a></h4>
+<p>Outputs can be disabled by passing <code class="docutils literal notranslate"><span class="pre">output_path=True</span></code> to <code class="docutils literal notranslate"><span class="pre">andes.run()</span></code>.
+This is useful when one wants to test code without looking at results.
+For example, do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span> <span class="o">=</span> <span class="n">andes</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s1">&#39;kundur_full.xlsx&#39;</span><span class="p">,</span> <span class="n">no_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="inspecting-parameter">
+<h3>Inspecting Parameter<a class="headerlink" href="#inspecting-parameter" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="dataframe">
+<h4>DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">¶</a></h4>
+<p>Parameters for the loaded system can be easily inspected in Jupyter Notebook using Pandas.</p>
+<p>Input parameters for each model instance is returned by the <code class="docutils literal notranslate"><span class="pre">as_df()</span></code> function.
+For example, to view the input parameters for <code class="docutils literal notranslate"><span class="pre">Bus</span></code>, use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">Bus</span><span class="o">.</span><span class="n">as_df</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>A table will be printed with the columns being each parameter and the rows being Bus instances.
+Parameter in the table is the same as the input file without per-unit conversion.</p>
+<p>Parameters have been converted to per unit values under system base.
+To view the per unit values, use the <code class="docutils literal notranslate"><span class="pre">as_df(vin=True)</span></code> method.
+For example, to view the system-base per unit value of <code class="docutils literal notranslate"><span class="pre">GENROU</span></code>, use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">GENROU</span><span class="o">.</span><span class="n">as_df</span><span class="p">(</span><span class="n">vin</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dict">
+<h4>Dict<a class="headerlink" href="#dict" title="Permalink to this headline">¶</a></h4>
+<p>In case you need the parameters in <code class="docutils literal notranslate"><span class="pre">dict</span></code>, use <code class="docutils literal notranslate"><span class="pre">as_dict()</span></code>.
+Values returned by <code class="docutils literal notranslate"><span class="pre">as_dict()</span></code> are system-base per unit values.
+To retrieve the input data, use <code class="docutils literal notranslate"><span class="pre">as_dict(vin=True)</span></code>.</p>
+<p>For example, to retrieve the original input data of GENROU’s, use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">GENROU</span><span class="o">.</span><span class="n">as_dict</span><span class="p">(</span><span class="n">vin</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="running-studies">
+<h3>Running Studies<a class="headerlink" href="#running-studies" title="Permalink to this headline">¶</a></h3>
+<p>Three routines are currently supported: PFlow, TDS and EIG.
+Each routine provides a <code class="docutils literal notranslate"><span class="pre">run()</span></code> method to execute.
+The System instance contains member attributes having the same names.
+For example, to run the time-domain simulation for <code class="docutils literal notranslate"><span class="pre">ss</span></code>, use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">TDS</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="checking-exit-code">
+<h3>Checking Exit Code<a class="headerlink" href="#checking-exit-code" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">andes.System</span></code> contains field <code class="docutils literal notranslate"><span class="pre">exit_code</span></code> for checking if error
+occurred in run time.
+A normal completion without error should always have <code class="docutils literal notranslate"><span class="pre">exit_code</span> <span class="pre">==</span> <span class="pre">0</span></code>.
+One should read output messages carefully and check the exit code, which is
+particularly useful for batch simulations.</p>
+<p>Error may occur in any phase - data parsing, power flow, or simulation.
+To diagnose, split the simulation steps and check the outputs from each one.</p>
+</div>
+<div class="section" id="plotting-tds-results">
+<h3>Plotting TDS Results<a class="headerlink" href="#plotting-tds-results" title="Permalink to this headline">¶</a></h3>
+<p>TDS comes with a plotting utility for interactive usage.
+After running the simulation, a <code class="docutils literal notranslate"><span class="pre">plotter</span></code> attributed will be created for <code class="docutils literal notranslate"><span class="pre">TDS</span></code>.
+To use the plotter, provide the attribute instance of the variable to plot.
+For example, to plot all the generator speed, use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">TDS</span><span class="o">.</span><span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ss</span><span class="o">.</span><span class="n">GENROU</span><span class="o">.</span><span class="n">omega</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you see the error</p>
+<blockquote>
+<div><p>AttributeError: ‘NoneType’ object has no attribute ‘plot’</p>
+</div></blockquote>
+<p>You will need to manually load plotter with</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">TDS</span><span class="o">.</span><span class="n">load_plotter</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Optional indices is accepted to choose the specific elements to plot.
+It can be passed as a tuple to the <code class="docutils literal notranslate"><span class="pre">a</span></code> argument</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">TDS</span><span class="o">.</span><span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ss</span><span class="o">.</span><span class="n">GENROU</span><span class="o">.</span><span class="n">omega</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">))</span>
+</pre></div>
+</div>
+<p>In the above example, the speed of the “zero-th” generator will be plotted.</p>
+<div class="section" id="scaling">
+<h4>Scaling<a class="headerlink" href="#scaling" title="Permalink to this headline">¶</a></h4>
+<p>A lambda function can be passed to argument <code class="docutils literal notranslate"><span class="pre">ycalc</span></code> to scale the values.
+This is useful to convert a per-unit variable to nominal.
+For example, to plot generator speed in Hertz, use</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ss</span><span class="o">.</span><span class="n">TDS</span><span class="o">.</span><span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ss</span><span class="o">.</span><span class="n">GENROU</span><span class="o">.</span><span class="n">omega</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">),</span>
+<span class="go">                        ycalc=lambda x: 60*x,</span>
+<span class="go">                        )</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="formatting">
+<h4>Formatting<a class="headerlink" href="#formatting" title="Permalink to this headline">¶</a></h4>
+<p>A few formatting arguments are supported:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">grid</span> <span class="pre">=</span> <span class="pre">True</span></code> to turn on grid display</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">greyscale</span> <span class="pre">=</span> <span class="pre">True</span></code> to switch to greyscale</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ylabel</span></code> takes a string for the y-axis label</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="extracting-data">
+<h3>Extracting Data<a class="headerlink" href="#extracting-data" title="Permalink to this headline">¶</a></h3>
+<p>One can extract data from ANDES for custom plotting.
+Variable names can be extracted from the following fields of
+<code class="docutils literal notranslate"><span class="pre">ss.dae</span></code>:</p>
+<p>Un-formatted names (non-LaTeX):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x_name</span></code>: state variable names</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y_name</span></code>: algebraic variable names</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xy_name</span></code>: state variable names followed by algebraic ones</p></li>
+</ul>
+<p>LaTeX-formatted names:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x_tex_name</span></code>: state variable names</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y_tex_name</span></code>: algebraic variable names</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xy_tex_name</span></code>: state variable names followed by algebraic ones</p></li>
+</ul>
+<p>These lists only contain the variable names used in the current analysis routine.
+If you only ran power flow, <code class="docutils literal notranslate"><span class="pre">ss.dae.y_name</span></code> will only contain the power flow
+algebraic variables, and <code class="docutils literal notranslate"><span class="pre">ss.dae.x_name</span></code> will likely be empty.
+After initializing time-domain simulation, these lists will be extended to include
+all variables used by TDS.</p>
+<p>In case you want to extract the discontinuous flags from TDS, you can
+set <code class="docutils literal notranslate"><span class="pre">store_z</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> in the config file under section <code class="docutils literal notranslate"><span class="pre">[TDS]</span></code>.
+When enabled, discontinuous flag names will be populated at</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ss.dae.z_name</span></code>: discontinuous flag names</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ss.dae.z_tex_name</span></code>: LaTeX-formatted discontinuous flag names</p></li>
+</ul>
+<p>If not enabled, both lists will be empty.</p>
+<div class="section" id="power-flow-solutions">
+<h4>Power flow solutions<a class="headerlink" href="#power-flow-solutions" title="Permalink to this headline">¶</a></h4>
+<p>The full power flow solutions are stored at <code class="docutils literal notranslate"><span class="pre">ss.dae.xy</span></code> after running
+power flow (and before initializing dynamic models).
+You can extract values from <code class="docutils literal notranslate"><span class="pre">ss.dae.xy</span></code>, which corresponds to the names
+in <code class="docutils literal notranslate"><span class="pre">ss.dae.xy_name</span></code> or <code class="docutils literal notranslate"><span class="pre">ss.dae.xy_tex_name</span></code>.</p>
+<p>If you want to extract variables from a particular model, for example,
+bus voltages, you can directly access the <code class="docutils literal notranslate"><span class="pre">v</span></code> field of that variable</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">voltages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ss</span><span class="o">.</span><span class="n">Bus</span><span class="o">.</span><span class="n">v</span><span class="o">.</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which stores a <strong>copy</strong> of the bus voltage values. Note that the first <code class="docutils literal notranslate"><span class="pre">v</span></code>
+is the voltage variable of <code class="docutils literal notranslate"><span class="pre">Bus</span></code>, and the second <code class="docutils literal notranslate"><span class="pre">v</span></code> stands for <em>value</em>.
+It is important to make a copy by using <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> to avoid accidental
+changes to the solutions.</p>
+<p>If you want to extract bus voltage phase angles, do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ss</span><span class="o">.</span><span class="n">Bus</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">v</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">a</span></code> is the field name for voltage angle.</p>
+<p>To find out names of variables in a model, refer to <a class="reference internal" href="#andes-doc">andes_doc</a>.</p>
+</div>
+<div class="section" id="time-domain-data">
+<h4>Time-domain data<a class="headerlink" href="#time-domain-data" title="Permalink to this headline">¶</a></h4>
+<p>Time-domain simulation data will be ready when simulation completes.
+It is stored in <code class="docutils literal notranslate"><span class="pre">ss.dae.ts</span></code>, which has the following fields:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">txyz</span></code>: a two-dimensional array. The first column is time stamps,
+and the following are variables. Each row contains all variables
+for that time step.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t</span></code>: all time stamps.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code>: all state variables (one column per variable).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: all algebraic variables (one column per variable).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">z</span></code>: all discontinuous flags (if enabled, one column per flag).</p></li>
+</ul>
+<p>If you want the output in pandas DataFrame, call</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ss</span><span class="o">.</span><span class="n">dae</span><span class="o">.</span><span class="n">ts</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">df</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Dataframes are stored in the following fields of <code class="docutils literal notranslate"><span class="pre">ss.dae.ts</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">df</span></code>: dataframe for states and algebraic variables</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df_z</span></code>: dataframe for discontinuous flags (if enabled)</p></li>
+</ul>
+<p>For both dataframes, time is the index column, and each column correspond to
+one variable.</p>
+</div>
+</div>
+<div class="section" id="pretty-print-of-equations">
+<h3>Pretty Print of Equations<a class="headerlink" href="#pretty-print-of-equations" title="Permalink to this headline">¶</a></h3>
+<p>Each ANDES models offers pretty print of <span class="math notranslate nohighlight">\(\LaTeX\)</span>-formatted equations in the jupyter notebook environment.</p>
+<p>To use this feature, symbolic equations need to be generated in the current session using</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">andes</span>
+<span class="n">ss</span> <span class="o">=</span> <span class="n">andes</span><span class="o">.</span><span class="n">System</span><span class="p">()</span>
+<span class="n">ss</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Or, more concisely, one can do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">andes</span>
+<span class="n">ss</span> <span class="o">=</span> <span class="n">andes</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This process may take a few minutes to complete.
+To save time, you can selectively generate it only for interested models.
+For example, to generate for the classical generator model <code class="docutils literal notranslate"><span class="pre">GENCLS</span></code>, do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">andes</span>
+<span class="n">ss</span> <span class="o">=</span> <span class="n">andes</span><span class="o">.</span><span class="n">System</span><span class="p">()</span>
+<span class="n">ss</span><span class="o">.</span><span class="n">GENROU</span><span class="o">.</span><span class="n">prepare</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Once done, equations can be viewed by accessing <code class="docutils literal notranslate"><span class="pre">ss.&lt;ModelName&gt;.syms.&lt;PrintName&gt;</span></code>,
+where <code class="docutils literal notranslate"><span class="pre">&lt;ModelName&gt;</span></code> is the model name, and <code class="docutils literal notranslate"><span class="pre">&lt;PrintName&gt;</span></code> is the
+equation or Jacobian name.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pretty print only works for the particular <code class="docutils literal notranslate"><span class="pre">System</span></code> instance whose <code class="docutils literal notranslate"><span class="pre">prepare()</span></code> method is called.
+In the above example, pretty print only works for <code class="docutils literal notranslate"><span class="pre">ss</span></code> after calling <code class="docutils literal notranslate"><span class="pre">prepare()</span></code>.</p>
+</div>
+<p>Supported equation names include the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">xy</span></code>: variables in the order of <cite>State</cite>, <cite>ExtState</cite>, <cite>Algeb</cite> and <cite>ExtAlgeb</cite></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code>: the <strong>right-hand side of</strong> differential equations <span class="math notranslate nohighlight">\(T \dot{\mathbf{x}} = \mathbf{f}\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g</span></code>: implicit algebraic equations <span class="math notranslate nohighlight">\(0 = \mathbf{g}\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">df</span></code>: derivatives of <code class="docutils literal notranslate"><span class="pre">f</span></code> over all variables <code class="docutils literal notranslate"><span class="pre">xy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dg</span></code>: derivatives of <code class="docutils literal notranslate"><span class="pre">g</span></code> over all variables <code class="docutils literal notranslate"><span class="pre">xy</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code>: the value equations for <cite>ConstService</cite></p></li>
+</ul>
+<p>For example, to print the algebraic equations of model <code class="docutils literal notranslate"><span class="pre">GENCLS</span></code>, one can use <code class="docutils literal notranslate"><span class="pre">ss.GENCLS.syms.g</span></code>.</p>
+</div>
+<div class="section" id="finding-help">
+<h3>Finding Help<a class="headerlink" href="#finding-help" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="general-help">
+<h4>General help<a class="headerlink" href="#general-help" title="Permalink to this headline">¶</a></h4>
+<p>To find help on a Python class, method, or function, use the built-in <code class="docutils literal notranslate"><span class="pre">help()</span></code> function.
+For example, to check how the <code class="docutils literal notranslate"><span class="pre">get</span></code> method of <code class="docutils literal notranslate"><span class="pre">GENROU</span></code> should be called, do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ss</span><span class="o">.</span><span class="n">GENROU</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In Jupyter notebook, this can be simplified into <code class="docutils literal notranslate"><span class="pre">?ss.GENROU.get</span></code> or <code class="docutils literal notranslate"><span class="pre">ss.GENROU.get?</span></code>.</p>
+</div>
+<div class="section" id="model-docs">
+<h4>Model docs<a class="headerlink" href="#model-docs" title="Permalink to this headline">¶</a></h4>
+<p>Model docs can be shown by printing the return of <code class="docutils literal notranslate"><span class="pre">doc()</span></code>.
+For example, to check the docs of <code class="docutils literal notranslate"><span class="pre">GENCLS</span></code>, do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ss</span><span class="o">.</span><span class="n">GENCLS</span><span class="o">.</span><span class="n">doc</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>It is the same as calling <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">doc</span> <span class="pre">GENCLS</span></code> from the command line.</p>
+</div>
+</div>
+</div>
+<div class="section" id="notebook-examples">
+<h2>Notebook Examples<a class="headerlink" href="#notebook-examples" title="Permalink to this headline">¶</a></h2>
+<p>Check out more examples in Jupyter Notebook in the <cite>examples</cite> folder of the repository at
+<a class="reference external" href="https://github.com/cuihantao/andes/tree/master/examples">here</a>.
+You can run the examples in a live Jupyter Notebook online using
+<a class="reference external" href="https://mybinder.org/v2/gh/cuihantao/andes/master">Binder</a>.</p>
+</div>
+<div class="section" id="i-o-formats">
+<span id="formats"></span><h2>I/O Formats<a class="headerlink" href="#i-o-formats" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="input-formats">
+<h3>Input Formats<a class="headerlink" href="#input-formats" title="Permalink to this headline">¶</a></h3>
+<p>ANDES currently supports the following input formats:</p>
+<ul class="simple">
+<li><p>ANDES Excel (.xlsx)</p></li>
+<li><p>PSS/E RAW (.raw) and DYR (.dyr)</p></li>
+<li><p>MATPOWER (.m)</p></li>
+</ul>
+</div>
+<div class="section" id="andes-xlsx-format">
+<h3>ANDES xlsx Format<a class="headerlink" href="#andes-xlsx-format" title="Permalink to this headline">¶</a></h3>
+<p>The ANDES xlsx format is a newly introduced format since v0.8.0.
+This format uses Microsoft Excel for conveniently viewing and editing model parameters.
+You can use <a class="reference external" href="https://www.libreoffice.org">LibreOffice</a> or <a class="reference external" href="https://www.wps.com/">WPS Office</a> alternatively to
+Microsoft Excel.</p>
+<div class="section" id="xlsx-format-definition">
+<h4>xlsx Format Definition<a class="headerlink" href="#xlsx-format-definition" title="Permalink to this headline">¶</a></h4>
+<p>The ANDES xlsx format contains multiple workbooks (tabs at the bottom).
+Each workbook contains the parameters of all instances of the model, whose name is the workbook name.
+The first row in a worksheet is used for the names of parameters available to the model.
+Starting from the second row, each row corresponds to an instance with the parameters in the corresponding columns.
+An example of the <code class="docutils literal notranslate"><span class="pre">Bus</span></code> workbook is shown in the following.</p>
+<a class="reference internal image-reference" href="images/tutorial/xlsx-bus.png"><img alt="Example workbook for Bus" src="images/tutorial/xlsx-bus.png" style="width: 600px;" /></a>
+<p>A few columns are used across all models, including <code class="docutils literal notranslate"><span class="pre">uid</span></code>, <code class="docutils literal notranslate"><span class="pre">idx</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">u</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">uid</span></code> is an internally generated unique instance index. This column can be left empty if the xlsx file is
+being manually created. Exporting the xlsx file with <code class="docutils literal notranslate"><span class="pre">--convert</span></code> will automatically assign the <code class="docutils literal notranslate"><span class="pre">uid</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">idx</span></code> is the unique instance index for referencing. An unique <code class="docutils literal notranslate"><span class="pre">idx</span></code> should be provided explicitly for each
+instance. Accepted types for <code class="docutils literal notranslate"><span class="pre">idx</span></code> include numbers and strings without spaces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> is the instance name.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code> is the connectivity status of the instance. Accepted values are 0 and 1. Unexpected behaviors may occur
+if other numerical values are assigned.</p></li>
+</ul>
+<p>As mentioned above, <code class="docutils literal notranslate"><span class="pre">idx</span></code> is the unique index for an instance to be referenced.
+For example, a PQ instance can reference a Bus instance so that the PQ is connected to the Bus.
+This is done through providing the <code class="docutils literal notranslate"><span class="pre">idx</span></code> of the desired bus as the <code class="docutils literal notranslate"><span class="pre">bus</span></code> parameter of the PQ.</p>
+<a class="reference internal image-reference" href="images/tutorial/xlsx-pq.png"><img alt="Example workbook for PQ" src="images/tutorial/xlsx-pq.png" style="width: 600px;" /></a>
+<p>In the example PQ workbook shown above, there are two PQ instances on buses with <code class="docutils literal notranslate"><span class="pre">idx</span></code> being 7 and 8,
+respectively.</p>
+</div>
+<div class="section" id="convert-to-xlsx">
+<h4>Convert to xlsx<a class="headerlink" href="#convert-to-xlsx" title="Permalink to this headline">¶</a></h4>
+<p>Please refer to the the <code class="docutils literal notranslate"><span class="pre">--convert</span></code> command for converting a recognized file to xlsx.
+See <a class="reference internal" href="#id3">format converter</a> for more detail.</p>
+</div>
+<div class="section" id="data-consistency">
+<h4>Data Consistency<a class="headerlink" href="#data-consistency" title="Permalink to this headline">¶</a></h4>
+<p>Input data needs to have consistent types for <code class="docutils literal notranslate"><span class="pre">idx</span></code>.
+Both string and numerical types are allowed
+for <code class="docutils literal notranslate"><span class="pre">idx</span></code>, but the original type and the referencing type must be the same.
+Suppose we have a bus and a connected PQ.
+The Bus device may use <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">'1'</span></code> as its <code class="docutils literal notranslate"><span class="pre">idx</span></code>, as long as the
+PQ device uses the same value for its <code class="docutils literal notranslate"><span class="pre">bus</span></code> parameter.</p>
+<p>The ANDES xlsx reader will try to convert data into numerical types when possible.
+This is especially relevant when the input <code class="docutils literal notranslate"><span class="pre">idx</span></code> is string literal of numbers,
+the exported file will have them converted to numbers.
+The conversion does not affect the consistency of data.</p>
+</div>
+<div class="section" id="parameter-check">
+<h4>Parameter Check<a class="headerlink" href="#parameter-check" title="Permalink to this headline">¶</a></h4>
+<p>The following parameter checks are applied after converting input values to array:</p>
+<ul class="simple">
+<li><p>Any <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values will raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code></p></li>
+<li><p>Any <code class="docutils literal notranslate"><span class="pre">inf</span></code> will be replaced with <span class="math notranslate nohighlight">\(10^{8}\)</span>, and <code class="docutils literal notranslate"><span class="pre">-inf</span></code> will be replaced with <span class="math notranslate nohighlight">\(-10^{8}\)</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="cheatsheet">
+<h2>Cheatsheet<a class="headerlink" href="#cheatsheet" title="Permalink to this headline">¶</a></h2>
+<p>A cheatsheet is available for quick lookup of supported commands.</p>
+<p>View the PDF version at</p>
+<p><a class="reference external" href="https://www.cheatography.com//cuihantao/cheat-sheets/andes-for-power-system-simulation/pdf/">https://www.cheatography.com//cuihantao/cheat-sheets/andes-for-power-system-simulation/pdf/</a></p>
+</div>
+<div class="section" id="make-documentation">
+<h2>Make Documentation<a class="headerlink" href="#make-documentation" title="Permalink to this headline">¶</a></h2>
+<p>The documentation you are viewing can be made locally in a variety of formats.
+To make HTML documentation, change directory to <code class="docutils literal notranslate"><span class="pre">docs</span></code>, and do</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make html
+</pre></div>
+</div>
+<p>After a minute, HTML documentation will be saved to <code class="docutils literal notranslate"><span class="pre">docs/build/html</span></code> with the index page being <code class="docutils literal notranslate"><span class="pre">index.html</span></code>.</p>
+<p>A list of supported formats is as follows. Note that some format require additional compiler or library</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">html</span>        <span class="n">to</span> <span class="n">make</span> <span class="n">standalone</span> <span class="n">HTML</span> <span class="n">files</span>
+<span class="n">dirhtml</span>     <span class="n">to</span> <span class="n">make</span> <span class="n">HTML</span> <span class="n">files</span> <span class="n">named</span> <span class="n">index</span><span class="o">.</span><span class="n">html</span> <span class="ow">in</span> <span class="n">directories</span>
+<span class="n">singlehtml</span>  <span class="n">to</span> <span class="n">make</span> <span class="n">a</span> <span class="n">single</span> <span class="n">large</span> <span class="n">HTML</span> <span class="n">file</span>
+<span class="n">pickle</span>      <span class="n">to</span> <span class="n">make</span> <span class="n">pickle</span> <span class="n">files</span>
+<span class="n">json</span>        <span class="n">to</span> <span class="n">make</span> <span class="n">JSON</span> <span class="n">files</span>
+<span class="n">htmlhelp</span>    <span class="n">to</span> <span class="n">make</span> <span class="n">HTML</span> <span class="n">files</span> <span class="ow">and</span> <span class="n">an</span> <span class="n">HTML</span> <span class="n">help</span> <span class="n">project</span>
+<span class="n">qthelp</span>      <span class="n">to</span> <span class="n">make</span> <span class="n">HTML</span> <span class="n">files</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">qthelp</span> <span class="n">project</span>
+<span class="n">devhelp</span>     <span class="n">to</span> <span class="n">make</span> <span class="n">HTML</span> <span class="n">files</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">Devhelp</span> <span class="n">project</span>
+<span class="n">epub</span>        <span class="n">to</span> <span class="n">make</span> <span class="n">an</span> <span class="n">epub</span>
+<span class="n">latex</span>       <span class="n">to</span> <span class="n">make</span> <span class="n">LaTeX</span> <span class="n">files</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="nb">set</span> <span class="n">PAPER</span><span class="o">=</span><span class="n">a4</span> <span class="ow">or</span> <span class="n">PAPER</span><span class="o">=</span><span class="n">letter</span>
+<span class="n">latexpdf</span>    <span class="n">to</span> <span class="n">make</span> <span class="n">LaTeX</span> <span class="ow">and</span> <span class="n">PDF</span> <span class="n">files</span> <span class="p">(</span><span class="n">default</span> <span class="n">pdflatex</span><span class="p">)</span>
+<span class="n">latexpdfja</span>  <span class="n">to</span> <span class="n">make</span> <span class="n">LaTeX</span> <span class="n">files</span> <span class="ow">and</span> <span class="n">run</span> <span class="n">them</span> <span class="n">through</span> <span class="n">platex</span><span class="o">/</span><span class="n">dvipdfmx</span>
+<span class="n">text</span>        <span class="n">to</span> <span class="n">make</span> <span class="n">text</span> <span class="n">files</span>
+<span class="n">man</span>         <span class="n">to</span> <span class="n">make</span> <span class="n">manual</span> <span class="n">pages</span>
+<span class="n">texinfo</span>     <span class="n">to</span> <span class="n">make</span> <span class="n">Texinfo</span> <span class="n">files</span>
+<span class="n">info</span>        <span class="n">to</span> <span class="n">make</span> <span class="n">Texinfo</span> <span class="n">files</span> <span class="ow">and</span> <span class="n">run</span> <span class="n">them</span> <span class="n">through</span> <span class="n">makeinfo</span>
+<span class="n">gettext</span>     <span class="n">to</span> <span class="n">make</span> <span class="n">PO</span> <span class="n">message</span> <span class="n">catalogs</span>
+<span class="n">changes</span>     <span class="n">to</span> <span class="n">make</span> <span class="n">an</span> <span class="n">overview</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">changed</span><span class="o">/</span><span class="n">added</span><span class="o">/</span><span class="n">deprecated</span> <span class="n">items</span>
+<span class="n">xml</span>         <span class="n">to</span> <span class="n">make</span> <span class="n">Docutils</span><span class="o">-</span><span class="n">native</span> <span class="n">XML</span> <span class="n">files</span>
+<span class="n">pseudoxml</span>   <span class="n">to</span> <span class="n">make</span> <span class="n">pseudoxml</span><span class="o">-</span><span class="n">XML</span> <span class="n">files</span> <span class="k">for</span> <span class="n">display</span> <span class="n">purposes</span>
+<span class="n">linkcheck</span>   <span class="n">to</span> <span class="n">check</span> <span class="nb">all</span> <span class="n">external</span> <span class="n">links</span> <span class="k">for</span> <span class="n">integrity</span>
+<span class="n">doctest</span>     <span class="n">to</span> <span class="n">run</span> <span class="nb">all</span> <span class="n">doctests</span> <span class="n">embedded</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">documentation</span> <span class="p">(</span><span class="k">if</span> <span class="n">enabled</span><span class="p">)</span>
+<span class="n">coverage</span>    <span class="n">to</span> <span class="n">run</span> <span class="n">coverage</span> <span class="n">check</span> <span class="n">of</span> <span class="n">the</span> <span class="n">documentation</span> <span class="p">(</span><span class="k">if</span> <span class="n">enabled</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="function.html" class="btn btn-neutral float-right" title="Main Function" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Yichen Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
