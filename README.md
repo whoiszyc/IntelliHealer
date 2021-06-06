@@ -33,7 +33,7 @@ Features
 Documentation
 -------------
 
-For installation instructions, basic usage and benchmarks results, see the [official documentation](intellihealer.readthedocs.io).
+For installation instructions, basic usage and benchmarks results, see the [official documentation](https://intellihealer.readthedocs.io/en/latest/).
 
 Acknowledgments
 ---------------
