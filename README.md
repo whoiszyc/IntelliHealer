@@ -5,30 +5,35 @@
 **IntelliHealer**: An imitation and reinforcement learning platform for 
 self-healing distribution networks.
 
-MIPLearn uses ML methods to automatically identify patterns in previously 
-solved instances of the problem, then uses these patterns to accelerate 
-the performance of conventional state-of-the-art MIP solvers such as CPLEX, 
-Gurobi or XPRESS. Unlike pure ML methods, MIPLearn is not only able to 
-find high-quality solutions to discrete optimization problems, but it 
-can also prove the optimality and feasibility of these solutions. 
-Unlike conventional MIP solvers, MIPLearn can take full advantage of very 
-specific observations that happen to be true in a particular family 
-of instances (such as the observation that a particular constraint 
-is typically redundant, or that a particular variable typically 
-assumes a certain value). For certain classes of problems, this 
-approach has been shown to provide significant performance 
-benefits (see [benchmarks](https://anl-ceeesa.github.io/MIPLearn/0.1/problems/) 
-and [references](https://anl-ceeesa.github.io/MIPLearn/0.1/about/)).
+IntelliHealer uses imitation learning framework to learn restoration policy 
+for distribution system service restoration so as to perform the restoration 
+actions (tie-line switching and reactive power dispatch) in real time and in 
+embedded environment.
+Such **embeddable** and **computation-free** policies allows us to integrate the 
+self-healing capability into intelligent devices 
+A polit project conducted by the [S&C Electric](https://www.sandc.com/en/)
+can be found [here](https://www.sandc.com/en/solutions/self-healing-grids/).
+For details of this work, please refer to our paper at 
+[arXiv](https://arxiv.org/abs/2011.14458/) 
+or [IEEE](https://ieeexplore.ieee.org/document/9424985?denied=).
 
 Features
 --------
-* **MIPLearn proposes a flexible problem specification format,** which allows users to describe their particular optimization problems to a Learning-Enhanced MIP solver, both from the MIP perspective and from the ML perspective, without making any assumptions on the problem being modeled, the mathematical formulation of the problem, or ML encoding.
+* **IntelliHealer proposes the imitation learning framework,** 
+  which resolves the 
 
-* **MIPLearn provides a reference implementation of a *Learning-Enhanced Solver*,** which can use the above problem specification format to automatically predict, based on previously solved instances, a number of hints to accelerate MIP performance. 
+* **MIPLearn provides a reference implementation of a *Learning-Enhanced Solver*,** 
+  which can use the above problem specification format to automatically predict, 
+  based on previously solved instances, a number of hints to accelerate MIP 
+  performance. 
 
-* **MIPLearn provides a set of benchmark problems and random instance generators,** covering applications from different domains, which can be used to quickly evaluate new learning-enhanced MIP techniques in a measurable and reproducible way.
+* **MIPLearn provides a set of benchmark problems and random instance generators,** 
+  covering applications from different domains, which can be used to quickly evaluate 
+  new learning-enhanced MIP techniques in a measurable and reproducible way.
 
-* **MIPLearn is customizable and extensible**. For MIP and ML researchers exploring new techniques to accelerate MIP performance based on historical data, each component of the reference solver can be individually replaced, extended or customized.
+* **MIPLearn is customizable and extensible**. For MIP and ML researchers exploring 
+  new techniques to accelerate MIP performance based on historical data, each component 
+  of the reference solver can be individually replaced, extended or customized.
 
 Documentation
 -------------
@@ -37,20 +42,25 @@ For installation instructions, basic usage and benchmarks results, see the [offi
 
 Acknowledgments
 ---------------
-* Based upon work supported by **Laboratory Directed Research and Development** (LDRD) funding from Argonne National Laboratory, provided by the Director, Office of Science, of the U.S. Department of Energy under Contract No. DE-AC02-06CH11357.
 * Based upon work supported by the **U.S. Department of Energy Advanced Grid Modeling Program** under Grant DE-OE0000875.
 
-Citing MIPLearn
+Citing IntelliHealer
 ---------------
 
-If you use MIPLearn in your research (either the solver or the included problem generators), we kindly request that you cite the package as follows:
+If you find this code useful in your research, please consider citing:
+* Y. Zhang, F. Qiu, T. Hong, Z. Wang, and F. Li, “Hybrid imitation learning for real-time service restoration in resilient distribution systems,” IEEE Trans. Ind. Informatics, pp. 1-11,early access, 2021, doi: 10.1109/TII.2021.3078110.
+```bibtex
+@article{Zhang2021_IntelliHealer,
+author = {Zhang, Yichen and Qiu, Feng and Hong, Tianqi and Wang, Zhaoyu and Li, Fangxing Fran},
+journal = {IEEE Trans. Ind. Informatics},
+keywords = {Deep learning,Imitation learning,Mixed-integer linear programming,Reinforcement learning,Resilient distribution system,Service restoration},
+pages = {1--11},
+note={early access},
+title = {{Hybrid imitation learning for real-time service restoration in resilient distribution systems}},
+year = {2021}
+}
 
-* **Alinson S. Xavier, Feng Qiu.** *MIPLearn: An Extensible Framework for Learning-Enhanced Optimization*. Zenodo (2020). DOI: [10.5281/zenodo.4287567](https://doi.org/10.5281/zenodo.4287567)
-
-If you use MIPLearn in the field of power systems optimization, we kindly request that you cite the reference below, in which the main techniques implemented in MIPLearn were first developed:
-
-* **Alinson S. Xavier, Feng Qiu, Shabbir Ahmed.** *Learning to Solve Large-Scale Unit Commitment Problems.* INFORMS Journal on Computing (2020). DOI: [10.1287/ijoc.2020.0976](https://doi.org/10.1287/ijoc.2020.0976)
-
+```
 License
 -------
 
