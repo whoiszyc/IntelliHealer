@@ -1,25 +1,24 @@
 # IntelliHealer
-IntelliHealer: An imitation and reinforcement learning platform for self-healing distribution networks
 
-<h1 align="center">MIPLearn</h1>
-<p align="center">
-  <a href="https://github.com/ANL-CEEESA/MIPLearn/actions">
-    <img src="https://github.com/ANL-CEEESA/MIPLearn/workflows/Test/badge.svg">
-  </a>
-  <a href="https://doi.org/10.5281/zenodo.4287567">
-    <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.4287567.svg">
-  </a>
-  <a href="https://github.com/ANL-CEEESA/MIPLearn/releases/">
-    <img src="https://img.shields.io/github/v/release/ANL-CEEESA/MIPLearn?include_prereleases&label=pre-release">
-  </a>
-  <a href="https://github.com/ANL-CEEESA/MIPLearn/discussions">
-    <img src="https://img.shields.io/badge/GitHub-Discussions-%23fc4ebc" />
-  </a>
-</p>
+[![Documentation Status](https://readthedocs.org/projects/intellihealer/badge/?version=latest)](https://intellihealer.readthedocs.io/en/latest/?badge=latest)
 
-**MIPLearn** is an extensible framework for solving discrete optimization problems using a combination of Mixed-Integer Linear Programming (MIP) and Machine Learning (ML).
+**IntelliHealer**: An imitation and reinforcement learning platform for 
+self-healing distribution networks.
 
-MIPLearn uses ML methods to automatically identify patterns in previously solved instances of the problem, then uses these patterns to accelerate the performance of conventional state-of-the-art MIP solvers such as CPLEX, Gurobi or XPRESS. Unlike pure ML methods, MIPLearn is not only able to find high-quality solutions to discrete optimization problems, but it can also prove the optimality and feasibility of these solutions. Unlike conventional MIP solvers, MIPLearn can take full advantage of very specific observations that happen to be true in a particular family of instances (such as the observation that a particular constraint is typically redundant, or that a particular variable typically assumes a certain value). For certain classes of problems, this approach has been shown to provide significant performance benefits (see [benchmarks](https://anl-ceeesa.github.io/MIPLearn/0.1/problems/) and [references](https://anl-ceeesa.github.io/MIPLearn/0.1/about/)).
+MIPLearn uses ML methods to automatically identify patterns in previously 
+solved instances of the problem, then uses these patterns to accelerate 
+the performance of conventional state-of-the-art MIP solvers such as CPLEX, 
+Gurobi or XPRESS. Unlike pure ML methods, MIPLearn is not only able to 
+find high-quality solutions to discrete optimization problems, but it 
+can also prove the optimality and feasibility of these solutions. 
+Unlike conventional MIP solvers, MIPLearn can take full advantage of very 
+specific observations that happen to be true in a particular family 
+of instances (such as the observation that a particular constraint 
+is typically redundant, or that a particular variable typically 
+assumes a certain value). For certain classes of problems, this 
+approach has been shown to provide significant performance 
+benefits (see [benchmarks](https://anl-ceeesa.github.io/MIPLearn/0.1/problems/) 
+and [references](https://anl-ceeesa.github.io/MIPLearn/0.1/about/)).
 
 Features
 --------
@@ -34,7 +33,7 @@ Features
 Documentation
 -------------
 
-For installation instructions, basic usage and benchmarks results, see the [official documentation](https://anl-ceeesa.github.io/MIPLearn/).
+For installation instructions, basic usage and benchmarks results, see the [official documentation](intellihealer.readthedocs.io).
 
 Acknowledgments
 ---------------
