@@ -20,13 +20,14 @@ or [IEEE](https://ieeexplore.ieee.org/document/9424985?denied=).
 Features
 --------
 * **IntelliHealer proposes the imitation learning framework,** 
-  which resolves the 
-
-* **MIPLearn provides a reference implementation of a *Learning-Enhanced Solver*,** 
-  which can use the above problem specification format to automatically predict, 
-  based on previously solved instances, a number of hints to accelerate MIP 
-  performance. 
-
+  which improve the sample efficiency using a mixed-integer program-based expert 
+  compared with the traditional exploration-dominant reinforcement learning algorithms.
+![](https://raw.githubusercontent.com/cuihantao/andes/master/docs/source/images/example-npcc/omega.png)
+  
+* **IntelliHealer proposes a hierarchical policy network,** 
+  which can accommodate both discrete and continuous actions. 
+![](https://raw.githubusercontent.com/cuihantao/andes/master/docs/source/images/example-npcc/omega.png)
+ 
 * **MIPLearn provides a set of benchmark problems and random instance generators,** 
   covering applications from different domains, which can be used to quickly evaluate 
   new learning-enhanced MIP techniques in a measurable and reproducible way.
