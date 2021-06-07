@@ -4,7 +4,7 @@
 Installation
 *************************
 
-ANDES can be installed in Python 3.6+.
+IntelliHealer can be installed in Python 3.7+.
 Please follow the installation guide carefully.
 
 Environment

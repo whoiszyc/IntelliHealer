@@ -46,9 +46,10 @@ For installation instructions, basic usage and benchmarks results, see the [offi
 
 Acknowledgments
 ---------------
-* Based upon work supported by the **U.S. Department of Energy Advanced Grid Modeling Program** under Grant DE-OE0000875.
+Based upon work supported by the **U.S. Department of Energy Advanced Grid Modeling Program** under Grant DE-OE0000875.
 
-Citing IntelliHealer
+
+Citing
 ---------------
 
 If you find this code useful in your research, please consider citing:
@@ -66,6 +67,19 @@ title = {{Hybrid imitation learning for real-time service restoration in resilie
 year = {2021}
 }
 ```
+
+Related Works
+---------------
+The framework development is based on the following work:
+* Ross, Stéphane, and Drew Bagnell. "Efficient reductions for imitation learning." In Proceedings of the thirteenth international conference on artificial intelligence and statistics, pp. 661-668. JMLR Workshop and Conference Proceedings, 2010.
+* Ross, Stéphane, Geoffrey Gordon, and Drew Bagnell. "A reduction of imitation learning and structured prediction to no-regret online learning." In Proceedings of the fourteenth international conference on artificial intelligence and statistics, pp. 627-635. JMLR Workshop and Conference Proceedings, 2011.
+* Le, Hoang, Nan Jiang, Alekh Agarwal, Miroslav Dudík, Yisong Yue, and Hal Daumé. "Hierarchical imitation and reinforcement learning." In International Conference on Machine Learning, pp. 2917-2926. PMLR, 2018.
+
+The algorithm implementation is partially based on the work and its repository [hierarchical_IL_RL](https://github.com/hoangminhle/hierarchical_IL_RL): 
+* Le, Hoang, Nan Jiang, Alekh Agarwal, Miroslav Dudík, Yisong Yue, and Hal Daumé. "Hierarchical imitation and reinforcement learning." In International Conference on Machine Learning, pp. 2917-2926. PMLR, 2018.
+
+The authors appreciate these innovative and solid works.
+
 License
 -------
 
