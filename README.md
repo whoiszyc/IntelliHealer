@@ -5,14 +5,14 @@
 **IntelliHealer**: An imitation and reinforcement learning platform for 
 self-healing distribution networks.
 
-<img src="project_dis_restoration/results/plots/Scope.png" width=70%>
+<img src="project_dis_restoration/results/plots/Scope.png" width=40%>
 
 IntelliHealer uses imitation learning framework to learn restoration policy 
 for distribution system service restoration so as to perform the restoration 
 actions (tie-line switching and reactive power dispatch) in real time and in 
 embedded environment.
 
-<img src="project_dis_restoration/results/plots/Algorithms.png" width=70%>
+<img src="project_dis_restoration/results/plots/Algorithms.png" width=50%>
 
 Such **embeddable** and **computation-free** policies allows us to integrate the 
 self-healing capability into intelligent devices 
