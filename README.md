@@ -50,18 +50,19 @@ Citing IntelliHealer
 ---------------
 
 If you find this code useful in your research, please consider citing:
-``Y. Zhang, F. Qiu, T. Hong, Z. Wang, and F. Li, “Hybrid imitation learning for real-time service restoration in resilient distribution systems,” IEEE Trans. Ind. Informatics, pp. 1-11,early access, 2021, doi: 10.1109/TII.2021.3078110.``
+```
+Y. Zhang, F. Qiu, T. Hong, Z. Wang, and F. Li, “Hybrid imitation learning for real-time service restoration in resilient distribution systems,” IEEE Trans. Ind. Informat., pp. 1-11,early access, 2021, doi: 10.1109/TII.2021.3078110.
+```
 ```bibtex
 @article{Zhang2021_IntelliHealer,
 author = {Zhang, Yichen and Qiu, Feng and Hong, Tianqi and Wang, Zhaoyu and Li, Fangxing Fran},
-journal = {IEEE Trans. Ind. Informatics},
+journal = {IEEE Trans. Ind. Informat.},
 keywords = {Deep learning,Imitation learning,Mixed-integer linear programming,Reinforcement learning,Resilient distribution system,Service restoration},
 pages = {1--11},
 note={early access},
 title = {{Hybrid imitation learning for real-time service restoration in resilient distribution systems}},
 year = {2021}
 }
-
 ```
 License
 -------
