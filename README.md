@@ -10,7 +10,7 @@ embedded environment.
 
 |                                         Scope: Training restoration agent                                                   |                                               Framework: imitation learning                                          |
 | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| <img src="project_dis_restoration/results/plots/Scope.png" width=40%>  | <img src="project_dis_restoration/results/plots/Algorithms.png" width=50%> |
+| <img src="project_dis_restoration/results/plots/Scope.png" width=70%>  | <img src="project_dis_restoration/results/plots/Algorithms.png" width=70%> |
 
 Such **embeddable** and **computation-free** policies allows us to integrate the 
 self-healing capability into intelligent devices 
