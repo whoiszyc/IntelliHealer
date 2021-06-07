@@ -22,7 +22,10 @@ Features
 * **IntelliHealer proposes the imitation learning framework,** 
   which improve the sample efficiency using a mixed-integer program-based expert 
   compared with the traditional exploration-dominant reinforcement learning algorithms.
-![](https://github.com/whoiszyc/IntelliHealer/blob/main/project_dis_restoration/results/plots/fig_avg_ratio_comp_IL_RL_n_5.pdf)
+![](project_dis_restoration/results/plots/fig_avg_ratio_comp_IL_RL_n_5.png)   ![](project_dis_restoration/results/plots/fig_avg_ratio_comp_IL_RL_n_5.png)
+  
+<img src="project_dis_restoration/results/plots/fig_avg_ratio_comp_IL_RL_n_5.png">
+
   
 * **IntelliHealer proposes a hierarchical policy network,** 
   which can accommodate both discrete and continuous actions. 
