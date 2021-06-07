@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Main Function &mdash; IntelliHealer 0.1.0 documentation</title>
+  <title>Main Functions &mdash; IntelliHealer 0.1.0 documentation</title>
   
 
   
@@ -39,8 +39,10 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
+    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="About" href="about.html" />
     <link rel="prev" title="Tutorial" href="tutorial.html" /> 
 </head>
 
@@ -90,17 +92,14 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Main Function</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Main Functions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#system">System</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#dynamic-imports">Dynamic Imports</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#code-generation">Code Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
 </ul>
 </li>
 </ul>
 </li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 </ul>
 
             
@@ -149,7 +148,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Main Function</li>
+      <li>Main Functions</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -168,8 +167,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="main-function">
-<h1>Main Function<a class="headerlink" href="#main-function" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="main-functions">
+<span id="function"></span><h1>Main Functions<a class="headerlink" href="#main-functions" title="Permalink to this headline">¶</a></h1>
 <p>This chapter contains advanced topics on modeling and simulation and how they are implemented in ANDES.
 It aims to provide an in-depth explanation of how the ANDES framework is set up for symbolic modeling and
 numerical simulation. It also provides an example for interested users to implement customized DAE models.</p>
@@ -368,8 +367,7 @@ Data is in the format of dictionary</p>
 <p class="admonition-title">Note</p>
 <p><cite>andes.System</cite> is an alias of <cite>andes.system.System</cite>.</p>
 </div>
-<div class="section" id="dynamic-imports">
-<h4>Dynamic Imports<a class="headerlink" href="#dynamic-imports" title="Permalink to this headline">¶</a></h4>
+<p>Dynamic Imports</p>
 <p>System dynamically imports groups, models, and routines at creation.
 To add new models, groups or routines, edit the corresponding file by adding entries following examples.</p>
 <dl class="py function">
@@ -378,9 +376,7 @@ To add new models, groups or routines, edit the corresponding file by adding ent
 <dd><p>BC algorithm</p>
 </dd></dl>
 
-</div>
-<div class="section" id="code-generation">
-<h4>Code Generation<a class="headerlink" href="#code-generation" title="Permalink to this headline">¶</a></h4>
+<p>Code Generation</p>
 <p>Under the hood, all symbolically defined equations need to be generated into anonymous function calls for
 accelerating numerical simulations.
 This process is automatically invoked for the first time ANDES is run command line.
@@ -398,7 +394,6 @@ to be executed again for consistency. It can be more conveniently triggered from
 </div>
 </div>
 </div>
-</div>
 
 
            </div>
@@ -406,6 +401,7 @@ to be executed again for consistency. It can be more conveniently triggered from
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="about.html" class="btn btn-neutral float-right" title="About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="tutorial.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 

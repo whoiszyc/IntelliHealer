@@ -3,16 +3,15 @@
 ********
 Tutorial
 ********
-ANDES can be used as a command-line tool or a library.
-The command-line interface (CLI) comes handy to run studies.
-As a library, it can be used interactively in the IPython shell or the Jupyter Notebook.
-This chapter describes the most common usages.
 
-Please see the cheat sheet if you are looking for quick help.
+- IntelliHealer provides imitation learning algorithms with several variations for different feature inputs.
+- IntelliHealer can be used as a `Gym <https://gym.openai.com/>`_ environment for distribution system
+  restoration to connect with state-of-the-art reinforcement learning algorithms,
+  such as `Stable-Baselines3 <https://stable-baselines3.readthedocs.io/en/master/?badge=master>`_
+- IntelliHealer provides distribution system optimization models that can be used to develop other related problems.
+  Currently, it contains two test feeders: 33-node and 119-node system.
 
-.. _sec-command:
-
-Command Line Usage
+Gym
 ==================
 
 Basic Usage

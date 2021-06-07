@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Welcome to IntelliHealer’s documentation! &mdash; IntelliHealer 0.1.0 documentation</title>
+  <title>Home &mdash; IntelliHealer 0.1.0 documentation</title>
   
 
   
@@ -39,6 +39,7 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
+    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Installation" href="install.html" /> 
@@ -90,7 +91,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="function.html">Main Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">Main Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 </ul>
 
             
@@ -139,7 +141,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Welcome to IntelliHealer’s documentation!</li>
+      <li>Home</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -158,81 +160,57 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-intellihealer-s-documentation">
-<h1>Welcome to IntelliHealer’s documentation!<a class="headerlink" href="#welcome-to-intellihealer-s-documentation" title="Permalink to this headline">¶</a></h1>
+  <embed>
+<h1 style="letter-spacing: 0.4em; font-size: 2.5em !important;
+margin-bottom: 0; padding-bottom: 0"> IntelliHealer </h1>
+
+<p style="color: #00746F; font-variant: small-caps; font-weight: bold;
+margin-bottom: 2em">
+Intelligent Self-Healing Distribution Network</p>
+</embed><div class="section" id="home">
+<h1>Home<a class="headerlink" href="#home" title="Permalink to this headline">¶</a></h1>
+<p><strong>IntelliHealer</strong>: An imitation and reinforcement learning platform for self-healing distribution networks.
+IntelliHealer uses imitation learning framework to learn restoration policy for distribution system service restoration so as to perform the restoration actions (tie-line switching and reactive power dispatch) in real time and in embedded environment.</p>
+<a class="reference internal image-reference" href="_images/Scope.png"><img alt="_images/Scope.png" src="_images/Scope.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/Algorithms.png"><img alt="_images/Algorithms.png" src="_images/Algorithms.png" style="width: 500px;" /></a>
+<p>Such <strong>embeddable</strong> and <strong>computation-free</strong> policies allows us to integrate the self-healing capability into intelligent devices.
+A polit project conducted by the <a class="reference external" href="https://www.sandc.com/en/">S&amp;C Electric</a> can be found <a class="reference external" href="https://www.sandc.com/en/solutions/self-healing-grids/">here</a>.
+For details of this work, please refer to our paper at <a class="reference external" href="https://arxiv.org/abs/2011.14458/">arXiv</a> or <a class="reference external" href="https://ieeexplore.ieee.org/document/9424985?denied=">IEEE</a>.</p>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>IntelliHealer proposes the imitation learning framework, which improve the sample efficiency using a mixed-integer program-based expert compared with the traditional exploration-dominant reinforcement learning algorithms.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/fig_avg_ratio_comp_IL_RL_n_5.png"><img alt="_images/fig_avg_ratio_comp_IL_RL_n_5.png" src="_images/fig_avg_ratio_comp_IL_RL_n_5.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>IntelliHealer proposes a hierarchical policy network, which can accommodate both discrete and continuous actions.</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/Hybrid_policy.png"><img alt="_images/Hybrid_policy.png" src="_images/Hybrid_policy.png" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>IntelliHealer provides an <a class="reference external" href="https://gym.openai.com">OpenAI-Gym</a> environment for distribution system restoration, which can be connected to <a class="reference external" href="https://stable-baselines3.readthedocs.io/en/master/?badge=master">Stable-Baselines3</a>, a state-of-the-art collection of reinforcement learning algorithms.
+Currently, the Gym environment contains two test feeders: 33-node and 119-node system.</p></li>
+</ul>
+</div>
+<div class="section" id="related-works">
+<h2>Related Works<a class="headerlink" href="#related-works" title="Permalink to this headline">¶</a></h2>
+<p>The framework development is based on the following work:</p>
+<ul class="simple">
+<li><p>Ross, Stéphane, and Drew Bagnell. “Efficient reductions for imitation learning.” In Proceedings of the thirteenth international conference on artificial intelligence and statistics, pp. 661-668. JMLR Workshop and Conference Proceedings, 2010.</p></li>
+<li><p>Ross, Stéphane, Geoffrey Gordon, and Drew Bagnell. “A reduction of imitation learning and structured prediction to no-regret online learning.” In Proceedings of the fourteenth international conference on artificial intelligence and statistics, pp. 627-635. JMLR Workshop and Conference Proceedings, 2011.</p></li>
+<li><p>Le, Hoang, Nan Jiang, Alekh Agarwal, Miroslav Dudík, Yisong Yue, and Hal Daumé. “Hierarchical imitation and reinforcement learning.” In International Conference on Machine Learning, pp. 2917-2926. PMLR, 2018.</p></li>
+</ul>
+<p>The algorithm implementation is partially based on the work and its repository <a class="reference external" href="https://github.com/hoangminhle/hierarchical_IL_RL">hierarchical_IL_RL</a>: Le, Hoang, Nan Jiang, Alekh Agarwal, Miroslav Dudík, Yisong Yue, and Hal Daumé. “Hierarchical imitation and reinforcement learning.” In International Conference on Machine Learning, pp. 2917-2926. PMLR, 2018.</p>
+<p>The authors appreciate these innovative and solid works.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">IntelliHealer Manual</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install.html#environment">Environment</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="install.html#setting-up-miniconda">Setting Up Miniconda</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install.html#existing-python-environment-advanced">Existing Python Environment (Advanced)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#install-andes">Install ANDES</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="install.html#user-mode">User Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install.html#development-mode">Development Mode</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#updating-andes">Updating ANDES</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#performance-packages">Performance Packages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="install.html#kvxopt">KVXOPT</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#command-line-usage">Command Line Usage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#basic-usage">Basic Usage</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-selftest">andes selftest</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-prepare">andes prepare</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-run">andes run</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-plot">andes plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-doc">andes doc</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-misc">andes misc</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#interactive-usage">Interactive Usage</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#jupyter-notebook">Jupyter Notebook</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#import">Import</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#verbosity">Verbosity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#making-a-system">Making a System</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#inspecting-parameter">Inspecting Parameter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#running-studies">Running Studies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#checking-exit-code">Checking Exit Code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#plotting-tds-results">Plotting TDS Results</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#extracting-data">Extracting Data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#pretty-print-of-equations">Pretty Print of Equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#finding-help">Finding Help</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#notebook-examples">Notebook Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#i-o-formats">I/O Formats</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#input-formats">Input Formats</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tutorial.html#andes-xlsx-format">ANDES xlsx Format</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#cheatsheet">Cheatsheet</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorial.html#make-documentation">Make Documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="function.html">Main Function</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="function.html#system">System</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="function.html#overview">Overview</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="function.html">Main Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 </ul>
 </div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
 </div>
 
 

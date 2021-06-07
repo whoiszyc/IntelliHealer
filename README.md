@@ -8,6 +8,10 @@ for distribution system service restoration so as to perform the restoration
 actions (tie-line switching and reactive power dispatch) in real time and in 
 embedded environment.
 
+It is worth mentioning that the imitation lealrning framework acts as a bridge between reinforcement learning-based 
+techniques and mathematical programming-based methods and a way to leverage well-studied mathematical programming-based 
+decision-making systems for reinforcement learning-based automation.
+
 |                                         Scope: Training restoration agent                                                   |                                               Framework: imitation learning                                          |
 | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | <img src="project_dis_restoration/results/plots/Scope.png" width=100%>  | <img src="project_dis_restoration/results/plots/Algorithms.png" width=100%> |
@@ -21,7 +25,7 @@ For details of this work, please refer to our paper at
 or [IEEE](https://ieeexplore.ieee.org/document/9424985?denied=).
 
 Features
---------
+=========
 * **IntelliHealer proposes the imitation learning framework,** 
   which improve the sample efficiency using a mixed-integer program-based expert 
   compared with the traditional exploration-dominant reinforcement learning algorithms.
@@ -38,19 +42,21 @@ Features
   which can be connected to [Stable-Baselines3](https://stable-baselines3.readthedocs.io/en/master/?badge=master), 
   a state-of-the-art collection of reinforcement learning algorithms. Currently, the Gym environment
   contains two test feeders: 33-node and 119-node system.
+  
+* **IntelliHealer provides distribution system optimization models built on Pyomo,**
+  whicn can be used to develop other problem formulations.
 
 Documentation
--------------
-
+===============
 For installation instructions, basic usage and benchmarks results, see the [official documentation](https://intellihealer.readthedocs.io/en/latest/).
 
 Acknowledgments
----------------
+=================
 Based upon work supported by the **U.S. Department of Energy Advanced Grid Modeling Program** under Grant DE-OE0000875.
 
 
 Citing
----------------
+========
 
 If you find this code useful in your research, please consider citing:
 ```
@@ -69,7 +75,9 @@ year = {2021}
 ```
 
 Related Works
----------------
+=================
+Regarding Imitation and Reinforcement Learning
+------------------------------------------------
 The framework development is based on the following work:
 * Ross, Stéphane, and Drew Bagnell. "Efficient reductions for imitation learning." In Proceedings of the thirteenth international conference on artificial intelligence and statistics, pp. 661-668. JMLR Workshop and Conference Proceedings, 2010.
 * Ross, Stéphane, Geoffrey Gordon, and Drew Bagnell. "A reduction of imitation learning and structured prediction to no-regret online learning." In Proceedings of the fourteenth international conference on artificial intelligence and statistics, pp. 627-635. JMLR Workshop and Conference Proceedings, 2011.
@@ -78,9 +86,18 @@ The framework development is based on the following work:
 The algorithm implementation is partially based on the work and its repository [hierarchical_IL_RL](https://github.com/hoangminhle/hierarchical_IL_RL): 
 * Le, Hoang, Nan Jiang, Alekh Agarwal, Miroslav Dudík, Yisong Yue, and Hal Daumé. "Hierarchical imitation and reinforcement learning." In International Conference on Machine Learning, pp. 2917-2926. PMLR, 2018.
 
-The authors appreciate these innovative and solid works.
+Regarding Machine Learning for Optimization
+---------------------------------------------
+The proposed method can also be regarded as one of the three learn-to-optimize paradigms concluded in the following
+literature:
+* Bengio, Yoshua, Andrea Lodi, and Antoine Prouvost. "Machine learning for combinatorial optimization: a methodological tour d’horizon." European Journal of Operational Research (2020).
+
+The three learn-to-optimize paradigms are illustrated below, where our method serves as an end-to-end paradigm:
+
+<img src="project_dis_restoration/results/plots/Neural_MIP.PNG" width=50%>
+
+
 
 License
 -------
-
 Released under the modified BSD license. See `LICENSE` for more details.
