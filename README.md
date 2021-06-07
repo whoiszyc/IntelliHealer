@@ -92,9 +92,9 @@ The proposed method can also be regarded as one of the three learn-to-optimize p
 literature:
 * Bengio, Yoshua, Andrea Lodi, and Antoine Prouvost. "Machine learning for combinatorial optimization: a methodological tour d’horizon." European Journal of Operational Research (2020).
 
-The three learn-to-optimize paradigms are illustrated below, where our method serves as an end-to-end paradigm:
+The three learn-to-optimize paradigms are illustrated below, where **our method serves as an end-to-end paradigm**:
 
-<img src="project_dis_restoration/results/plots/Neural_MIP.PNG" width=80%>
+<img src="project_dis_restoration/results/plots/Neural_MIP.PNG" width=100%>
 
 
 
