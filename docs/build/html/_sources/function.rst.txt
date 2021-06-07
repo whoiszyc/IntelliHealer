@@ -9,7 +9,7 @@ It aims to provide an in-depth explanation of how the ANDES framework is set up 
 numerical simulation. It also provides an example for interested users to implement customized DAE models.
 
 System
-======
+=======
 
 Overview
 --------

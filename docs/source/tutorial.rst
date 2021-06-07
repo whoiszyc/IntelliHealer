@@ -7,9 +7,11 @@ Tutorial
 - IntelliHealer provides imitation learning algorithms with several variations for different feature inputs.
 - IntelliHealer can be used as a `Gym <https://gym.openai.com/>`_ environment for distribution system
   restoration to connect with state-of-the-art reinforcement learning algorithms,
-  such as `Stable-Baselines3 <https://stable-baselines3.readthedocs.io/en/master/?badge=master>`_
-- IntelliHealer provides distribution system optimization models that can be used to develop other related problems.
+  such as `Stable-Baselines3 <https://stable-baselines3.readthedocs.io/en/master/?badge=master>`_.
   Currently, it contains two test feeders: 33-node and 119-node system.
+- IntelliHealer provides distribution system optimization models built on `Pyomo <http://www.pyomo.org/documentation>`_,
+  whicn can be used to develop other problem formulations.
+
 
 Gym
 ==================

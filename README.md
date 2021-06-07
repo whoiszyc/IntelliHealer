@@ -43,7 +43,7 @@ Features
   a state-of-the-art collection of reinforcement learning algorithms. Currently, the Gym environment
   contains two test feeders: 33-node and 119-node system.
   
-* **IntelliHealer provides distribution system optimization models built on Pyomo,**
+* **IntelliHealer provides distribution system optimization models built on [Pyomo](http://www.pyomo.org/documentation),**
   whicn can be used to develop other problem formulations.
 
 Documentation

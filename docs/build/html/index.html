@@ -170,7 +170,12 @@ Intelligent Self-Healing Distribution Network</p>
 </embed><div class="section" id="home">
 <h1>Home<a class="headerlink" href="#home" title="Permalink to this headline">¶</a></h1>
 <p><strong>IntelliHealer</strong>: An imitation and reinforcement learning platform for self-healing distribution networks.
-IntelliHealer uses imitation learning framework to learn restoration policy for distribution system service restoration so as to perform the restoration actions (tie-line switching and reactive power dispatch) in real time and in embedded environment.</p>
+IntelliHealer uses imitation learning framework to learn restoration policy for distribution system
+service restoration so as to perform the restoration actions (tie-line switching and reactive power dispatch)
+in real time and in embedded environment.</p>
+<p>It is worth mentioning that the imitation lealrning framework acts as a bridge between reinforcement learning-based
+techniques and mathematical programming-based methods and a way to leverage well-studied mathematical programming-based
+decision-making systems for reinforcement learning-based automation.</p>
 <a class="reference internal image-reference" href="_images/Scope.png"><img alt="_images/Scope.png" src="_images/Scope.png" style="width: 400px;" /></a>
 <a class="reference internal image-reference" href="_images/Algorithms.png"><img alt="_images/Algorithms.png" src="_images/Algorithms.png" style="width: 500px;" /></a>
 <p>Such <strong>embeddable</strong> and <strong>computation-free</strong> policies allows us to integrate the self-healing capability into intelligent devices.
@@ -179,7 +184,9 @@ For details of this work, please refer to our paper at <a class="reference exter
 <div class="section" id="features">
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>IntelliHealer proposes the imitation learning framework, which improve the sample efficiency using a mixed-integer program-based expert compared with the traditional exploration-dominant reinforcement learning algorithms.</p></li>
+<li><p>IntelliHealer proposes the imitation learning framework, which improve the sample efficiency
+using a mixed-integer program-based expert compared with the traditional exploration-dominant
+reinforcement learning algorithms.</p></li>
 </ul>
 <a class="reference internal image-reference" href="_images/fig_avg_ratio_comp_IL_RL_n_5.png"><img alt="_images/fig_avg_ratio_comp_IL_RL_n_5.png" src="_images/fig_avg_ratio_comp_IL_RL_n_5.png" style="width: 400px;" /></a>
 <ul class="simple">
@@ -189,18 +196,34 @@ For details of this work, please refer to our paper at <a class="reference exter
 <ul class="simple">
 <li><p>IntelliHealer provides an <a class="reference external" href="https://gym.openai.com">OpenAI-Gym</a> environment for distribution system restoration, which can be connected to <a class="reference external" href="https://stable-baselines3.readthedocs.io/en/master/?badge=master">Stable-Baselines3</a>, a state-of-the-art collection of reinforcement learning algorithms.
 Currently, the Gym environment contains two test feeders: 33-node and 119-node system.</p></li>
+<li><p>IntelliHealer provides distribution system optimization models built on <a class="reference external" href="http://www.pyomo.org/documentation">Pyomo</a>,
+whicn can be used to develop other problem formulations.</p></li>
 </ul>
 </div>
 <div class="section" id="related-works">
 <h2>Related Works<a class="headerlink" href="#related-works" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="regarding-imitation-and-reinforcement-learning">
+<h3>Regarding Imitation and Reinforcement Learning<a class="headerlink" href="#regarding-imitation-and-reinforcement-learning" title="Permalink to this headline">¶</a></h3>
 <p>The framework development is based on the following work:</p>
 <ul class="simple">
 <li><p>Ross, Stéphane, and Drew Bagnell. “Efficient reductions for imitation learning.” In Proceedings of the thirteenth international conference on artificial intelligence and statistics, pp. 661-668. JMLR Workshop and Conference Proceedings, 2010.</p></li>
 <li><p>Ross, Stéphane, Geoffrey Gordon, and Drew Bagnell. “A reduction of imitation learning and structured prediction to no-regret online learning.” In Proceedings of the fourteenth international conference on artificial intelligence and statistics, pp. 627-635. JMLR Workshop and Conference Proceedings, 2011.</p></li>
 <li><p>Le, Hoang, Nan Jiang, Alekh Agarwal, Miroslav Dudík, Yisong Yue, and Hal Daumé. “Hierarchical imitation and reinforcement learning.” In International Conference on Machine Learning, pp. 2917-2926. PMLR, 2018.</p></li>
 </ul>
-<p>The algorithm implementation is partially based on the work and its repository <a class="reference external" href="https://github.com/hoangminhle/hierarchical_IL_RL">hierarchical_IL_RL</a>: Le, Hoang, Nan Jiang, Alekh Agarwal, Miroslav Dudík, Yisong Yue, and Hal Daumé. “Hierarchical imitation and reinforcement learning.” In International Conference on Machine Learning, pp. 2917-2926. PMLR, 2018.</p>
-<p>The authors appreciate these innovative and solid works.</p>
+<p>The algorithm implementation is partially based on the work and its repository <a class="reference external" href="https://github.com/hoangminhle/hierarchical_IL_RL">hierarchical_IL_RL</a>:</p>
+<ul class="simple">
+<li><p>Le, Hoang, Nan Jiang, Alekh Agarwal, Miroslav Dudík, Yisong Yue, and Hal Daumé. “Hierarchical imitation and reinforcement learning.” In International Conference on Machine Learning, pp. 2917-2926. PMLR, 2018.</p></li>
+</ul>
+</div>
+<div class="section" id="regarding-machine-learning-for-optimization">
+<h3>Regarding Machine Learning for Optimization<a class="headerlink" href="#regarding-machine-learning-for-optimization" title="Permalink to this headline">¶</a></h3>
+<p>The proposed method can also be regarded as one of the three learn-to-optimize paradigms concluded in the following
+literature:</p>
+<ul class="simple">
+<li><p>Bengio, Yoshua, Andrea Lodi, and Antoine Prouvost. “Machine learning for combinatorial optimization: a methodological tour d’horizon.” European Journal of Operational Research (2020).</p></li>
+</ul>
+<p>The three learn-to-optimize paradigms are illustrated below, where our method serves as an end-to-end paradigm:</p>
+<a class="reference internal image-reference" href="_images/Neural_MIP.PNG"><img alt="_images/Neural_MIP.PNG" src="_images/Neural_MIP.PNG" style="width: 700px;" /></a>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">IntelliHealer Manual</span></p>
 <ul>
@@ -209,6 +232,7 @@ Currently, the Gym environment contains two test feeders: 33-node and 119-node s
 <li class="toctree-l1"><a class="reference internal" href="function.html">Main Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
 </ul>
+</div>
 </div>
 </div>
 </div>

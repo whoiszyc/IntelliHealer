@@ -93,7 +93,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#command-line-usage">Command Line Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Gym</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#basic-usage">Basic Usage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#andes-selftest">andes selftest</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#andes-prepare">andes prepare</a></li>
@@ -238,13 +238,17 @@
             
   <div class="section" id="tutorial">
 <span id="id1"></span><h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
-<p>ANDES can be used as a command-line tool or a library.
-The command-line interface (CLI) comes handy to run studies.
-As a library, it can be used interactively in the IPython shell or the Jupyter Notebook.
-This chapter describes the most common usages.</p>
-<p>Please see the cheat sheet if you are looking for quick help.</p>
-<div class="section" id="command-line-usage">
-<span id="sec-command"></span><h2>Command Line Usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>IntelliHealer provides imitation learning algorithms with several variations for different feature inputs.</p></li>
+<li><p>IntelliHealer can be used as a <a class="reference external" href="https://gym.openai.com/">Gym</a> environment for distribution system
+restoration to connect with state-of-the-art reinforcement learning algorithms,
+such as <a class="reference external" href="https://stable-baselines3.readthedocs.io/en/master/?badge=master">Stable-Baselines3</a>.
+Currently, it contains two test feeders: 33-node and 119-node system.</p></li>
+<li><p>IntelliHealer provides distribution system optimization models built on <a class="reference external" href="http://www.pyomo.org/documentation">Pyomo</a>,
+whicn can be used to develop other problem formulations.</p></li>
+</ul>
+<div class="section" id="id2">
+<h2>Gym<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="basic-usage">
 <h3>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h3>
 <p>ANDES is invoked from the command line using the command <code class="docutils literal notranslate"><span class="pre">andes</span></code>.
@@ -311,12 +315,12 @@ An example output looks like</p>
 <p>ANDES is getting updates frequently. After every update, please run
 <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">selftest</span></code> to confirm the functionality.
 The command also makes sure the generated code is up to date.
-See <a class="reference internal" href="#id2">andes prepare</a> for more details on automatic code generation.</p>
+See <a class="reference internal" href="#id3">andes prepare</a> for more details on automatic code generation.</p>
 </div>
 </div>
 <div class="section" id="andes-prepare">
 <h3>andes prepare<a class="headerlink" href="#andes-prepare" title="Permalink to this headline">¶</a></h3>
-<p id="id2">The symbolically defined models in ANDES need to be generated into numerical code for simulation.
+<p id="id3">The symbolically defined models in ANDES need to be generated into numerical code for simulation.
 The code generation can be manually called with <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">prepare</span></code>.
 Generated code are serialized to <code class="docutils literal notranslate"><span class="pre">~/.andes/calls.pkl</span></code> and dumped as Python code to <code class="docutils literal notranslate"><span class="pre">~/.andes/pycode</span></code>.
 In addition, <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">selftest</span></code> implicitly calls the code generation.
@@ -455,7 +459,7 @@ By default, all cores will be used. A small number can be specified to increase 
 </div>
 <div class="section" id="format-converter">
 <h4>Format converter<a class="headerlink" href="#format-converter" title="Permalink to this headline">¶</a></h4>
-<p id="id3">ANDES recognizes a few input formats and can convert input systems into the <code class="docutils literal notranslate"><span class="pre">xlsx</span></code> format.
+<p id="id4">ANDES recognizes a few input formats and can convert input systems into the <code class="docutils literal notranslate"><span class="pre">xlsx</span></code> format.
 This function is useful when one wants to use models that are unique in ANDES.</p>
 <p>The command for converting is <code class="docutils literal notranslate"><span class="pre">--convert</span></code> (or <code class="docutils literal notranslate"><span class="pre">-c</span></code>),
 following the output format (only <code class="docutils literal notranslate"><span class="pre">xlsx</span></code> is currently supported).
@@ -663,7 +667,7 @@ arguments usable with “| xargs andes plot”</p></td>
 </dl>
 </div>
 <div class="section" id="andes-doc">
-<span id="id4"></span><h3>andes doc<a class="headerlink" href="#andes-doc" title="Permalink to this headline">¶</a></h3>
+<span id="id5"></span><h3>andes doc<a class="headerlink" href="#andes-doc" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">doc</span></code> is a tool for quick lookup of model and routine documentation.
 It is intended as a quick way for documentation.</p>
 <p>The basic usage of <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">doc</span></code> is to provide a model name or a routine name as the positional argument.
@@ -1153,7 +1157,7 @@ respectively.</p>
 <div class="section" id="convert-to-xlsx">
 <h4>Convert to xlsx<a class="headerlink" href="#convert-to-xlsx" title="Permalink to this headline">¶</a></h4>
 <p>Please refer to the the <code class="docutils literal notranslate"><span class="pre">--convert</span></code> command for converting a recognized file to xlsx.
-See <a class="reference internal" href="#id3">format converter</a> for more detail.</p>
+See <a class="reference internal" href="#id4">format converter</a> for more detail.</p>
 </div>
 <div class="section" id="data-consistency">
 <h4>Data Consistency<a class="headerlink" href="#data-consistency" title="Permalink to this headline">¶</a></h4>
