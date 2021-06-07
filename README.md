@@ -23,7 +23,7 @@ Features
   which improve the sample efficiency using a mixed-integer program-based expert 
   compared with the traditional exploration-dominant reinforcement learning algorithms.
   
-<img src="project_dis_restoration/results/plots/fig_avg_ratio_comp_IL_RL_n_5.png" width=50%>
+<img src="project_dis_restoration/results/plots/fig_avg_ratio_comp_IL_RL_n_5.png" width=20%>
 
   
 * **IntelliHealer proposes a hierarchical policy network,** 
