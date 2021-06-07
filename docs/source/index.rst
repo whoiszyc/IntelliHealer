@@ -78,7 +78,7 @@ literature:
 The three learn-to-optimize paradigms are illustrated below, where our method serves as an end-to-end paradigm:
 
 .. image:: /../../project_dis_restoration/results/plots/Neural_MIP.PNG
-   :width: 400
+   :width: 700
 
 
 
