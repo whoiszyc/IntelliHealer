@@ -1,0 +1,471 @@
+:mod:`gym_power_res.envs`
+=========================
+
+.. py:module:: gym_power_res.envs
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   DS_pyomo/index.rst
+   GYM_ENV_restoration_distribution/index.rst
+   data_test_case/index.rst
+   util_build_OPT_results/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   gym_power_res.envs.OutageManage
+   gym_power_res.envs.RestorationDisEnv
+   gym_power_res.envs.RestorationDisEnvRL
+   gym_power_res.envs.RestorationDisEnv119
+   gym_power_res.envs.RestorationDisVarConEnv
+
+
+
+
+.. class:: OutageManage
+
+   Distribution system restoration class
+
+   .. attribute:: BigM
+      :annotation: = 100
+
+      
+
+   .. attribute:: FicFlowBigM
+      :annotation: = 100
+
+      
+
+   .. attribute:: epsilon
+      :annotation: = 0.1
+
+      
+
+   .. attribute:: BasePower
+      :annotation: = 1000
+
+      
+
+   .. method:: data_preparation(self, ppc, line_damaged, VS=1.05, dV=0.05)
+
+      read data of distribution network and vehicle routing problem
+      Data is in the format of dictionary
+
+
+   .. method:: solve_network_restoration_varcon(self, Total_Step, Line_Initial, VarCon_Initial, Load_Initial)
+
+      solve a full-step restoration problem with reactive power dispatch
+      :param Total_Step: total step of the problem
+      :param Line_Initial: initial line status
+      :return: restoration plan
+
+
+   .. method:: solve_network_restoration(self, Total_Step, Line_Initial, Load_Initial)
+
+      solve a full-step restoration problem
+      :param Total_Step: total step of the problem
+      :param Line_Initial: initial line status
+      :return: restoration plan
+
+
+   .. method:: solve_load_pickup(self, line_status, load_status=None)
+
+      Given fixed line status, obtain optimal load status
+      -- line status should be a dict with "key" as line name and "int or array" describing status over time interval
+
+
+   .. method:: solve_load_pickup_varcon(self, line_status, varcon, load_status=None)
+
+      Given fixed line status and reactive power dispatch, obtain optimal load status
+      -- line status should be a dict with "key" as line name and "int or array" describing status over time interval
+
+
+   .. method:: get_solution_2d(self, VariableName, NameKey, ListIndex, SolDict=None)
+
+      get solution and store into a one name key structured dictionary
+      :param VariableName: variable name in string format
+      :param NameKey: desired key set in list or range format that you would like to retrieve
+      :param ListIndex: desired index range in list format that you would like to retrieve
+      :param SolDict: dictionary object with plot methods
+      :return: SolDict
+
+
+
+.. class:: RestorationDisEnv(max_disturbance, min_disturbance)
+
+
+   Bases: :py:obj:`gym.Env`
+
+   Restoration env for imitation learning
+
+   .. attribute:: metadata
+      
+
+      
+
+   .. method:: seed(self, seed=None)
+
+      Sets the seed for this env's random number generator(s).
+
+      Note:
+          Some environments use multiple pseudorandom number generators.
+          We want to capture all such seeds used in order to ensure that
+          there aren't accidental correlations between multiple generators.
+
+      Returns:
+          list<bigint>: Returns the list of seeds used in this env's random
+            number generators. The first value in the list should be the
+            "main" seed, or the value which a reproducer should pass to
+            'seed'. Often, the main seed equals the provided 'seed', but
+            this won't be true if seed=None, for example.
+
+
+   .. method:: reset(self, disturbance=None)
+
+      Here we should setup the episode control for the total time horizon, which will be independent of individual segment simulation
+
+
+   .. method:: step(self, action)
+
+      Apply the given actions to the environment for one step
+
+
+   .. method:: dict2list(self, dict)
+
+      convert an order dict to a list
+
+
+   .. method:: render(self, mode='human')
+
+      Renders the environment.
+
+      The set of supported modes varies per environment. (And some
+      environments do not support rendering at all.) By convention,
+      if mode is:
+
+      - human: render to the current display or terminal and
+        return nothing. Usually for human consumption.
+      - rgb_array: Return an numpy.ndarray with shape (x, y, 3),
+        representing RGB values for an x-by-y pixel image, suitable
+        for turning into a video.
+      - ansi: Return a string (str) or StringIO.StringIO containing a
+        terminal-style text representation. The text can include newlines
+        and ANSI escape sequences (e.g. for colors).
+
+      Note:
+          Make sure that your class's metadata 'render.modes' key includes
+            the list of supported modes. It's recommended to call super()
+            in implementations to use the functionality of this method.
+
+      Args:
+          mode (str): the mode to render with
+
+      Example:
+
+      class MyEnv(Env):
+          metadata = {'render.modes': ['human', 'rgb_array']}
+
+          def render(self, mode='human'):
+              if mode == 'rgb_array':
+                  return np.array(...) # return RGB frame suitable for video
+              elif mode == 'human':
+                  ... # pop up a window and render
+              else:
+                  super(MyEnv, self).render(mode=mode) # just raise an exception
+
+
+   .. method:: close(self)
+
+      Override close in your subclass to perform any necessary cleanup.
+
+      Environments will automatically close() themselves when
+      garbage collected or when the program exits.
+
+
+
+.. class:: RestorationDisEnvRL(max_disturbance, min_disturbance)
+
+
+   Bases: :py:obj:`gym.Env`
+
+   Restoration env for StableBaseline3 (reinforcement learning algorithm collections)
+
+   .. attribute:: metadata
+      
+
+      
+
+   .. method:: seed(self, seed=None)
+
+      Sets the seed for this env's random number generator(s).
+
+      Note:
+          Some environments use multiple pseudorandom number generators.
+          We want to capture all such seeds used in order to ensure that
+          there aren't accidental correlations between multiple generators.
+
+      Returns:
+          list<bigint>: Returns the list of seeds used in this env's random
+            number generators. The first value in the list should be the
+            "main" seed, or the value which a reproducer should pass to
+            'seed'. Often, the main seed equals the provided 'seed', but
+            this won't be true if seed=None, for example.
+
+
+   .. method:: reset(self, disturbance=None)
+
+      Here we should setup the episode control for the total time horizon, which will be independent of individual segment simulation
+
+
+   .. method:: step(self, action)
+
+      Apply the given actions to the environment for one step
+
+
+   .. method:: dict2list(self, dict)
+
+      convert an order dict to a list
+
+
+   .. method:: render(self, mode='human')
+
+      Renders the environment.
+
+      The set of supported modes varies per environment. (And some
+      environments do not support rendering at all.) By convention,
+      if mode is:
+
+      - human: render to the current display or terminal and
+        return nothing. Usually for human consumption.
+      - rgb_array: Return an numpy.ndarray with shape (x, y, 3),
+        representing RGB values for an x-by-y pixel image, suitable
+        for turning into a video.
+      - ansi: Return a string (str) or StringIO.StringIO containing a
+        terminal-style text representation. The text can include newlines
+        and ANSI escape sequences (e.g. for colors).
+
+      Note:
+          Make sure that your class's metadata 'render.modes' key includes
+            the list of supported modes. It's recommended to call super()
+            in implementations to use the functionality of this method.
+
+      Args:
+          mode (str): the mode to render with
+
+      Example:
+
+      class MyEnv(Env):
+          metadata = {'render.modes': ['human', 'rgb_array']}
+
+          def render(self, mode='human'):
+              if mode == 'rgb_array':
+                  return np.array(...) # return RGB frame suitable for video
+              elif mode == 'human':
+                  ... # pop up a window and render
+              else:
+                  super(MyEnv, self).render(mode=mode) # just raise an exception
+
+
+   .. method:: close(self)
+
+      Override close in your subclass to perform any necessary cleanup.
+
+      Environments will automatically close() themselves when
+      garbage collected or when the program exits.
+
+
+
+.. class:: RestorationDisEnv119(max_disturbance, min_disturbance)
+
+
+   Bases: :py:obj:`gym.Env`
+
+   Restoration env for imitation learning
+
+   .. attribute:: metadata
+      
+
+      
+
+   .. method:: seed(self, seed=None)
+
+      Sets the seed for this env's random number generator(s).
+
+      Note:
+          Some environments use multiple pseudorandom number generators.
+          We want to capture all such seeds used in order to ensure that
+          there aren't accidental correlations between multiple generators.
+
+      Returns:
+          list<bigint>: Returns the list of seeds used in this env's random
+            number generators. The first value in the list should be the
+            "main" seed, or the value which a reproducer should pass to
+            'seed'. Often, the main seed equals the provided 'seed', but
+            this won't be true if seed=None, for example.
+
+
+   .. method:: reset(self, disturbance=None)
+
+      Here we should setup the episode control for the total time horizon, which will be independent of individual segment simulation
+
+
+   .. method:: step(self, action)
+
+      Apply the given actions to the environment for one step
+
+
+   .. method:: dict2list(self, dict)
+
+      convert an order dict to a list
+
+
+   .. method:: render(self, mode='human')
+
+      Renders the environment.
+
+      The set of supported modes varies per environment. (And some
+      environments do not support rendering at all.) By convention,
+      if mode is:
+
+      - human: render to the current display or terminal and
+        return nothing. Usually for human consumption.
+      - rgb_array: Return an numpy.ndarray with shape (x, y, 3),
+        representing RGB values for an x-by-y pixel image, suitable
+        for turning into a video.
+      - ansi: Return a string (str) or StringIO.StringIO containing a
+        terminal-style text representation. The text can include newlines
+        and ANSI escape sequences (e.g. for colors).
+
+      Note:
+          Make sure that your class's metadata 'render.modes' key includes
+            the list of supported modes. It's recommended to call super()
+            in implementations to use the functionality of this method.
+
+      Args:
+          mode (str): the mode to render with
+
+      Example:
+
+      class MyEnv(Env):
+          metadata = {'render.modes': ['human', 'rgb_array']}
+
+          def render(self, mode='human'):
+              if mode == 'rgb_array':
+                  return np.array(...) # return RGB frame suitable for video
+              elif mode == 'human':
+                  ... # pop up a window and render
+              else:
+                  super(MyEnv, self).render(mode=mode) # just raise an exception
+
+
+   .. method:: close(self)
+
+      Override close in your subclass to perform any necessary cleanup.
+
+      Environments will automatically close() themselves when
+      garbage collected or when the program exits.
+
+
+
+.. class:: RestorationDisVarConEnv(max_disturbance, min_disturbance)
+
+
+   Bases: :py:obj:`gym.Env`
+
+   Restoration env with tieline and reactive power dispatch control
+
+   .. attribute:: metadata
+      
+
+      
+
+   .. method:: seed(self, seed=None)
+
+      Sets the seed for this env's random number generator(s).
+
+      Note:
+          Some environments use multiple pseudorandom number generators.
+          We want to capture all such seeds used in order to ensure that
+          there aren't accidental correlations between multiple generators.
+
+      Returns:
+          list<bigint>: Returns the list of seeds used in this env's random
+            number generators. The first value in the list should be the
+            "main" seed, or the value which a reproducer should pass to
+            'seed'. Often, the main seed equals the provided 'seed', but
+            this won't be true if seed=None, for example.
+
+
+   .. method:: reset(self, disturbance=None)
+
+      Here we should setup the episode control for the total time horizon, which will be independent of individual segment simulation
+
+
+   .. method:: step(self, action, logger=None)
+
+      Apply the given actions to the environment for one step
+      Action here is a dictionary with "tieline" and "varcon"
+
+
+   .. method:: view_grid(self)
+
+
+   .. method:: render(self, mode='human')
+
+      Renders the environment.
+
+      The set of supported modes varies per environment. (And some
+      environments do not support rendering at all.) By convention,
+      if mode is:
+
+      - human: render to the current display or terminal and
+        return nothing. Usually for human consumption.
+      - rgb_array: Return an numpy.ndarray with shape (x, y, 3),
+        representing RGB values for an x-by-y pixel image, suitable
+        for turning into a video.
+      - ansi: Return a string (str) or StringIO.StringIO containing a
+        terminal-style text representation. The text can include newlines
+        and ANSI escape sequences (e.g. for colors).
+
+      Note:
+          Make sure that your class's metadata 'render.modes' key includes
+            the list of supported modes. It's recommended to call super()
+            in implementations to use the functionality of this method.
+
+      Args:
+          mode (str): the mode to render with
+
+      Example:
+
+      class MyEnv(Env):
+          metadata = {'render.modes': ['human', 'rgb_array']}
+
+          def render(self, mode='human'):
+              if mode == 'rgb_array':
+                  return np.array(...) # return RGB frame suitable for video
+              elif mode == 'human':
+                  ... # pop up a window and render
+              else:
+                  super(MyEnv, self).render(mode=mode) # just raise an exception
+
+
+   .. method:: close(self)
+
+      Override close in your subclass to perform any necessary cleanup.
+
+      Environments will automatically close() themselves when
+      garbage collected or when the program exits.
+
+
+

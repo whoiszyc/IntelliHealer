@@ -1,0 +1,78 @@
+:mod:`project_dis_restoration`
+==============================
+
+.. py:module:: project_dis_restoration
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   NN_model/index.rst
+   train_IL_BC_hybrid_feature_flow/index.rst
+   train_IL_BC_hybrid_feature_line/index.rst
+   train_IL_BC_hybrid_feature_load/index.rst
+   train_IL_BC_tieline/index.rst
+   train_IL_BC_tieline_119/index.rst
+   train_RL_tieline__A2C_stablebaselines/index.rst
+   train_RL_tieline__DQN_stablebaselines/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   project_dis_restoration.DNN_TieLine
+   project_dis_restoration.DNN_VarCon
+
+
+
+
+.. class:: DNN_TieLine(observation_space, action_space)
+
+
+   .. method:: collect(self, s, expert_a, other=None)
+
+
+   .. method:: end_collect(self)
+
+
+   .. method:: train(self)
+
+
+   .. method:: predict(self, x, batch_size=1)
+
+      predict on (a batch of) x
+
+
+   .. method:: remember(self, state, action, reward, next_state, done)
+
+
+   .. method:: experience_replay(self)
+
+
+
+.. class:: DNN_VarCon(observation_space, action_space)
+
+
+   .. method:: collect(self, s, expert_a)
+
+
+   .. method:: end_collect(self)
+
+
+   .. method:: train(self)
+
+
+   .. method:: predict(self, x, batch_size=1)
+
+      predict on (a batch of) x
+
+
+

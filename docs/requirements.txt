@@ -1,9 +1,0 @@
-numpy
-scipy
-pandas
-matplotlib
-gym
-keras
-stable-baselines3
-pyomo
-networks

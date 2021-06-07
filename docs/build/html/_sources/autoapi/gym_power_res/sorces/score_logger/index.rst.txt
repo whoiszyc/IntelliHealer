@@ -1,0 +1,56 @@
+:mod:`gym_power_res.sorces.score_logger`
+========================================
+
+.. py:module:: gym_power_res.sorces.score_logger
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   gym_power_res.sorces.score_logger.ScoreLogger
+   gym_power_res.sorces.score_logger.SuccessLogger
+
+
+
+
+.. class:: ScoreLogger(env_name, output_path, AVERAGE_SCORE_TO_SOLVE, CONSECUTIVE_RUNS_TO_SOLVE, title=None)
+
+
+   .. attribute:: line_colors
+      :annotation: = ['b', 'r', 'magenta', 'lime', 'darkorange', 'cyan', 'y', 'purple', 'deepskyblue', 'navy', 'salmon']
+
+      
+
+   .. method:: add_score(self, score, run)
+
+
+   .. method:: _save_png(self, input_path, output_path, x_label, y_label, average_of_n_last, show_goal, show_trend, show_legend)
+
+
+   .. method:: _save_csv(self, path, score)
+
+
+
+.. class:: SuccessLogger(env_name, output_path, title=None)
+
+
+   .. attribute:: line_colors
+      :annotation: = ['b', 'r', 'magenta', 'lime', 'darkorange', 'cyan', 'y', 'purple', 'deepskyblue', 'navy', 'salmon']
+
+      
+
+   .. method:: add_score(self, performance_at_episode, goal_at_episode, value_at_episode, disturb_at_espisode, goal_1=None)
+
+
+   .. method:: _save_png(self, input_path, output_path, x_label, y_label, show_trend, show_legend)
+
+
+   .. method:: _save_csv(self, path, score)
+
+
+

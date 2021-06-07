@@ -1,0 +1,144 @@
+:mod:`project_dis_restoration.train_IL_BC_tieline`
+==================================================
+
+.. py:module:: project_dis_restoration.train_IL_BC_tieline
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   project_dis_restoration.train_IL_BC_tieline.DictList
+   project_dis_restoration.train_IL_BC_tieline.Agent
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   project_dis_restoration.train_IL_BC_tieline.logger_obj
+   project_dis_restoration.train_IL_BC_tieline.main_behavior_cloning
+   project_dis_restoration.train_IL_BC_tieline.main_behavior_cloning_testing
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   project_dis_restoration.train_IL_BC_tieline.ENV_NAME_1
+   project_dis_restoration.train_IL_BC_tieline.ENV_NAME_2
+   project_dis_restoration.train_IL_BC_tieline.WARM_START_OFF
+   project_dis_restoration.train_IL_BC_tieline.NUM_TOTAL_EPISODES
+   project_dis_restoration.train_IL_BC_tieline.MAX_DISTURBANCE
+   project_dis_restoration.train_IL_BC_tieline.MIN_DISTURBANCE
+   project_dis_restoration.train_IL_BC_tieline.output_path
+
+
+.. data:: ENV_NAME_1
+   :annotation: = RestorationDisEnv-v0
+
+   
+
+.. data:: ENV_NAME_2
+   :annotation: = RestorationDisVarConEnv-v0
+
+   
+
+.. data:: WARM_START_OFF
+   :annotation: = 10000
+
+   
+
+.. data:: NUM_TOTAL_EPISODES
+   :annotation: = 10000
+
+   
+
+.. data:: MAX_DISTURBANCE
+   :annotation: = 5
+
+   
+
+.. data:: MIN_DISTURBANCE
+   :annotation: = 5
+
+   
+
+.. class:: DictList
+
+
+   Bases: :py:obj:`dict`
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   .. method:: __setitem__(self, key, value)
+
+      Set self[key] to value.
+
+
+
+.. function:: logger_obj(logger_name, level=logging.DEBUG, verbose=0)
+
+   Method to return a custom logger with the given name and level
+
+
+.. class:: Agent(env, output_path, log_level=logging.DEBUG)
+
+
+   Intelligent agent to interact with the restoration environment
+
+   .. method:: get_expert_policy(self, env, s0)
+
+      get the expert policy by solving the full-period restoration problem
+
+
+   .. method:: load_profile(self, env, load_status)
+
+
+   .. method:: convert_action(self, s1_tieline, s0_tieline)
+
+      :param s1_tieline: current tieline status
+      :param s0_tieline: previsou tieline status
+      :return: integer action from 0 to 5
+
+
+   .. method:: policy(self, s)
+
+
+   .. method:: run_train(self, env, s0, l0=None)
+
+
+   .. method:: run_test(self, env, s0, learned_model=None)
+
+
+
+.. function:: main_behavior_cloning(output_path)
+
+   BC algorithm
+       
+
+
+.. function:: main_behavior_cloning_testing(output_path, learned_model, score_metric)
+
+
+.. data:: output_path
+   
+
+   
+

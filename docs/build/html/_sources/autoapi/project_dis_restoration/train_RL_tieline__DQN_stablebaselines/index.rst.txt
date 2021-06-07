@@ -1,0 +1,172 @@
+:mod:`project_dis_restoration.train_RL_tieline__DQN_stablebaselines`
+====================================================================
+
+.. py:module:: project_dis_restoration.train_RL_tieline__DQN_stablebaselines
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.DictList
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.Agent
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.logger_obj
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.main_DQN
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ENV_NAME_1
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ENV_NAME_2
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.WARM_START_OFF
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.NUM_TOTAL_EPISODES
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ALPHA
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.GAMMA
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.LEARNING_RATE
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MEMORY_SIZE
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.BATCH_SIZE
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_MAX
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_MIN
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_DECAY
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MAX_DISTURBANCE
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MIN_DISTURBANCE
+   project_dis_restoration.train_RL_tieline__DQN_stablebaselines.output_path
+
+
+.. data:: ENV_NAME_1
+   :annotation: = RestorationDisEnv-v0
+
+   
+
+.. data:: ENV_NAME_2
+   :annotation: = RestorationDisEnv-v1
+
+   
+
+.. data:: WARM_START_OFF
+   :annotation: = 200
+
+   
+
+.. data:: NUM_TOTAL_EPISODES
+   :annotation: = 200
+
+   
+
+.. data:: ALPHA
+   :annotation: = 0.1
+
+   
+
+.. data:: GAMMA
+   :annotation: = 0.95
+
+   
+
+.. data:: LEARNING_RATE
+   :annotation: = 0.001
+
+   
+
+.. data:: MEMORY_SIZE
+   :annotation: = 1000000
+
+   
+
+.. data:: BATCH_SIZE
+   :annotation: = 50
+
+   
+
+.. data:: EXPLORATION_MAX
+   :annotation: = 1.0
+
+   
+
+.. data:: EXPLORATION_MIN
+   :annotation: = 0.01
+
+   
+
+.. data:: EXPLORATION_DECAY
+   :annotation: = 1
+
+   
+
+.. data:: MAX_DISTURBANCE
+   :annotation: = 1
+
+   
+
+.. data:: MIN_DISTURBANCE
+   :annotation: = 1
+
+   
+
+.. class:: DictList
+
+
+   Bases: :py:obj:`dict`
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   .. method:: __setitem__(self, key, value)
+
+      Set self[key] to value.
+
+
+
+.. function:: logger_obj(logger_name, level=logging.DEBUG, verbose=0)
+
+   Method to return a custom logger with the given name and level
+
+
+.. class:: Agent(env, output_path, log_level=logging.DEBUG)
+
+
+   .. method:: load_profile(self, env, load_status)
+
+
+   .. method:: convert_action(self, s1_tieline, s0_tieline)
+
+      :param s1_tieline: current tieline status
+      :param s0_tieline: previsou tieline status
+      :return: integer action from 0 to 5
+
+
+   .. method:: run_test(self, env, s0, learned_model=None)
+
+
+
+.. function:: main_DQN(output_path)
+
+
+.. data:: output_path
+   
+
+   
+

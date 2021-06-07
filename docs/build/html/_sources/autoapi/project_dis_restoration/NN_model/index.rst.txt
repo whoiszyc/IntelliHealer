@@ -1,0 +1,196 @@
+:mod:`project_dis_restoration.NN_model`
+=======================================
+
+.. py:module:: project_dis_restoration.NN_model
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   project_dis_restoration.NN_model.LossHistory
+   project_dis_restoration.NN_model.CNN_TieLine
+   project_dis_restoration.NN_model.DNN_TieLine
+   project_dis_restoration.NN_model.DNN_VarCon
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   project_dis_restoration.NN_model.ALPHA
+   project_dis_restoration.NN_model.GAMMA
+   project_dis_restoration.NN_model.LEARNING_RATE
+   project_dis_restoration.NN_model.TRAIN_HIST_SIZE
+   project_dis_restoration.NN_model.EXPERIENCE_MEMORY
+   project_dis_restoration.NN_model.BATCH_SIZE
+   project_dis_restoration.NN_model.MEMORY_SIZE
+   project_dis_restoration.NN_model.EXPLORATION_MAX
+   project_dis_restoration.NN_model.EXPLORATION_MIN
+   project_dis_restoration.NN_model.EXPLORATION_DECAY
+
+
+.. data:: ALPHA
+   :annotation: = 0.1
+
+   
+
+.. data:: GAMMA
+   :annotation: = 0.95
+
+   
+
+.. data:: LEARNING_RATE
+   :annotation: = 0.001
+
+   
+
+.. data:: TRAIN_HIST_SIZE
+   :annotation: = 100000
+
+   
+
+.. data:: EXPERIENCE_MEMORY
+   :annotation: = 100000
+
+   
+
+.. data:: BATCH_SIZE
+   :annotation: = 32
+
+   
+
+.. data:: MEMORY_SIZE
+   :annotation: = 10000000
+
+   
+
+.. data:: EXPLORATION_MAX
+   :annotation: = 1.0
+
+   
+
+.. data:: EXPLORATION_MIN
+   :annotation: = 0.01
+
+   
+
+.. data:: EXPLORATION_DECAY
+   :annotation: = 0.999
+
+   
+
+.. class:: LossHistory
+
+
+   Bases: :py:obj:`keras.callbacks.Callback`
+
+   Abstract base class used to build new callbacks.
+
+   # Properties
+       params: dict. Training parameters
+           (eg. verbosity, batch size, number of epochs...).
+       model: instance of `keras.models.Model`.
+           Reference of the model being trained.
+
+   The `logs` dictionary that callback methods
+   take as argument will contain keys for quantities relevant to
+   the current batch or epoch.
+
+   Currently, the `.fit()` method of the `Sequential` model class
+   will include the following quantities in the `logs` that
+   it passes to its callbacks:
+
+       on_epoch_end: logs include `acc` and `loss`, and
+           optionally include `val_loss`
+           (if validation is enabled in `fit`), and `val_acc`
+           (if validation and accuracy monitoring are enabled).
+       on_batch_begin: logs include `size`,
+           the number of samples in the current batch.
+       on_batch_end: logs include `loss`, and optionally `acc`
+           (if accuracy monitoring is enabled).
+
+   .. method:: on_train_begin(self, logs={})
+
+      Called at the beginning of training.
+
+      Subclasses should override for any actions to run.
+
+      # Arguments
+          logs: dict, currently no data is passed to this argument for this method
+              but that may change in the future.
+
+
+   .. method:: on_batch_end(self, batch, logs={})
+
+      A backwards compatibility alias for `on_train_batch_end`.
+
+
+
+.. class:: CNN_TieLine(observation_space, action_space)
+
+
+   .. method:: collect(self, s, expert_a)
+
+
+   .. method:: end_collect(self)
+
+
+   .. method:: train(self)
+
+
+   .. method:: predict(self, x, batch_size=1)
+
+      predict on (a batch of) x
+
+
+
+.. class:: DNN_TieLine(observation_space, action_space)
+
+
+   .. method:: collect(self, s, expert_a, other=None)
+
+
+   .. method:: end_collect(self)
+
+
+   .. method:: train(self)
+
+
+   .. method:: predict(self, x, batch_size=1)
+
+      predict on (a batch of) x
+
+
+   .. method:: remember(self, state, action, reward, next_state, done)
+
+
+   .. method:: experience_replay(self)
+
+
+
+.. class:: DNN_VarCon(observation_space, action_space)
+
+
+   .. method:: collect(self, s, expert_a)
+
+
+   .. method:: end_collect(self)
+
+
+   .. method:: train(self)
+
+
+   .. method:: predict(self, x, batch_size=1)
+
+      predict on (a batch of) x
+
+
+

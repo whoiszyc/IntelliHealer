@@ -1,0 +1,448 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>project_dis_restoration.train_RL_tieline__DQN_stablebaselines &mdash; IntelliHealer 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> IntelliHealer
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">IntelliHealer Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">IntelliHealer</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/autoapi/project_dis_restoration/train_RL_tieline__DQN_stablebaselines/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-project_dis_restoration.train_RL_tieline__DQN_stablebaselines">
+<span id="project-dis-restoration-train-rl-tieline-dqn-stablebaselines"></span><h1><a class="reference internal" href="#module-project_dis_restoration.train_RL_tieline__DQN_stablebaselines" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines"><code class="xref py py-mod docutils literal notranslate"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines</span></code></a><a class="headerlink" href="#module-project_dis_restoration.train_RL_tieline__DQN_stablebaselines" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.DictList" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.DictList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DictList</span></code></a></p></td>
+<td><p>dict() -&gt; new empty dictionary</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.Agent" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.Agent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Agent</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.logger_obj" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.logger_obj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logger_obj</span></code></a>(logger_name, level=logging.DEBUG, verbose=0)</p></td>
+<td><p>Method to return a custom logger with the given name and level</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.main_DQN" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.main_DQN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">main_DQN</span></code></a>(output_path)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ENV_NAME_1" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ENV_NAME_1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ENV_NAME_1</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ENV_NAME_2" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ENV_NAME_2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ENV_NAME_2</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.WARM_START_OFF" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.WARM_START_OFF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WARM_START_OFF</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.NUM_TOTAL_EPISODES" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.NUM_TOTAL_EPISODES"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NUM_TOTAL_EPISODES</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ALPHA" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ALPHA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ALPHA</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.GAMMA" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.GAMMA"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GAMMA</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.LEARNING_RATE" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.LEARNING_RATE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LEARNING_RATE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MEMORY_SIZE" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MEMORY_SIZE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MEMORY_SIZE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.BATCH_SIZE" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.BATCH_SIZE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BATCH_SIZE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_MAX" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_MAX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EXPLORATION_MAX</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_MIN" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_MIN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EXPLORATION_MIN</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_DECAY" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_DECAY"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EXPLORATION_DECAY</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MAX_DISTURBANCE" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MAX_DISTURBANCE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MAX_DISTURBANCE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MIN_DISTURBANCE" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MIN_DISTURBANCE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MIN_DISTURBANCE</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.output_path" title="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.output_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">output_path</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ENV_NAME_1">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">ENV_NAME_1</span></span><em class="property"> <span class="pre">=</span> <span class="pre">RestorationDisEnv-v0</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ENV_NAME_1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ENV_NAME_2">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">ENV_NAME_2</span></span><em class="property"> <span class="pre">=</span> <span class="pre">RestorationDisEnv-v1</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ENV_NAME_2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.WARM_START_OFF">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">WARM_START_OFF</span></span><em class="property"> <span class="pre">=</span> <span class="pre">200</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.WARM_START_OFF" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.NUM_TOTAL_EPISODES">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">NUM_TOTAL_EPISODES</span></span><em class="property"> <span class="pre">=</span> <span class="pre">200</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.NUM_TOTAL_EPISODES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ALPHA">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">ALPHA</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0.1</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.ALPHA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.GAMMA">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">GAMMA</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0.95</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.GAMMA" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.LEARNING_RATE">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">LEARNING_RATE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0.001</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.LEARNING_RATE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MEMORY_SIZE">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">MEMORY_SIZE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1000000</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MEMORY_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.BATCH_SIZE">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">BATCH_SIZE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">50</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.BATCH_SIZE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_MAX">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">EXPLORATION_MAX</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1.0</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_MAX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_MIN">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">EXPLORATION_MIN</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0.01</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_MIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_DECAY">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">EXPLORATION_DECAY</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.EXPLORATION_DECAY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MAX_DISTURBANCE">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">MAX_DISTURBANCE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MAX_DISTURBANCE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MIN_DISTURBANCE">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">MIN_DISTURBANCE</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.MIN_DISTURBANCE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.DictList">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">DictList</span></span><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.DictList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>dict() -&gt; new empty dictionary
+dict(mapping) -&gt; new dictionary initialized from a mapping object’s</p>
+<blockquote>
+<div><p>(key, value) pairs</p>
+</div></blockquote>
+<dl>
+<dt>dict(iterable) -&gt; new dictionary initialized as if via:</dt><dd><p>d = {}
+for k, v in iterable:</p>
+<blockquote>
+<div><p>d[k] = v</p>
+</div></blockquote>
+</dd>
+<dt>dict(<a href="#id1"><span class="problematic" id="id2">**</span></a>kwargs) -&gt; new dictionary initialized with the name=value pairs</dt><dd><p>in the keyword argument list.  For example:  dict(one=1, two=2)</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.DictList.__setitem__">
+<span class="sig-name descname"><span class="pre">__setitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.DictList.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set self[key] to value.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.logger_obj">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">logger_obj</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">logging.DEBUG</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.logger_obj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method to return a custom logger with the given name and level</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.Agent">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">Agent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">logging.DEBUG</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.Agent" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.Agent.load_profile">
+<span class="sig-name descname"><span class="pre">load_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_status</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.Agent.load_profile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.Agent.convert_action">
+<span class="sig-name descname"><span class="pre">convert_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s1_tieline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s0_tieline</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.Agent.convert_action" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s1_tieline</strong> – current tieline status</p></li>
+<li><p><strong>s0_tieline</strong> – previsou tieline status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>integer action from 0 to 5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.Agent.run_test">
+<span class="sig-name descname"><span class="pre">run_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learned_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.Agent.run_test" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.main_DQN">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">main_DQN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.main_DQN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="project_dis_restoration.train_RL_tieline__DQN_stablebaselines.output_path">
+<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_RL_tieline__DQN_stablebaselines.</span></span><span class="sig-name descname"><span class="pre">output_path</span></span><a class="headerlink" href="#project_dis_restoration.train_RL_tieline__DQN_stablebaselines.output_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Yichen Zhang.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

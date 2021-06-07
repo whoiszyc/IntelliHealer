@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
   
@@ -95,10 +96,75 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Main Functions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#outagemanage">OutageManage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#restoration-gym">Restoration Gym</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#restoration-agent">Restoration Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restoration-agent">Restoration Agent</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gym_power_res.envs.DS_pyomo.OutageManage">OutageManage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.DS_pyomo.OutageManage.BasePower">BasePower</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.DS_pyomo.OutageManage.BigM">BigM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.DS_pyomo.OutageManage.FicFlowBigM">FicFlowBigM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.DS_pyomo.OutageManage.data_preparation">data_preparation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.DS_pyomo.OutageManage.epsilon">epsilon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.DS_pyomo.OutageManage.get_solution_2d">get_solution_2d</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.DS_pyomo.OutageManage.solve_load_pickup">solve_load_pickup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.DS_pyomo.OutageManage.solve_load_pickup_varcon">solve_load_pickup_varcon</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.DS_pyomo.OutageManage.solve_network_restoration">solve_network_restoration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.DS_pyomo.OutageManage.solve_network_restoration_varcon">solve_network_restoration_varcon</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnvRL">RestorationDisEnvRL</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnvRL.close">close</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnvRL.dict2list">dict2list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnvRL.metadata">metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnvRL.render">render</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnvRL.reset">reset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnvRL.seed">seed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnvRL.step">step</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv">RestorationDisEnv</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.close">close</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.dict2list">dict2list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.metadata">metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.render">render</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.reset">reset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.seed">seed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.step">step</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119">RestorationDisEnv119</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.close">close</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.dict2list">dict2list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.metadata">metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.render">render</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.reset">reset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.seed">seed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.step">step</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv">RestorationDisVarConEnv</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.close">close</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.metadata">metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.render">render</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.reset">reset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.seed">seed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.step">step</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.view_grid">view_grid</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#project_dis_restoration.train_IL_BC_tieline.Agent">Agent</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#project_dis_restoration.train_IL_BC_tieline.Agent.convert_action">convert_action</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project_dis_restoration.train_IL_BC_tieline.Agent.get_expert_policy">get_expert_policy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project_dis_restoration.train_IL_BC_tieline.Agent.load_profile">load_profile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project_dis_restoration.train_IL_BC_tieline.Agent.policy">policy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project_dis_restoration.train_IL_BC_tieline.Agent.run_test">run_test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project_dis_restoration.train_IL_BC_tieline.Agent.run_train">run_train</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
 </ul>
 
             

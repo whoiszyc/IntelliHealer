@@ -92,6 +92,5 @@ The three learn-to-optimize paradigms are illustrated below, where our method se
 
    install.rst
    tutorial.rst
-   function.rst
    about.rst
 

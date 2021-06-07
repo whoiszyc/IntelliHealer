@@ -1,0 +1,138 @@
+:mod:`project_dis_restoration.train_IL_BC_hybrid_feature_load`
+==============================================================
+
+.. py:module:: project_dis_restoration.train_IL_BC_hybrid_feature_load
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   project_dis_restoration.train_IL_BC_hybrid_feature_load.DictList
+   project_dis_restoration.train_IL_BC_hybrid_feature_load.Agent
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   project_dis_restoration.train_IL_BC_hybrid_feature_load.logger_obj
+   project_dis_restoration.train_IL_BC_hybrid_feature_load.main_hybrid_behavior_cloning
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   project_dis_restoration.train_IL_BC_hybrid_feature_load.ENV_NAME_1
+   project_dis_restoration.train_IL_BC_hybrid_feature_load.ENV_NAME_2
+   project_dis_restoration.train_IL_BC_hybrid_feature_load.NUM_TRAIN_EPISODES
+   project_dis_restoration.train_IL_BC_hybrid_feature_load.NUM_TOTAL_EPISODES
+   project_dis_restoration.train_IL_BC_hybrid_feature_load.MAX_DISTURBANCE
+   project_dis_restoration.train_IL_BC_hybrid_feature_load.MIN_DISTURBANCE
+   project_dis_restoration.train_IL_BC_hybrid_feature_load.output_path
+
+
+.. data:: ENV_NAME_1
+   :annotation: = RestorationDisEnv-v0
+
+   
+
+.. data:: ENV_NAME_2
+   :annotation: = RestorationDisVarConEnv-v0
+
+   
+
+.. data:: NUM_TRAIN_EPISODES
+   :annotation: = 500
+
+   
+
+.. data:: NUM_TOTAL_EPISODES
+   :annotation: = 500
+
+   
+
+.. data:: MAX_DISTURBANCE
+   :annotation: = 2
+
+   
+
+.. data:: MIN_DISTURBANCE
+   :annotation: = 2
+
+   
+
+.. class:: DictList
+
+
+   Bases: :py:obj:`dict`
+
+   dict() -> new empty dictionary
+   dict(mapping) -> new dictionary initialized from a mapping object's
+       (key, value) pairs
+   dict(iterable) -> new dictionary initialized as if via:
+       d = {}
+       for k, v in iterable:
+           d[k] = v
+   dict(**kwargs) -> new dictionary initialized with the name=value pairs
+       in the keyword argument list.  For example:  dict(one=1, two=2)
+
+   .. method:: __setitem__(self, key, value)
+
+      Set self[key] to value.
+
+
+
+.. function:: logger_obj(logger_name, level=logging.DEBUG, verbose=0)
+
+   Method to return a custom logger with the given name and level
+
+
+.. class:: Agent(env, output_path, log_level=logging.DEBUG)
+
+
+   .. method:: get_expert_policy(self, env, s0)
+
+      get the expert policy by solving the full-period restoration problem
+
+
+   .. method:: load_profile(self, env, load_status)
+
+
+   .. method:: convert_tieline_action(self, s1_tieline, s0_tieline)
+
+      :param s1_tieline: current tieline status
+      :param s0_tieline: previsou tieline status
+      :return: integer action from 0 to 5
+
+
+   .. method:: policy_hybrid(self, env, s_high, s_low, mode)
+
+
+   .. method:: find_float_key(self, dict, near_key)
+
+
+   .. method:: run_train(self, env, s0)
+
+
+   .. method:: run_test(self, env, s0)
+
+
+
+.. function:: main_hybrid_behavior_cloning(output_path)
+
+
+.. data:: output_path
+   
+
+   
+

@@ -1,0 +1,129 @@
+:mod:`gym_power_res.envs.DS_pyomo`
+==================================
+
+.. py:module:: gym_power_res.envs.DS_pyomo
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   gym_power_res.envs.DS_pyomo.SolutionDict
+   gym_power_res.envs.DS_pyomo.OutageManage
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   gym_power_res.envs.DS_pyomo.ppc
+
+
+.. class:: SolutionDict
+
+
+   Bases: :py:obj:`collections.OrderedDict`
+
+   Solution dictionary is an ordered dictionary that stores the optimization results
+   Solution dictionary struture: D[name key]=time series data
+
+   .. method:: copy_data(self, DictData)
+
+
+   .. method:: plot_2d(self, x_str='Time', y_str='Value', title_str='Results', figsize=(15, 7), legendlist=None, show=True, save=False, folder=None)
+
+      step plot
+
+
+   .. method:: plot_step_2d(self, x_str='Time', y_str='Value', title_str='Results', figsize=(15, 7), legendlist=None, show=True, save=False, folder=None)
+
+      step plot
+
+
+   .. method:: plot_bin_2d(self, x_str='Time', y_str='Value', title_str='Results', figsize=(15, 7), show=True, save=False, folder=None)
+
+      step plot
+
+
+
+.. class:: OutageManage
+
+   Distribution system restoration class
+
+   .. attribute:: BigM
+      :annotation: = 100
+
+      
+
+   .. attribute:: FicFlowBigM
+      :annotation: = 100
+
+      
+
+   .. attribute:: epsilon
+      :annotation: = 0.1
+
+      
+
+   .. attribute:: BasePower
+      :annotation: = 1000
+
+      
+
+   .. method:: data_preparation(self, ppc, line_damaged, VS=1.05, dV=0.05)
+
+      read data of distribution network and vehicle routing problem
+      Data is in the format of dictionary
+
+
+   .. method:: solve_network_restoration_varcon(self, Total_Step, Line_Initial, VarCon_Initial, Load_Initial)
+
+      solve a full-step restoration problem with reactive power dispatch
+      :param Total_Step: total step of the problem
+      :param Line_Initial: initial line status
+      :return: restoration plan
+
+
+   .. method:: solve_network_restoration(self, Total_Step, Line_Initial, Load_Initial)
+
+      solve a full-step restoration problem
+      :param Total_Step: total step of the problem
+      :param Line_Initial: initial line status
+      :return: restoration plan
+
+
+   .. method:: solve_load_pickup(self, line_status, load_status=None)
+
+      Given fixed line status, obtain optimal load status
+      -- line status should be a dict with "key" as line name and "int or array" describing status over time interval
+
+
+   .. method:: solve_load_pickup_varcon(self, line_status, varcon, load_status=None)
+
+      Given fixed line status and reactive power dispatch, obtain optimal load status
+      -- line status should be a dict with "key" as line name and "int or array" describing status over time interval
+
+
+   .. method:: get_solution_2d(self, VariableName, NameKey, ListIndex, SolDict=None)
+
+      get solution and store into a one name key structured dictionary
+      :param VariableName: variable name in string format
+      :param NameKey: desired key set in list or range format that you would like to retrieve
+      :param ListIndex: desired index range in list format that you would like to retrieve
+      :param SolDict: dictionary object with plot methods
+      :return: SolDict
+
+
+
+.. data:: ppc
+   
+
+   
+

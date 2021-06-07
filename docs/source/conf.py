@@ -33,8 +33,14 @@ release = '0.1.0'
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
+    'autoapi.extension',
     'sphinx.ext.autosummary',
     'sphinx.ext.githubpages',
+]
+
+autoapi_dirs = [
+    '../../gym_power_res',
+    '../../project_dis_restoration'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
