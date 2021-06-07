@@ -23,20 +23,19 @@ Features
   which improve the sample efficiency using a mixed-integer program-based expert 
   compared with the traditional exploration-dominant reinforcement learning algorithms.
   
-  <img src="project_dis_restoration/results/plots/fig_avg_ratio_comp_IL_RL_n_5.pdf" width=50%>
-
+  <img src="project_dis_restoration/results/plots/Algorithms.png" width=50%>
+  <img src="project_dis_restoration/results/plots/fig_avg_ratio_comp_IL_RL_n_5.png" width=50%>
   
 * **IntelliHealer proposes a hierarchical policy network,** 
   which can accommodate both discrete and continuous actions. 
-![](https://raw.githubusercontent.com/cuihantao/andes/master/docs/source/images/example-npcc/omega.png)
+  
+  <img src="project_dis_restoration/results/plots/Hybrid_policy.png" width=50%>
  
-* **MIPLearn provides a set of benchmark problems and random instance generators,** 
-  covering applications from different domains, which can be used to quickly evaluate 
-  new learning-enhanced MIP techniques in a measurable and reproducible way.
-
-* **MIPLearn is customizable and extensible**. For MIP and ML researchers exploring 
-  new techniques to accelerate MIP performance based on historical data, each component 
-  of the reference solver can be individually replaced, extended or customized.
+* **IntelliHealer provides an [OpenAI-Gym](https://gym.openai.com/) environment for 
+  distribution system restoration,** 
+  which can be connected to [Stable-Baselines3](https://stable-baselines3.readthedocs.io/en/master/?badge=master), 
+  a state-of-the-art collection of reinforcement learning algorithms. Currently, the Gym environment
+  contains two test feeders: 33-node and 119-node system.
 
 Documentation
 -------------
@@ -51,7 +50,7 @@ Citing IntelliHealer
 ---------------
 
 If you find this code useful in your research, please consider citing:
-* Y. Zhang, F. Qiu, T. Hong, Z. Wang, and F. Li, “Hybrid imitation learning for real-time service restoration in resilient distribution systems,” IEEE Trans. Ind. Informatics, pp. 1-11,early access, 2021, doi: 10.1109/TII.2021.3078110.
+``Y. Zhang, F. Qiu, T. Hong, Z. Wang, and F. Li, “Hybrid imitation learning for real-time service restoration in resilient distribution systems,” IEEE Trans. Ind. Informatics, pp. 1-11,early access, 2021, doi: 10.1109/TII.2021.3078110.``
 ```bibtex
 @article{Zhang2021_IntelliHealer,
 author = {Zhang, Yichen and Qiu, Feng and Hong, Tianqi and Wang, Zhaoyu and Li, Fangxing Fran},
