@@ -93,10 +93,9 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Main Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#system">System</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#outagemanage">OutageManage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restoration-gym">Restoration Gym</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#restoration-agent">Restoration Agent</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
@@ -169,25 +168,99 @@
             
   <div class="section" id="main-functions">
 <span id="function"></span><h1>Main Functions<a class="headerlink" href="#main-functions" title="Permalink to this headline">¶</a></h1>
-<p>This chapter contains advanced topics on modeling and simulation and how they are implemented in ANDES.
-It aims to provide an in-depth explanation of how the ANDES framework is set up for symbolic modeling and
-numerical simulation. It also provides an example for interested users to implement customized DAE models.</p>
-<div class="section" id="system">
-<h2>System<a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="overview">
-<h3>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h3>
-<p>System is the top-level class for organizing power system models and orchestrating calculations.</p>
+<p>There are three major classes in <code class="docutils literal notranslate"><span class="pre">IntelliHealer</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OutageManage</span></code>: formulate and solve restoration optimization problems</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RestorationDisEnv</span></code>, <code class="docutils literal notranslate"><span class="pre">RestorationDisEnv119</span></code>, <code class="docutils literal notranslate"><span class="pre">RestorationDisEnvRL</span></code>: interact with agent for learning</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Agent</span></code>: solve imitation and reinforcement learning problems</p></li>
+</ul>
+<div class="section" id="outagemanage">
+<h2>OutageManage<a class="headerlink" href="#outagemanage" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">gym_power_res.envs.DS_pyomo.</span></span><span class="sig-name descname"><span class="pre">OutageManage</span></span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Distribution system restoration class</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.BasePower">
+<span class="sig-name descname"><span class="pre">BasePower</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1000</span></em><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.BasePower" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.BigM">
+<span class="sig-name descname"><span class="pre">BigM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">100</span></em><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.BigM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.FicFlowBigM">
+<span class="sig-name descname"><span class="pre">FicFlowBigM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">100</span></em><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.FicFlowBigM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.data_preparation">
+<span class="sig-name descname"><span class="pre">data_preparation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ppc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_damaged</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VS</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dV</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.data_preparation" title="Permalink to this definition">¶</a></dt>
+<dd><p>read data of distribution network and vehicle routing problem
+Data is in the format of dictionary</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.epsilon">
+<span class="sig-name descname"><span class="pre">epsilon</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0.1</span></em><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.epsilon" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.get_solution_2d">
+<span class="sig-name descname"><span class="pre">get_solution_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">VariableName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NameKey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ListIndex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SolDict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.get_solution_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>get solution and store into a one name key structured dictionary
+:param VariableName: variable name in string format
+:param NameKey: desired key set in list or range format that you would like to retrieve
+:param ListIndex: desired index range in list format that you would like to retrieve
+:param SolDict: dictionary object with plot methods
+:return: SolDict</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.solve_load_pickup">
+<span class="sig-name descname"><span class="pre">solve_load_pickup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line_status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.solve_load_pickup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given fixed line status, obtain optimal load status
+– line status should be a dict with “key” as line name and “int or array” describing status over time interval</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.solve_load_pickup_varcon">
+<span class="sig-name descname"><span class="pre">solve_load_pickup_varcon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line_status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varcon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.solve_load_pickup_varcon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given fixed line status and reactive power dispatch, obtain optimal load status
+– line status should be a dict with “key” as line name and “int or array” describing status over time interval</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.solve_network_restoration">
+<span class="sig-name descname"><span class="pre">solve_network_restoration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Total_Step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Line_Initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Load_Initial</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.solve_network_restoration" title="Permalink to this definition">¶</a></dt>
+<dd><p>solve a full-step restoration problem
+:param Total_Step: total step of the problem
+:param Line_Initial: initial line status
+:return: restoration plan</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.solve_network_restoration_varcon">
+<span class="sig-name descname"><span class="pre">solve_network_restoration_varcon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Total_Step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Line_Initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VarCon_Initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Load_Initial</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.solve_network_restoration_varcon" title="Permalink to this definition">¶</a></dt>
+<dd><p>solve a full-step restoration problem with reactive power dispatch
+:param Total_Step: total step of the problem
+:param Line_Initial: initial line status
+:return: restoration plan</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="restoration-gym">
+<h2>Restoration Gym<a class="headerlink" href="#restoration-gym" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnvRL">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">gym_power_res.envs.GYM_ENV_restoration_distribution.</span></span><span class="sig-name descname"><span class="pre">RestorationDisEnvRL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_disturbance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_disturbance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnvRL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">gym.core.Env</span></code></p>
-<p>This is a class implementation of a simple BLE client.
-:param iface: The Bluetooth interface on which to make the connection. On Linux, 0 means <cite>/dev/hci0</cite>, 1 means <cite>/dev/hci1</cite> and so on., defaults to 0
-:type iface: int, optional
-:param scanCallback: A function handle of the form <code class="docutils literal notranslate"><span class="pre">callback(client,</span> <span class="pre">device,</span> <span class="pre">isNewDevice,</span> <span class="pre">isNewData)</span></code>, where <code class="docutils literal notranslate"><span class="pre">client</span></code> is a handle to the <code class="xref py py-class docutils literal notranslate"><span class="pre">simpleble.SimpleBleClient</span></code> that invoked the callback and <code class="docutils literal notranslate"><span class="pre">device</span></code> is the detected <code class="xref py py-class docutils literal notranslate"><span class="pre">simpleble.SimpleBleDevice</span></code> object. <code class="docutils literal notranslate"><span class="pre">isNewDev</span></code> is <cite>True</cite> if the device (as identified by its MAC address) has not been seen before by the scanner, and <cite>False</cite> otherwise. <code class="docutils literal notranslate"><span class="pre">isNewData</span></code> is <cite>True</cite> if new or updated advertising data is available, defaults to None
-:type scanCallback: function, optional
-:param notificationCallback: A function handle of the form <code class="docutils literal notranslate"><span class="pre">callback(client,</span> <span class="pre">characteristic,</span> <span class="pre">data)</span></code>, where <code class="docutils literal notranslate"><span class="pre">client</span></code> is a handle to the <code class="xref py py-class docutils literal notranslate"><span class="pre">simpleble.SimpleBleClient</span></code> that invoked the callback, <code class="docutils literal notranslate"><span class="pre">characteristic</span></code> is the notified <code class="xref py py-class docutils literal notranslate"><span class="pre">bluepy.blte.Characteristic</span></code> object and data is a <cite>bytearray</cite> containing the updated value. Defaults to None
-:type notificationCallback: function, optional</p>
+<p>Restoration env for StableBaseline3 (reinforcement learning algorithm collections)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnvRL.close">
 <span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnvRL.close" title="Permalink to this definition">¶</a></dt>
@@ -287,111 +360,366 @@ this won’t be true if seed=None, for example.</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">gym_power_res.envs.DS_pyomo.</span></span><span class="sig-name descname"><span class="pre">OutageManage</span></span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">gym_power_res.envs.GYM_ENV_restoration_distribution.</span></span><span class="sig-name descname"><span class="pre">RestorationDisEnv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_disturbance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_disturbance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">gym.core.Env</span></code></p>
+<p>Restoration env for imitation learning</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override close in your subclass to perform any necessary cleanup.</p>
+<p>Environments will automatically close() themselves when
+garbage collected or when the program exits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.dict2list">
+<span class="sig-name descname"><span class="pre">dict2list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.dict2list" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert an order dict to a list</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.metadata">
+<span class="sig-name descname"><span class="pre">metadata</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{'render.modes':</span> <span class="pre">['human']}</span></em><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'human'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders the environment.</p>
+<p>The set of supported modes varies per environment. (And some
+environments do not support rendering at all.) By convention,
+if mode is:</p>
+<ul class="simple">
+<li><p>human: render to the current display or terminal and
+return nothing. Usually for human consumption.</p></li>
+<li><p>rgb_array: Return an numpy.ndarray with shape (x, y, 3),
+representing RGB values for an x-by-y pixel image, suitable
+for turning into a video.</p></li>
+<li><p>ansi: Return a string (str) or StringIO.StringIO containing a
+terminal-style text representation. The text can include newlines
+and ANSI escape sequences (e.g. for colors).</p></li>
+</ul>
+<dl class="simple">
+<dt>Note:</dt><dd><dl class="simple">
+<dt>Make sure that your class’s metadata ‘render.modes’ key includes</dt><dd><p>the list of supported modes. It’s recommended to call super()
+in implementations to use the functionality of this method.</p>
+</dd>
+</dl>
+</dd>
+<dt>Args:</dt><dd><p>mode (str): the mode to render with</p>
+</dd>
+</dl>
+<p>Example:</p>
+<dl>
+<dt>class MyEnv(Env):</dt><dd><p>metadata = {‘render.modes’: [‘human’, ‘rgb_array’]}</p>
+<dl class="simple">
+<dt>def render(self, mode=’human’):</dt><dd><dl class="simple">
+<dt>if mode == ‘rgb_array’:</dt><dd><p>return np.array(…) # return RGB frame suitable for video</p>
+</dd>
+<dt>elif mode == ‘human’:</dt><dd><p>… # pop up a window and render</p>
+</dd>
+<dt>else:</dt><dd><p>super(MyEnv, self).render(mode=mode) # just raise an exception</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">disturbance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Here we should setup the episode control for the total time horizon, which will be independent of individual segment simulation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.seed">
+<span class="sig-name descname"><span class="pre">seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the seed for this env’s random number generator(s).</p>
+<dl class="simple">
+<dt>Note:</dt><dd><p>Some environments use multiple pseudorandom number generators.
+We want to capture all such seeds used in order to ensure that
+there aren’t accidental correlations between multiple generators.</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>list&lt;bigint&gt;: Returns the list of seeds used in this env’s random</dt><dd><p>number generators. The first value in the list should be the
+“main” seed, or the value which a reproducer should pass to
+‘seed’. Often, the main seed equals the provided ‘seed’, but
+this won’t be true if seed=None, for example.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the given actions to the environment for one step</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">gym_power_res.envs.GYM_ENV_restoration_distribution.</span></span><span class="sig-name descname"><span class="pre">RestorationDisEnv119</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_disturbance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_disturbance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">gym.core.Env</span></code></p>
+<p>Restoration env for imitation learning</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override close in your subclass to perform any necessary cleanup.</p>
+<p>Environments will automatically close() themselves when
+garbage collected or when the program exits.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.dict2list">
+<span class="sig-name descname"><span class="pre">dict2list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.dict2list" title="Permalink to this definition">¶</a></dt>
+<dd><p>convert an order dict to a list</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.metadata">
+<span class="sig-name descname"><span class="pre">metadata</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{'render.modes':</span> <span class="pre">['human']}</span></em><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'human'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders the environment.</p>
+<p>The set of supported modes varies per environment. (And some
+environments do not support rendering at all.) By convention,
+if mode is:</p>
+<ul class="simple">
+<li><p>human: render to the current display or terminal and
+return nothing. Usually for human consumption.</p></li>
+<li><p>rgb_array: Return an numpy.ndarray with shape (x, y, 3),
+representing RGB values for an x-by-y pixel image, suitable
+for turning into a video.</p></li>
+<li><p>ansi: Return a string (str) or StringIO.StringIO containing a
+terminal-style text representation. The text can include newlines
+and ANSI escape sequences (e.g. for colors).</p></li>
+</ul>
+<dl class="simple">
+<dt>Note:</dt><dd><dl class="simple">
+<dt>Make sure that your class’s metadata ‘render.modes’ key includes</dt><dd><p>the list of supported modes. It’s recommended to call super()
+in implementations to use the functionality of this method.</p>
+</dd>
+</dl>
+</dd>
+<dt>Args:</dt><dd><p>mode (str): the mode to render with</p>
+</dd>
+</dl>
+<p>Example:</p>
+<dl>
+<dt>class MyEnv(Env):</dt><dd><p>metadata = {‘render.modes’: [‘human’, ‘rgb_array’]}</p>
+<dl class="simple">
+<dt>def render(self, mode=’human’):</dt><dd><dl class="simple">
+<dt>if mode == ‘rgb_array’:</dt><dd><p>return np.array(…) # return RGB frame suitable for video</p>
+</dd>
+<dt>elif mode == ‘human’:</dt><dd><p>… # pop up a window and render</p>
+</dd>
+<dt>else:</dt><dd><p>super(MyEnv, self).render(mode=mode) # just raise an exception</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">disturbance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Here we should setup the episode control for the total time horizon, which will be independent of individual segment simulation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.seed">
+<span class="sig-name descname"><span class="pre">seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the seed for this env’s random number generator(s).</p>
+<dl class="simple">
+<dt>Note:</dt><dd><p>Some environments use multiple pseudorandom number generators.
+We want to capture all such seeds used in order to ensure that
+there aren’t accidental correlations between multiple generators.</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>list&lt;bigint&gt;: Returns the list of seeds used in this env’s random</dt><dd><p>number generators. The first value in the list should be the
+“main” seed, or the value which a reproducer should pass to
+‘seed’. Often, the main seed equals the provided ‘seed’, but
+this won’t be true if seed=None, for example.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisEnv119.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the given actions to the environment for one step</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">gym_power_res.envs.GYM_ENV_restoration_distribution.</span></span><span class="sig-name descname"><span class="pre">RestorationDisVarConEnv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_disturbance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_disturbance</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">gym.core.Env</span></code></p>
+<p>Restoration env with tieline and reactive power dispatch control</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override close in your subclass to perform any necessary cleanup.</p>
+<p>Environments will automatically close() themselves when
+garbage collected or when the program exits.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.metadata">
+<span class="sig-name descname"><span class="pre">metadata</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{'render.modes':</span> <span class="pre">['human']}</span></em><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.metadata" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.render">
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'human'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renders the environment.</p>
+<p>The set of supported modes varies per environment. (And some
+environments do not support rendering at all.) By convention,
+if mode is:</p>
+<ul class="simple">
+<li><p>human: render to the current display or terminal and
+return nothing. Usually for human consumption.</p></li>
+<li><p>rgb_array: Return an numpy.ndarray with shape (x, y, 3),
+representing RGB values for an x-by-y pixel image, suitable
+for turning into a video.</p></li>
+<li><p>ansi: Return a string (str) or StringIO.StringIO containing a
+terminal-style text representation. The text can include newlines
+and ANSI escape sequences (e.g. for colors).</p></li>
+</ul>
+<dl class="simple">
+<dt>Note:</dt><dd><dl class="simple">
+<dt>Make sure that your class’s metadata ‘render.modes’ key includes</dt><dd><p>the list of supported modes. It’s recommended to call super()
+in implementations to use the functionality of this method.</p>
+</dd>
+</dl>
+</dd>
+<dt>Args:</dt><dd><p>mode (str): the mode to render with</p>
+</dd>
+</dl>
+<p>Example:</p>
+<dl>
+<dt>class MyEnv(Env):</dt><dd><p>metadata = {‘render.modes’: [‘human’, ‘rgb_array’]}</p>
+<dl class="simple">
+<dt>def render(self, mode=’human’):</dt><dd><dl class="simple">
+<dt>if mode == ‘rgb_array’:</dt><dd><p>return np.array(…) # return RGB frame suitable for video</p>
+</dd>
+<dt>elif mode == ‘human’:</dt><dd><p>… # pop up a window and render</p>
+</dd>
+<dt>else:</dt><dd><p>super(MyEnv, self).render(mode=mode) # just raise an exception</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">disturbance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Here we should setup the episode control for the total time horizon, which will be independent of individual segment simulation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.seed">
+<span class="sig-name descname"><span class="pre">seed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.seed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the seed for this env’s random number generator(s).</p>
+<dl class="simple">
+<dt>Note:</dt><dd><p>Some environments use multiple pseudorandom number generators.
+We want to capture all such seeds used in order to ensure that
+there aren’t accidental correlations between multiple generators.</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>list&lt;bigint&gt;: Returns the list of seeds used in this env’s random</dt><dd><p>number generators. The first value in the list should be the
+“main” seed, or the value which a reproducer should pass to
+‘seed’. Often, the main seed equals the provided ‘seed’, but
+this won’t be true if seed=None, for example.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.step" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply the given actions to the environment for one step
+Action here is a dictionary with “tieline” and “varcon”</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.view_grid">
+<span class="sig-name descname"><span class="pre">view_grid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.GYM_ENV_restoration_distribution.RestorationDisVarConEnv.view_grid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="restoration-agent">
+<h2>Restoration Agent<a class="headerlink" href="#restoration-agent" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="project_dis_restoration.train_IL_BC_tieline.Agent">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_IL_BC_tieline.</span></span><span class="sig-name descname"><span class="pre">Agent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_IL_BC_tieline.Agent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Dynamic dataset to specific the current environment status, including network and crew position</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.BasePower">
-<span class="sig-name descname"><span class="pre">BasePower</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1000</span></em><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.BasePower" title="Permalink to this definition">¶</a></dt>
+<p>Intelligent agent to interact with the restoration environment</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="project_dis_restoration.train_IL_BC_tieline.Agent.convert_action">
+<span class="sig-name descname"><span class="pre">convert_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s1_tieline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s0_tieline</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_IL_BC_tieline.Agent.convert_action" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>s1_tieline</strong> – current tieline status</p></li>
+<li><p><strong>s0_tieline</strong> – previsou tieline status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>integer action from 0 to 5</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project_dis_restoration.train_IL_BC_tieline.Agent.get_expert_policy">
+<span class="sig-name descname"><span class="pre">get_expert_policy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_IL_BC_tieline.Agent.get_expert_policy" title="Permalink to this definition">¶</a></dt>
+<dd><p>get the expert policy by solving the full-period restoration problem</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="project_dis_restoration.train_IL_BC_tieline.Agent.load_profile">
+<span class="sig-name descname"><span class="pre">load_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_status</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_IL_BC_tieline.Agent.load_profile" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.BigM">
-<span class="sig-name descname"><span class="pre">BigM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">100</span></em><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.BigM" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.FicFlowBigM">
-<span class="sig-name descname"><span class="pre">FicFlowBigM</span></span><em class="property"> <span class="pre">=</span> <span class="pre">100</span></em><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.FicFlowBigM" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="project_dis_restoration.train_IL_BC_tieline.Agent.policy">
+<span class="sig-name descname"><span class="pre">policy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">s</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_IL_BC_tieline.Agent.policy" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.data_preparation">
-<span class="sig-name descname"><span class="pre">data_preparation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ppc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_damaged</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VS</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dV</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.data_preparation" title="Permalink to this definition">¶</a></dt>
-<dd><p>read data of distribution network and vehicle routing problem
-Data is in the format of dictionary</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.epsilon">
-<span class="sig-name descname"><span class="pre">epsilon</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0.1</span></em><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.epsilon" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="project_dis_restoration.train_IL_BC_tieline.Agent.run_test">
+<span class="sig-name descname"><span class="pre">run_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learned_model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_IL_BC_tieline.Agent.run_test" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.get_solution_2d">
-<span class="sig-name descname"><span class="pre">get_solution_2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">VariableName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">NameKey</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ListIndex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SolDict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.get_solution_2d" title="Permalink to this definition">¶</a></dt>
-<dd><p>get solution and store into a one name key structured dictionary
-:param VariableName: variable name in string format
-:param NameKey: desired key set in list or range format that you would like to retrieve
-:param ListIndex: desired index range in list format that you would like to retrieve
-:param SolDict: dictionary object with plot methods
-:return: SolDict</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.solve_load_pickup">
-<span class="sig-name descname"><span class="pre">solve_load_pickup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line_status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.solve_load_pickup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given fixed line status, obtain optimal load status
-– line status should be a dict with “key” as line name and “int or array” describing status over time interval</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.solve_load_pickup_varcon">
-<span class="sig-name descname"><span class="pre">solve_load_pickup_varcon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line_status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">varcon</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_status</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.solve_load_pickup_varcon" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given fixed line status, obtain optimal load status
-– line status should be a dict with “key” as line name and “int or array” describing status over time interval</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.solve_network_restoration">
-<span class="sig-name descname"><span class="pre">solve_network_restoration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Total_Step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Line_Initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Load_Initial</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.solve_network_restoration" title="Permalink to this definition">¶</a></dt>
-<dd><p>solve a full-step restoration problem
-:param Total_Step:
-:param Line_Initial: initial line status
-:return: restoration plan</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="gym_power_res.envs.DS_pyomo.OutageManage.solve_network_restoration_varcon">
-<span class="sig-name descname"><span class="pre">solve_network_restoration_varcon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Total_Step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Line_Initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VarCon_Initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Load_Initial</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#gym_power_res.envs.DS_pyomo.OutageManage.solve_network_restoration_varcon" title="Permalink to this definition">¶</a></dt>
-<dd><p>solve a full-step restoration problem
-:param Total_Step:
-:param Line_Initial: initial line status
-:return: restoration plan</p>
-</dd></dl>
+<dt class="sig sig-object py" id="project_dis_restoration.train_IL_BC_tieline.Agent.run_train">
+<span class="sig-name descname"><span class="pre">run_train</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">env</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">l0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#project_dis_restoration.train_IL_BC_tieline.Agent.run_train" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><cite>andes.System</cite> is an alias of <cite>andes.system.System</cite>.</p>
-</div>
-<p>Dynamic Imports</p>
-<p>System dynamically imports groups, models, and routines at creation.
-To add new models, groups or routines, edit the corresponding file by adding entries following examples.</p>
-<dl class="py function">
-<dt class="sig sig-object py">
-<span class="sig-prename descclassname"><span class="pre">project_dis_restoration.train_IL_BC_tieline.</span></span><span class="sig-name descname"><span class="pre">main_behavior_cloning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_path</span></span></em><span class="sig-paren">)</span></dt>
-<dd><p>BC algorithm</p>
-</dd></dl>
-
-<p>Code Generation</p>
-<p>Under the hood, all symbolically defined equations need to be generated into anonymous function calls for
-accelerating numerical simulations.
-This process is automatically invoked for the first time ANDES is run command line.
-It takes several seconds up to a minute to finish the generation.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Code generation has been done if one has executed <code class="docutils literal notranslate"><span class="pre">andes</span></code>, <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">selftest</span></code>, or <code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">prepare</span></code>.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>When models are modified (such as adding new models or changing equation strings), code generation needs
-to be executed again for consistency. It can be more conveniently triggered from command line with
-<code class="docutils literal notranslate"><span class="pre">andes</span> <span class="pre">prepare</span> <span class="pre">-i</span></code>.</p>
-</div>
-</div>
 </div>
 </div>
 

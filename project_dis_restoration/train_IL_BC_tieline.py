@@ -73,6 +73,9 @@ def logger_obj(logger_name, level=logging.DEBUG, verbose=0):
 
 # here we combine NN model and agent models
 class Agent:
+    """
+    Intelligent agent to interact with the restoration environment
+    """
     def __init__(self, env, output_path, log_level=logging.DEBUG):
         # retrieve necessary parameters from network data
         num_line = len(env.ppc['iter_line'])

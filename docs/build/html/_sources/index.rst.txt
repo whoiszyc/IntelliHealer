@@ -50,7 +50,8 @@ Features
 .. image:: /../../project_dis_restoration/results/plots/Hybrid_policy.png
    :width: 400
 
-- IntelliHealer provides an `OpenAI-Gym <https://gym.openai.com>`_ environment for distribution system restoration, which can be connected to `Stable-Baselines3 <https://stable-baselines3.readthedocs.io/en/master/?badge=master>`_, a state-of-the-art collection of reinforcement learning algorithms.
+- IntelliHealer provides an `OpenAI-Gym <https://gym.openai.com>`_ environment for distribution system restoration,
+  which can be connected to `Stable-Baselines3 <https://stable-baselines3.readthedocs.io/en/master/?badge=master>`_, a state-of-the-art collection of reinforcement learning algorithms.
   Currently, the Gym environment contains two test feeders: 33-node and 119-node system.
 
 - IntelliHealer provides distribution system optimization models built on `Pyomo <http://www.pyomo.org/documentation>`_,

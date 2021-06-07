@@ -116,7 +116,7 @@ class SolutionDict(OrderedDict):
 
 class OutageManage:
     """
-    Dynamic dataset to specific the current environment status, including network and crew position
+    Distribution system restoration class
     """
 
     ## Optimization specification
@@ -158,8 +158,8 @@ class OutageManage:
 
     def solve_network_restoration_varcon(self, Total_Step, Line_Initial, VarCon_Initial, Load_Initial):
         """
-        solve a full-step restoration problem
-        :param Total_Step:
+        solve a full-step restoration problem with reactive power dispatch
+        :param Total_Step: total step of the problem
         :param Line_Initial: initial line status
         :return: restoration plan
         """
@@ -395,7 +395,7 @@ class OutageManage:
     def solve_network_restoration(self, Total_Step, Line_Initial, Load_Initial):
         """
         solve a full-step restoration problem
-        :param Total_Step:
+        :param Total_Step: total step of the problem
         :param Line_Initial: initial line status
         :return: restoration plan
         """
@@ -778,7 +778,7 @@ class OutageManage:
 
     def solve_load_pickup_varcon(self, line_status, varcon, load_status=None):
         """
-        Given fixed line status, obtain optimal load status
+        Given fixed line status and reactive power dispatch, obtain optimal load status
         -- line status should be a dict with "key" as line name and "int or array" describing status over time interval
         """
         self.model = pm.ConcreteModel()
@@ -1028,17 +1028,3 @@ if __name__=="__main__":
     # load_status.plot_bin_2d(title_str='load_dg.png', save=False, folder='/Users/whoiszyc/Github/gym-power-res/')
     # line_status = test_1.get_solution_2d('ul', test_1.iter_line, test_1.iter_time)
     # line_status.plot_bin_2d(title_str='line.png', save=False, folder='/Users/whoiszyc/Github/gym-power-res/')
-
-    # # test solve_network_restoration
-    # test_2 = OutageManagePyomo()
-    # test_2.data_preparation(ppc, ['line_3', 'line_5', 'line_12'])
-    # test_2.initialize_problem(1)
-    # test_2.solve_load_pickup({'line_33': 0, 'line_34': 0, 'line_35': 1, 'line_36': 0, 'line_37': 0})
-    # opt = pm.SolverFactory("cplex", executable = '/Applications/CPLEX_Studio128/cplex/bin/x86-64_osx/cplex')
-    # opt.options['mipgap'] = 0.02  # if gap=b, then it is (b*100) %
-    # results_2 = opt.solve(test_2.model, tee = True)
-    # print(results_2['solver'][0]['Termination condition'].key)
-    # load_status = test_2.get_solution_2d('rho', test_2.iter_bus, test_2.iter_time)
-    # load_status.plot_bin_2d()
-    # line_status = test_2.get_solution_2d('ul', test_2.iter_line, test_2.iter_time)
-    # line_status.plot_bin_2d()

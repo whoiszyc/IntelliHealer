@@ -19,6 +19,7 @@ Before install ``IntelliHealer``, please install the following dependencies:
 - StableBaseline3 0.11.0a2
 - Pyomo 5.7
 - Cplex 1280
+- Networkx
 
 
 Performance Packages
