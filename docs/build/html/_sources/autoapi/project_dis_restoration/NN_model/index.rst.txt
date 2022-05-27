@@ -1,5 +1,5 @@
-:mod:`project_dis_restoration.NN_model`
-=======================================
+:py:mod:`project_dis_restoration.NN_model`
+==========================================
 
 .. py:module:: project_dis_restoration.NN_model
 
@@ -37,58 +37,57 @@ Attributes
    project_dis_restoration.NN_model.EXPLORATION_DECAY
 
 
-.. data:: ALPHA
+.. py:data:: ALPHA
    :annotation: = 0.1
 
    
 
-.. data:: GAMMA
+.. py:data:: GAMMA
    :annotation: = 0.95
 
    
 
-.. data:: LEARNING_RATE
+.. py:data:: LEARNING_RATE
    :annotation: = 0.001
 
    
 
-.. data:: TRAIN_HIST_SIZE
+.. py:data:: TRAIN_HIST_SIZE
    :annotation: = 100000
 
    
 
-.. data:: EXPERIENCE_MEMORY
+.. py:data:: EXPERIENCE_MEMORY
    :annotation: = 100000
 
    
 
-.. data:: BATCH_SIZE
+.. py:data:: BATCH_SIZE
    :annotation: = 32
 
    
 
-.. data:: MEMORY_SIZE
+.. py:data:: MEMORY_SIZE
    :annotation: = 10000000
 
    
 
-.. data:: EXPLORATION_MAX
+.. py:data:: EXPLORATION_MAX
    :annotation: = 1.0
 
    
 
-.. data:: EXPLORATION_MIN
+.. py:data:: EXPLORATION_MIN
    :annotation: = 0.01
 
    
 
-.. data:: EXPLORATION_DECAY
+.. py:data:: EXPLORATION_DECAY
    :annotation: = 0.999
 
    
 
-.. class:: LossHistory
-
+.. py:class:: LossHistory
 
    Bases: :py:obj:`keras.callbacks.Callback`
 
@@ -117,7 +116,7 @@ Attributes
        on_batch_end: logs include `loss`, and optionally `acc`
            (if accuracy monitoring is enabled).
 
-   .. method:: on_train_begin(self, logs={})
+   .. py:method:: on_train_begin(self, logs={})
 
       Called at the beginning of training.
 
@@ -128,67 +127,64 @@ Attributes
               but that may change in the future.
 
 
-   .. method:: on_batch_end(self, batch, logs={})
+   .. py:method:: on_batch_end(self, batch, logs={})
 
       A backwards compatibility alias for `on_train_batch_end`.
 
 
 
-.. class:: CNN_TieLine(observation_space, action_space)
+.. py:class:: CNN_TieLine(observation_space, action_space)
+
+   .. py:method:: collect(self, s, expert_a)
 
 
-   .. method:: collect(self, s, expert_a)
+   .. py:method:: end_collect(self)
 
 
-   .. method:: end_collect(self)
+   .. py:method:: train(self)
 
 
-   .. method:: train(self)
-
-
-   .. method:: predict(self, x, batch_size=1)
-
-      predict on (a batch of) x
-
-
-
-.. class:: DNN_TieLine(observation_space, action_space)
-
-
-   .. method:: collect(self, s, expert_a, other=None)
-
-
-   .. method:: end_collect(self)
-
-
-   .. method:: train(self)
-
-
-   .. method:: predict(self, x, batch_size=1)
+   .. py:method:: predict(self, x, batch_size=1)
 
       predict on (a batch of) x
 
 
-   .. method:: remember(self, state, action, reward, next_state, done)
+
+.. py:class:: DNN_TieLine(observation_space, action_space)
+
+   .. py:method:: collect(self, s, expert_a, other=None)
 
 
-   .. method:: experience_replay(self)
+   .. py:method:: end_collect(self)
+
+
+   .. py:method:: train(self)
+
+
+   .. py:method:: predict(self, x, batch_size=1)
+
+      predict on (a batch of) x
+
+
+   .. py:method:: remember(self, state, action, reward, next_state, done)
+
+
+   .. py:method:: experience_replay(self)
 
 
 
-.. class:: DNN_VarCon(observation_space, action_space)
+.. py:class:: DNN_VarCon(observation_space, action_space)
+
+   .. py:method:: collect(self, s, expert_a)
 
 
-   .. method:: collect(self, s, expert_a)
+   .. py:method:: end_collect(self)
 
 
-   .. method:: end_collect(self)
+   .. py:method:: train(self)
 
 
-   .. method:: train(self)
-
-
-   .. method:: predict(self, x, batch_size=1)
+   .. py:method:: predict(self, x, batch_size=1)
 
       predict on (a batch of) x
 

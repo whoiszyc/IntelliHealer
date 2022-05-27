@@ -407,7 +407,7 @@ class Agent:
 def main_behavior_cloning(output_path):
 
     # ============= create GYM environment ===============
-    env = gym.make(ENV_NAME_3)
+    env = gym.make(ENV_NAME_3, max_disturbance=MAX_DISTURBANCE, min_disturbance=MIN_DISTURBANCE)
 
     # ============== create agent ===================
     agent = Agent(env, output_path)
@@ -454,35 +454,6 @@ def main_behavior_cloning(output_path):
 
 
 
-def main_behavior_cloning_testing(output_path, learned_model, score_metric):
-
-    # ============= create GYM environment ===============
-    env = gym.make(ENV_NAME_1, max_disturbance=MAX_DISTURBANCE, min_disturbance=MIN_DISTURBANCE)
-
-    # ============== create agent ===================
-    agent = Agent(env, output_path, score_metric)
-
-    # ============= Begin main training loop ===========
-    flag_convergence = False   # set convergence flag to be false
-    tic = time.perf_counter()  # start clock
-    for it in range(NUM_TOTAL_EPISODES):
-        if it % 1 == 0:
-            toc = time.perf_counter()
-            print("===================================================")
-            print(f"Training time: {toc - tic:0.4f} seconds; Mission {it:d} of {NUM_TOTAL_EPISODES:d}")
-            print("===================================================")
-        agent.logger.info(f"=============== Mission {it:d} of {NUM_TOTAL_EPISODES:d} =================")
-
-        # initialize environment
-        s0 = env.reset()
-        # execute learned policy on the environment
-        flag_convergence = agent.run_test(env, s0, learned_model)
-
-        agent.total_episode = agent.total_episode + 1
-
-    return agent
-
-
 if __name__ == "__main__":
 
     output_path = os.getcwd()
@@ -505,8 +476,3 @@ if __name__ == "__main__":
     print('==================== saving nn policy =====================')
     agent.nn_tieline.model.save(output_path + "DNN_BC" + agent.dt_string + '.h5')
     print('==================== policy is saved =====================')
-
-    # # ========== test behavior_cloning===========
-    # from keras.models import load_model
-    # model = load_model("DNN_BC__2020_10_02_15_46.h5")
-    # main_behavior_cloning_testing(output_path, model, "training")

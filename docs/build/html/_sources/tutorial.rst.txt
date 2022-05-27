@@ -115,7 +115,7 @@ and the ``agent`` object. The operation of the alforithm is described below with
     """ BC algorithm
     """
     # ============= create GYM environment ===============
-    env = gym.make(ENV_NAME_1)
+    env = gym.make(ENV_NAME_1, , max_disturbance=1, min_disturbance=1)
 
     # ============== create agent ===================
     agent = Agent(env, output_path)

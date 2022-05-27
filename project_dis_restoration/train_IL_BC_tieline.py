@@ -389,7 +389,7 @@ def main_behavior_cloning(output_path):
     """ BC algorithm
     """
     # ============= create GYM environment ===============
-    env = gym.make(ENV_NAME_1)
+    env = gym.make(ENV_NAME_1, max_disturbance=MAX_DISTURBANCE, min_disturbance=MIN_DISTURBANCE)
 
     # ============== create agent ===================
     agent = Agent(env, output_path)
@@ -436,57 +436,23 @@ def main_behavior_cloning(output_path):
 
 
 
-def main_behavior_cloning_testing(output_path, learned_model, score_metric):
-
-    # ============= create GYM environment ===============
-    env = gym.make(ENV_NAME_1, max_disturbance=MAX_DISTURBANCE, min_disturbance=MIN_DISTURBANCE)
-
-    # ============== create agent ===================
-    agent = Agent(env, output_path, score_metric)
-
-    # ============= Begin main training loop ===========
-    flag_convergence = False   # set convergence flag to be false
-    tic = time.perf_counter()  # start clock
-    for it in range(NUM_TOTAL_EPISODES):
-        if it % 1 == 0:
-            toc = time.perf_counter()
-            print("===================================================")
-            print(f"Training time: {toc - tic:0.4f} seconds; Mission {it:d} of {NUM_TOTAL_EPISODES:d}")
-            print("===================================================")
-        agent.logger.info(f"=============== Mission {it:d} of {NUM_TOTAL_EPISODES:d} =================")
-
-        # initialize environment
-        s0 = env.reset()
-        # execute learned policy on the environment
-        flag_convergence = agent.run_test(env, s0, learned_model)
-
-        agent.total_episode = agent.total_episode + 1
-
-    return agent
-
-
 if __name__ == "__main__":
 
     output_path = os.getcwd()
     output_path = output_path + "/results/results_BC_tieline_stochastic_dist/n_5/"
 
-    # # ========== train hierarchical_behavior_cloning===========
+    # # ========== train behavior_cloning===========
     agent = main_behavior_cloning(output_path)
 
     #================== save trajectory =======================
-    # print('==================== saving trajectory =====================')
-    # trajectory = pd.DataFrame(columns=["line", "load", 'action'])
-    # for i in range(NUM_TOTAL_EPISODES * 5):
-    #     _line = agent.nn_tieline.replay_hist[i][0].tolist()
-    #     _load = agent.nn_tieline.replay_hist_other[i].tolist()
-    #     _action = agent.nn_tieline.replay_hist[i][1].tolist()
-    #     trajectory = trajectory.append({'line': _line, 'load': _load, 'action': _action}, ignore_index = True)
-    # trajectory.to_csv("trajectory_BC" + agent.dt_string + '.csv')
-    # print('==================== trajectory is saved =====================')
-    # print('==================== saving nn policy =====================')
-    # agent.nn_tieline.model.save("DNN_BC" + agent.dt_string + '.h5')
-
-    # # ========== test behavior_cloning===========
-    # from keras.models import load_model
-    # model = load_model("DNN_BC__2020_10_02_15_46.h5")
-    # main_behavior_cloning_testing(output_path, model, "training")
+    print('==================== saving trajectory =====================')
+    trajectory = pd.DataFrame(columns=["line", "load", 'action'])
+    for i in range(NUM_TOTAL_EPISODES * 5):
+        _line = agent.nn_tieline.replay_hist[i][0].tolist()
+        _load = agent.nn_tieline.replay_hist_other[i].tolist()
+        _action = agent.nn_tieline.replay_hist[i][1].tolist()
+        trajectory = trajectory.append({'line': _line, 'load': _load, 'action': _action}, ignore_index = True)
+    trajectory.to_csv("trajectory_BC" + agent.dt_string + '.csv')
+    print('==================== trajectory is saved =====================')
+    print('==================== saving nn policy =====================')
+    agent.nn_tieline.model.save("DNN_BC" + agent.dt_string + '.h5')

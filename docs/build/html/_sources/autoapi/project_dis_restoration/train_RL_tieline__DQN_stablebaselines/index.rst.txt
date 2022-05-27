@@ -1,5 +1,5 @@
-:mod:`project_dis_restoration.train_RL_tieline__DQN_stablebaselines`
-====================================================================
+:py:mod:`project_dis_restoration.train_RL_tieline__DQN_stablebaselines`
+=======================================================================
 
 .. py:module:: project_dis_restoration.train_RL_tieline__DQN_stablebaselines
 
@@ -49,78 +49,77 @@ Attributes
    project_dis_restoration.train_RL_tieline__DQN_stablebaselines.output_path
 
 
-.. data:: ENV_NAME_1
+.. py:data:: ENV_NAME_1
    :annotation: = RestorationDisEnv-v0
 
    
 
-.. data:: ENV_NAME_2
+.. py:data:: ENV_NAME_2
    :annotation: = RestorationDisEnv-v1
 
    
 
-.. data:: WARM_START_OFF
+.. py:data:: WARM_START_OFF
    :annotation: = 200
 
    
 
-.. data:: NUM_TOTAL_EPISODES
+.. py:data:: NUM_TOTAL_EPISODES
    :annotation: = 200
 
    
 
-.. data:: ALPHA
+.. py:data:: ALPHA
    :annotation: = 0.1
 
    
 
-.. data:: GAMMA
+.. py:data:: GAMMA
    :annotation: = 0.95
 
    
 
-.. data:: LEARNING_RATE
+.. py:data:: LEARNING_RATE
    :annotation: = 0.001
 
    
 
-.. data:: MEMORY_SIZE
+.. py:data:: MEMORY_SIZE
    :annotation: = 1000000
 
    
 
-.. data:: BATCH_SIZE
+.. py:data:: BATCH_SIZE
    :annotation: = 50
 
    
 
-.. data:: EXPLORATION_MAX
+.. py:data:: EXPLORATION_MAX
    :annotation: = 1.0
 
    
 
-.. data:: EXPLORATION_MIN
+.. py:data:: EXPLORATION_MIN
    :annotation: = 0.01
 
    
 
-.. data:: EXPLORATION_DECAY
+.. py:data:: EXPLORATION_DECAY
    :annotation: = 1
 
    
 
-.. data:: MAX_DISTURBANCE
+.. py:data:: MAX_DISTURBANCE
    :annotation: = 1
 
    
 
-.. data:: MIN_DISTURBANCE
+.. py:data:: MIN_DISTURBANCE
    :annotation: = 1
 
    
 
-.. class:: DictList
-
+.. py:class:: DictList
 
    Bases: :py:obj:`dict`
 
@@ -134,38 +133,37 @@ Attributes
    dict(**kwargs) -> new dictionary initialized with the name=value pairs
        in the keyword argument list.  For example:  dict(one=1, two=2)
 
-   .. method:: __setitem__(self, key, value)
+   .. py:method:: __setitem__(self, key, value)
 
       Set self[key] to value.
 
 
 
-.. function:: logger_obj(logger_name, level=logging.DEBUG, verbose=0)
+.. py:function:: logger_obj(logger_name, level=logging.DEBUG, verbose=0)
 
    Method to return a custom logger with the given name and level
 
 
-.. class:: Agent(env, output_path, log_level=logging.DEBUG)
+.. py:class:: Agent(env, output_path, log_level=logging.DEBUG)
+
+   .. py:method:: load_profile(self, env, load_status)
 
 
-   .. method:: load_profile(self, env, load_status)
-
-
-   .. method:: convert_action(self, s1_tieline, s0_tieline)
+   .. py:method:: convert_action(self, s1_tieline, s0_tieline)
 
       :param s1_tieline: current tieline status
       :param s0_tieline: previsou tieline status
       :return: integer action from 0 to 5
 
 
-   .. method:: run_test(self, env, s0, learned_model=None)
+   .. py:method:: run_test(self, env, s0, learned_model=None)
 
 
 
-.. function:: main_DQN(output_path)
+.. py:function:: main_DQN(output_path)
 
 
-.. data:: output_path
+.. py:data:: output_path
    
 
    

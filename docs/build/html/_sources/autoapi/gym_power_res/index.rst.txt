@@ -1,5 +1,5 @@
-:mod:`gym_power_res`
-====================
+:py:mod:`gym_power_res`
+=======================
 
 .. py:module:: gym_power_res
 

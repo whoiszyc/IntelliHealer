@@ -1,5 +1,5 @@
-:mod:`gym_power_res.envs.GYM_ENV_restoration_distribution`
-==========================================================
+:py:mod:`gym_power_res.envs.GYM_ENV_restoration_distribution`
+=============================================================
 
 .. py:module:: gym_power_res.envs.GYM_ENV_restoration_distribution
 
@@ -20,19 +20,18 @@ Classes
 
 
 
-.. class:: RestorationDisEnvRL(max_disturbance, min_disturbance)
-
+.. py:class:: RestorationDisEnvRL(max_disturbance, min_disturbance)
 
    Bases: :py:obj:`gym.Env`
 
    Restoration env for StableBaseline3 (reinforcement learning algorithm collections)
 
-   .. attribute:: metadata
+   .. py:attribute:: metadata
       
 
       
 
-   .. method:: seed(self, seed=None)
+   .. py:method:: seed(self, seed=None)
 
       Sets the seed for this env's random number generator(s).
 
@@ -49,22 +48,22 @@ Classes
             this won't be true if seed=None, for example.
 
 
-   .. method:: reset(self, disturbance=None)
+   .. py:method:: reset(self, disturbance=None)
 
       Here we should setup the episode control for the total time horizon, which will be independent of individual segment simulation
 
 
-   .. method:: step(self, action)
+   .. py:method:: step(self, action)
 
       Apply the given actions to the environment for one step
 
 
-   .. method:: dict2list(self, dict)
+   .. py:method:: dict2list(self, dict)
 
       convert an order dict to a list
 
 
-   .. method:: render(self, mode='human')
+   .. py:method:: render(self, mode='human')
 
       Renders the environment.
 
@@ -103,7 +102,7 @@ Classes
                   super(MyEnv, self).render(mode=mode) # just raise an exception
 
 
-   .. method:: close(self)
+   .. py:method:: close(self)
 
       Override close in your subclass to perform any necessary cleanup.
 
@@ -112,19 +111,18 @@ Classes
 
 
 
-.. class:: RestorationDisEnv(max_disturbance, min_disturbance)
-
+.. py:class:: RestorationDisEnv(max_disturbance, min_disturbance)
 
    Bases: :py:obj:`gym.Env`
 
    Restoration env for imitation learning
 
-   .. attribute:: metadata
+   .. py:attribute:: metadata
       
 
       
 
-   .. method:: seed(self, seed=None)
+   .. py:method:: seed(self, seed=None)
 
       Sets the seed for this env's random number generator(s).
 
@@ -141,22 +139,22 @@ Classes
             this won't be true if seed=None, for example.
 
 
-   .. method:: reset(self, disturbance=None)
+   .. py:method:: reset(self, disturbance=None)
 
       Here we should setup the episode control for the total time horizon, which will be independent of individual segment simulation
 
 
-   .. method:: step(self, action)
+   .. py:method:: step(self, action)
 
       Apply the given actions to the environment for one step
 
 
-   .. method:: dict2list(self, dict)
+   .. py:method:: dict2list(self, dict)
 
       convert an order dict to a list
 
 
-   .. method:: render(self, mode='human')
+   .. py:method:: render(self, mode='human')
 
       Renders the environment.
 
@@ -195,7 +193,7 @@ Classes
                   super(MyEnv, self).render(mode=mode) # just raise an exception
 
 
-   .. method:: close(self)
+   .. py:method:: close(self)
 
       Override close in your subclass to perform any necessary cleanup.
 
@@ -204,19 +202,18 @@ Classes
 
 
 
-.. class:: RestorationDisEnv119(max_disturbance, min_disturbance)
-
+.. py:class:: RestorationDisEnv119(max_disturbance, min_disturbance)
 
    Bases: :py:obj:`gym.Env`
 
    Restoration env for imitation learning
 
-   .. attribute:: metadata
+   .. py:attribute:: metadata
       
 
       
 
-   .. method:: seed(self, seed=None)
+   .. py:method:: seed(self, seed=None)
 
       Sets the seed for this env's random number generator(s).
 
@@ -233,22 +230,22 @@ Classes
             this won't be true if seed=None, for example.
 
 
-   .. method:: reset(self, disturbance=None)
+   .. py:method:: reset(self, disturbance=None)
 
       Here we should setup the episode control for the total time horizon, which will be independent of individual segment simulation
 
 
-   .. method:: step(self, action)
+   .. py:method:: step(self, action)
 
       Apply the given actions to the environment for one step
 
 
-   .. method:: dict2list(self, dict)
+   .. py:method:: dict2list(self, dict)
 
       convert an order dict to a list
 
 
-   .. method:: render(self, mode='human')
+   .. py:method:: render(self, mode='human')
 
       Renders the environment.
 
@@ -287,7 +284,7 @@ Classes
                   super(MyEnv, self).render(mode=mode) # just raise an exception
 
 
-   .. method:: close(self)
+   .. py:method:: close(self)
 
       Override close in your subclass to perform any necessary cleanup.
 
@@ -296,19 +293,18 @@ Classes
 
 
 
-.. class:: RestorationDisVarConEnv(max_disturbance, min_disturbance)
-
+.. py:class:: RestorationDisVarConEnv(max_disturbance, min_disturbance)
 
    Bases: :py:obj:`gym.Env`
 
    Restoration env with tieline and reactive power dispatch control
 
-   .. attribute:: metadata
+   .. py:attribute:: metadata
       
 
       
 
-   .. method:: seed(self, seed=None)
+   .. py:method:: seed(self, seed=None)
 
       Sets the seed for this env's random number generator(s).
 
@@ -325,21 +321,21 @@ Classes
             this won't be true if seed=None, for example.
 
 
-   .. method:: reset(self, disturbance=None)
+   .. py:method:: reset(self, disturbance=None)
 
       Here we should setup the episode control for the total time horizon, which will be independent of individual segment simulation
 
 
-   .. method:: step(self, action, logger=None)
+   .. py:method:: step(self, action, logger=None)
 
       Apply the given actions to the environment for one step
       Action here is a dictionary with "tieline" and "varcon"
 
 
-   .. method:: view_grid(self)
+   .. py:method:: view_grid(self)
 
 
-   .. method:: render(self, mode='human')
+   .. py:method:: render(self, mode='human')
 
       Renders the environment.
 
@@ -378,7 +374,7 @@ Classes
                   super(MyEnv, self).render(mode=mode) # just raise an exception
 
 
-   .. method:: close(self)
+   .. py:method:: close(self)
 
       Override close in your subclass to perform any necessary cleanup.
 

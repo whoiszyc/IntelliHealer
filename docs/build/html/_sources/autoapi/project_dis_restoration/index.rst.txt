@@ -1,5 +1,5 @@
-:mod:`project_dis_restoration`
-==============================
+:py:mod:`project_dis_restoration`
+=================================
 
 .. py:module:: project_dis_restoration
 
@@ -34,43 +34,41 @@ Classes
 
 
 
-.. class:: DNN_TieLine(observation_space, action_space)
+.. py:class:: DNN_TieLine(observation_space, action_space)
+
+   .. py:method:: collect(self, s, expert_a, other=None)
 
 
-   .. method:: collect(self, s, expert_a, other=None)
+   .. py:method:: end_collect(self)
 
 
-   .. method:: end_collect(self)
+   .. py:method:: train(self)
 
 
-   .. method:: train(self)
-
-
-   .. method:: predict(self, x, batch_size=1)
+   .. py:method:: predict(self, x, batch_size=1)
 
       predict on (a batch of) x
 
 
-   .. method:: remember(self, state, action, reward, next_state, done)
+   .. py:method:: remember(self, state, action, reward, next_state, done)
 
 
-   .. method:: experience_replay(self)
+   .. py:method:: experience_replay(self)
 
 
 
-.. class:: DNN_VarCon(observation_space, action_space)
+.. py:class:: DNN_VarCon(observation_space, action_space)
+
+   .. py:method:: collect(self, s, expert_a)
 
 
-   .. method:: collect(self, s, expert_a)
+   .. py:method:: end_collect(self)
 
 
-   .. method:: end_collect(self)
+   .. py:method:: train(self)
 
 
-   .. method:: train(self)
-
-
-   .. method:: predict(self, x, batch_size=1)
+   .. py:method:: predict(self, x, batch_size=1)
 
       predict on (a batch of) x
 

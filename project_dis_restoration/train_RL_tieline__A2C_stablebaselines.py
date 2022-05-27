@@ -296,7 +296,7 @@ if __name__ == "__main__":
     output_path = os.getcwd()
     output_path = output_path + "/results/results_AC_tieline_stochastic_dist/n_1/"
 
-    # # ========== train hierarchical_behavior_cloning===========
+    # # ========== train A2C===========
     agent = main_A2C(output_path)
 
 

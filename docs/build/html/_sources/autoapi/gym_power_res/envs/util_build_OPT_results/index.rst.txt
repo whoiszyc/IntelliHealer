@@ -1,5 +1,5 @@
-:mod:`gym_power_res.envs.util_build_OPT_results`
-================================================
+:py:mod:`gym_power_res.envs.util_build_OPT_results`
+===================================================
 
 .. py:module:: gym_power_res.envs.util_build_OPT_results
 
@@ -20,15 +20,15 @@ Functions
 
 
 
-.. function:: get_variable_value_gurobi(rho, iter_bus, iter_time)
+.. py:function:: get_variable_value_gurobi(rho, iter_bus, iter_time)
 
 
-.. function:: plot_binary_evolution(UL, iter_line, str)
+.. py:function:: plot_binary_evolution(UL, iter_line, str)
 
 
-.. function:: crew_dispatch_MIP_pyomo(model, res, vrp, ppc)
+.. py:function:: crew_dispatch_MIP_pyomo(model, res, vrp, ppc)
 
 
-.. function:: network_flow_MIP(model, res, vrp, ppc)
+.. py:function:: network_flow_MIP(model, res, vrp, ppc)
 
 

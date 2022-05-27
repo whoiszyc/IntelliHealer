@@ -354,7 +354,7 @@ class Agent:
 
             # random action also works, but slower since you can bump into walls
             # a = np.random.choice(ALL_POSSIBLE_ACTIONS)
-            s_gym, _, _, _ = env.step(a_gym, self.logger)
+            s_gym, _, _, _ = env.step(a_gym)
 
             # parse gym-formatted action
             a1_tieline = a_gym['tieline']
@@ -470,7 +470,7 @@ class Agent:
         # ============== run agent using trained policy approximator ==================
         for step in env.exploration_seq_idx[-env.exploration_total:]:
             a_gym = self.policy_hybrid(env, s0_line, s0_line, mode='test')
-            s_gym, _, _, _ = env.step(a_gym, self.logger)
+            s_gym, _, _, _ = env.step(a_gym)
 
             # update state
             s0_line = s_gym['line']
