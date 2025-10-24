@@ -188,20 +188,9 @@ class RestorationDisEnvRL(gym.Env):
     # ===================== parse action from GYM format to optimization format =====================
     # get current line status; remember to use copy so that modification of "action_line" will not impact "self.state_line_status"
     action_line = self.state_line_status.copy()
-    if action == 1:
-      action_line['line_33'] = int(not (action_line['line_33']))
-    elif action == 2:
-      action_line['line_34'] = int(not (action_line['line_34']))
-    elif action == 3:
-      action_line['line_35'] = int(not (action_line['line_35']))
-    elif action == 4:
-      action_line['line_36'] = int(not (action_line['line_36']))
-    elif action == 5:
-      action_line['line_37'] = int(not (action_line['line_37']))
-    elif action == 0:
-      pass
-    else:
-      print("GYM_Power: Out of action space")
+
+
+    
 
 
     # ===================== determine termination condition and rewards =====================
